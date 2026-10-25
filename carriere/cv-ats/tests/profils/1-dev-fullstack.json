@@ -1,0 +1,41 @@
+{
+  "langue": "fr", "marche": "maroc", "domaine": "auto", "niveau": "auto",
+  "identite": {
+    "nom": "Mehdi Tazi",
+    "titre": "Développeur Full-Stack React / Node.js",
+    "telephone": "06 61 23 45 67",
+    "email": "mehdi.tazi.dev@example.com",
+    "liens": [{"type": "github", "url": "https://github.com/mehdi-tazi-dev"}, {"type": "linkedin", "url": "https://linkedin.com/in/mehdi-tazi-dev"}],
+    "ville": "Rabat"
+  },
+  "profil": "Développeur full-stack avec 4 ans d'expérience sur React, Node.js et Laravel. Je conçois des applications web performantes, du back-office à la mise en production sur AWS, avec une attention particulière à la qualité du code et à l'automatisation des déploiements.",
+  "experiences": [
+    {"poste": "Développeur Full-Stack", "entreprise": "Atlas Digital", "lieu": "Rabat", "debut": "09/2022", "fin": "Présent",
+     "points": ["Refonte du back-office e-commerce en React et Node.js (NestJS) : 40 écrans livrés.",
+                "Mise en place de la CI/CD avec GitLab et Docker, déploiement sur AWS ECS.",
+                "Réduction du temps de chargement de 45 % grâce à l'optimisation des requêtes et du rendu.",
+                "Encadrement de 2 développeurs juniors et revues de code."]},
+    {"poste": "Développeur Web", "entreprise": "SoftNova", "lieu": "Casablanca", "debut": "01/2021", "fin": "08/2022",
+     "points": ["Développement d'APIs REST Laravel pour une application de réservation (30 000 utilisateurs).",
+                "Intégration des paiements CMI et Stripe."]},
+    {"poste": "Stage de fin d'études — Développement mobile", "entreprise": "SoftNova", "lieu": "Casablanca", "debut": "02/2020", "fin": "07/2020",
+     "points": ["Développement d'une application mobile Flutter de suivi de livraisons."]}
+  ],
+  "projets": [
+    {"nom": "OpenStock", "description": "application open source de gestion de stock, 300 étoiles sur GitHub.", "technologies": ["Next.js", "Prisma"]},
+    {"nom": "Bot Telegram de suivi de colis", "description": "notifications automatiques de livraison.", "technologies": ["Node.js"]}
+  ],
+  "formation": [
+    {"diplome": "Diplôme d'ingénieur d'État en génie informatique", "etablissement": "ENSIAS", "lieu": "Rabat", "debut": "2015", "fin": "2020"},
+    {"diplome": "Baccalauréat Sciences Mathématiques B", "etablissement": "Lycée Moulay Youssef", "fin": "2015"}
+  ],
+  "competences": [
+    {"groupe": "Frontend", "elements": ["React", "Next.js", "TypeScript"]},
+    {"groupe": "Backend", "elements": ["Node.js", "NestJS", "Laravel", "PHP"]},
+    {"groupe": "Bases de données", "elements": ["PostgreSQL", "MySQL", "MongoDB", "Redis"]},
+    {"groupe": "DevOps et cloud", "elements": ["Docker", "GitLab CI", "AWS (ECS, S3, RDS)", "Git"]},
+    {"groupe": "Tests et méthodes", "elements": ["Jest", "Cypress", "Scrum"]}
+  ],
+  "certifications": [{"nom": "AWS Certified Developer – Associate", "annee": "2023"}],
+  "langues": [{"langue": "Arabe", "niveau": "langue maternelle"}, {"langue": "Français", "niveau": "courant"}, {"langue": "Anglais", "niveau": "professionnel"}]
+}

@@ -1,0 +1,115 @@
+{
+  "plan": {
+    "domaine": "finance",
+    "libelle_domaine": "Finance / Business",
+    "niveau": "senior",
+    "annees_experience": 18.6,
+    "principale": [
+      "profil",
+      "realisations",
+      "experiences",
+      "certifications"
+    ],
+    "laterale": [
+      "formation",
+      "competences",
+      "langues",
+      "qualites"
+    ],
+    "titre_competences": "Compétences clés",
+    "chiffres_en_gras": true,
+    "langue": "fr"
+  },
+  "resultats": {
+    "bleu": {
+      "pdf": "tests/resultats/3-finance-senior/CV-Karim-El-Fassi-Bleu.pdf",
+      "ajustement": {
+        "pages": 1,
+        "part_vide": 0.02,
+        "air": 1.7,
+        "txt": 1.08,
+        "debordement": false,
+        "marges_px": {
+          "principale": 16,
+          "laterale": 142
+        },
+        "deplacees": [
+          "certifications"
+        ],
+        "coordonnees_sur_deux_lignes": false,
+        "lignes_courtes": [],
+        "debordements_horizontaux": [],
+        "corps_texte_pt": 9.67
+      },
+      "pages": 1,
+      "taille_ko": 67,
+      "apercus": [
+        "tests/resultats/3-finance-senior/_controle/apercus/CV-Karim-El-Fassi-Bleu-p1.png"
+      ]
+    },
+    "emeraude": {
+      "pdf": "tests/resultats/3-finance-senior/CV-Karim-El-Fassi-Emeraude.pdf",
+      "ajustement": {
+        "pages": 1,
+        "part_vide": 0.02,
+        "air": 1.7,
+        "txt": 1.08,
+        "debordement": false,
+        "marges_px": {
+          "principale": 16,
+          "laterale": 142
+        },
+        "deplacees": [
+          "certifications"
+        ],
+        "coordonnees_sur_deux_lignes": false,
+        "lignes_courtes": [],
+        "debordements_horizontaux": [],
+        "corps_texte_pt": 9.67
+      },
+      "pages": 1,
+      "taille_ko": 67,
+      "apercus": [
+        "tests/resultats/3-finance-senior/_controle/apercus/CV-Karim-El-Fassi-Emeraude-p1.png"
+      ]
+    },
+    "bordeaux": {
+      "pdf": "tests/resultats/3-finance-senior/CV-Karim-El-Fassi-Bordeaux.pdf",
+      "ajustement": {
+        "pages": 1,
+        "part_vide": 0.02,
+        "air": 1.7,
+        "txt": 1.08,
+        "debordement": false,
+        "marges_px": {
+          "principale": 16,
+          "laterale": 142
+        },
+        "deplacees": [
+          "certifications"
+        ],
+        "coordonnees_sur_deux_lignes": false,
+        "lignes_courtes": [],
+        "debordements_horizontaux": [],
+        "corps_texte_pt": 9.67
+      },
+      "pages": 1,
+      "taille_ko": 67,
+      "apercus": [
+        "tests/resultats/3-finance-senior/_controle/apercus/CV-Karim-El-Fassi-Bordeaux-p1.png"
+      ]
+    }
+  },
+  "erreurs": [],
+  "avertissements": [
+    "à confirmer avec le client : organisme du DNEC : la source indique seulement « Expert-comptable diplômé (DNEC), 2014 »"
+  ],
+  "ok": [
+    "domaine : Finance / Business (finance), niveau : senior (18.6 an(s) hors stages)",
+    "aucune photo fournie",
+    "CV-Karim-El-Fassi-Bleu.pdf : 1 page(s), texte 9.67 pt, espacement ×1.7, 71 éléments lus, 3 liens",
+    "CV-Karim-El-Fassi-Emeraude.pdf : 1 page(s), texte 9.67 pt, espacement ×1.7, 71 éléments lus, 3 liens",
+    "CV-Karim-El-Fassi-Bordeaux.pdf : 1 page(s), texte 9.67 pt, espacement ×1.7, 71 éléments lus, 3 liens",
+    "3 variantes : texte strictement identique"
+  ]
+}

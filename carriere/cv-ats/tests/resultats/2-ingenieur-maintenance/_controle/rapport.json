@@ -1,0 +1,110 @@
+{
+  "plan": {
+    "domaine": "ingenierie",
+    "libelle_domaine": "Ingénierie",
+    "niveau": "confirme",
+    "annees_experience": 7.8,
+    "principale": [
+      "profil",
+      "experiences",
+      "projets",
+      "certifications"
+    ],
+    "laterale": [
+      "formation",
+      "competences",
+      "langues",
+      "qualites"
+    ],
+    "titre_competences": "Expertise technique",
+    "chiffres_en_gras": true,
+    "langue": "fr"
+  },
+  "resultats": {
+    "bleu": {
+      "pdf": "tests/resultats/2-ingenieur-maintenance/CV-Salma-Bennani-Bleu.pdf",
+      "ajustement": {
+        "pages": 1,
+        "part_vide": 0.37,
+        "air": 1.7,
+        "txt": 1.08,
+        "debordement": false,
+        "marges_px": {
+          "principale": 353,
+          "laterale": 392
+        },
+        "deplacees": [],
+        "coordonnees_sur_deux_lignes": false,
+        "lignes_courtes": [],
+        "debordements_horizontaux": [],
+        "corps_texte_pt": 9.67
+      },
+      "pages": 1,
+      "taille_ko": 64,
+      "apercus": [
+        "tests/resultats/2-ingenieur-maintenance/_controle/apercus/CV-Salma-Bennani-Bleu-p1.png"
+      ]
+    },
+    "emeraude": {
+      "pdf": "tests/resultats/2-ingenieur-maintenance/CV-Salma-Bennani-Emeraude.pdf",
+      "ajustement": {
+        "pages": 1,
+        "part_vide": 0.37,
+        "air": 1.7,
+        "txt": 1.08,
+        "debordement": false,
+        "marges_px": {
+          "principale": 353,
+          "laterale": 392
+        },
+        "deplacees": [],
+        "coordonnees_sur_deux_lignes": false,
+        "lignes_courtes": [],
+        "debordements_horizontaux": [],
+        "corps_texte_pt": 9.67
+      },
+      "pages": 1,
+      "taille_ko": 64,
+      "apercus": [
+        "tests/resultats/2-ingenieur-maintenance/_controle/apercus/CV-Salma-Bennani-Emeraude-p1.png"
+      ]
+    },
+    "bordeaux": {
+      "pdf": "tests/resultats/2-ingenieur-maintenance/CV-Salma-Bennani-Bordeaux.pdf",
+      "ajustement": {
+        "pages": 1,
+        "part_vide": 0.37,
+        "air": 1.7,
+        "txt": 1.08,
+        "debordement": false,
+        "marges_px": {
+          "principale": 353,
+          "laterale": 392
+        },
+        "deplacees": [],
+        "coordonnees_sur_deux_lignes": false,
+        "lignes_courtes": [],
+        "debordements_horizontaux": [],
+        "corps_texte_pt": 9.67
+      },
+      "pages": 1,
+      "taille_ko": 64,
+      "apercus": [
+        "tests/resultats/2-ingenieur-maintenance/_controle/apercus/CV-Salma-Bennani-Bordeaux-p1.png"
+      ]
+    }
+  },
+  "erreurs": [],
+  "avertissements": [
+    "à confirmer avec le client : intitulé exact du stage chez Lear Corporation (source : « fiabilisation d'un banc de test »)",
+    "page remplie à 63 % — demander au client plus de détails (missions, résultats, projets), sans rien inventer"
+  ],
+  "ok": [
+    "domaine : Ingénierie (ingenierie), niveau : confirme (7.8 an(s) hors stages)",
+    "aucune photo fournie",
+    "CV-Salma-Bennani-Bleu.pdf : 1 page(s), texte 9.67 pt, espacement ×1.7, 48 éléments lus, 3 liens",
+    "CV-Salma-Bennani-Emeraude.pdf : 1 page(s), texte 9.67 pt, espacement ×1.7, 48 éléments lus, 3 liens",
+    "CV-Salma-Bennani-Bordeaux.pdf : 1 page(s), texte 9.67 pt, espacement ×1.7, 48 éléments lus, 3 liens",
+    "3 variantes : texte strictement identique"
+  ]
+}

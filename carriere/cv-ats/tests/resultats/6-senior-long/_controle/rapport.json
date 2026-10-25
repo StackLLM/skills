@@ -1,0 +1,110 @@
+{
+  "plan": {
+    "domaine": "management",
+    "libelle_domaine": "Management",
+    "niveau": "senior",
+    "annees_experience": 21.6,
+    "principale": [
+      "profil",
+      "realisations",
+      "experiences"
+    ],
+    "laterale": [
+      "competences",
+      "formation",
+      "certifications",
+      "langues",
+      "qualites"
+    ],
+    "titre_competences": "Compétences de direction",
+    "chiffres_en_gras": true,
+    "langue": "fr"
+  },
+  "resultats": {
+    "bleu": {
+      "pdf": "tests/resultats/6-senior-long/CV-Youssef-Berrada-Bleu.pdf",
+      "ajustement": {
+        "pages": 2,
+        "part_vide": 0.41,
+        "air": 1,
+        "txt": 1,
+        "debordement": false,
+        "marges_px": {
+          "principale": 424,
+          "laterale": 1477
+        },
+        "deplacees": [],
+        "coordonnees_sur_deux_lignes": false,
+        "lignes_courtes": [],
+        "debordements_horizontaux": [],
+        "corps_texte_pt": 8.95
+      },
+      "pages": 2,
+      "taille_ko": 83,
+      "apercus": [
+        "tests/resultats/6-senior-long/_controle/apercus/CV-Youssef-Berrada-Bleu-p1.png",
+        "tests/resultats/6-senior-long/_controle/apercus/CV-Youssef-Berrada-Bleu-p2.png"
+      ]
+    },
+    "emeraude": {
+      "pdf": "tests/resultats/6-senior-long/CV-Youssef-Berrada-Emeraude.pdf",
+      "ajustement": {
+        "pages": 2,
+        "part_vide": 0.41,
+        "air": 1,
+        "txt": 1,
+        "debordement": false,
+        "marges_px": {
+          "principale": 424,
+          "laterale": 1477
+        },
+        "deplacees": [],
+        "coordonnees_sur_deux_lignes": false,
+        "lignes_courtes": [],
+        "debordements_horizontaux": [],
+        "corps_texte_pt": 8.95
+      },
+      "pages": 2,
+      "taille_ko": 82,
+      "apercus": [
+        "tests/resultats/6-senior-long/_controle/apercus/CV-Youssef-Berrada-Emeraude-p1.png",
+        "tests/resultats/6-senior-long/_controle/apercus/CV-Youssef-Berrada-Emeraude-p2.png"
+      ]
+    },
+    "bordeaux": {
+      "pdf": "tests/resultats/6-senior-long/CV-Youssef-Berrada-Bordeaux.pdf",
+      "ajustement": {
+        "pages": 2,
+        "part_vide": 0.41,
+        "air": 1,
+        "txt": 1,
+        "debordement": false,
+        "marges_px": {
+          "principale": 424,
+          "laterale": 1477
+        },
+        "deplacees": [],
+        "coordonnees_sur_deux_lignes": false,
+        "lignes_courtes": [],
+        "debordements_horizontaux": [],
+        "corps_texte_pt": 8.95
+      },
+      "pages": 2,
+      "taille_ko": 82,
+      "apercus": [
+        "tests/resultats/6-senior-long/_controle/apercus/CV-Youssef-Berrada-Bordeaux-p1.png",
+        "tests/resultats/6-senior-long/_controle/apercus/CV-Youssef-Berrada-Bordeaux-p2.png"
+      ]
+    }
+  },
+  "erreurs": [],
+  "avertissements": [],
+  "ok": [
+    "domaine : Management (management), niveau : senior (21.6 an(s) hors stages)",
+    "aucune photo fournie",
+    "CV-Youssef-Berrada-Bleu.pdf : 2 page(s), texte 8.95 pt, espacement ×1, 96 éléments lus, 3 liens",
+    "CV-Youssef-Berrada-Emeraude.pdf : 2 page(s), texte 8.95 pt, espacement ×1, 96 éléments lus, 3 liens",
+    "CV-Youssef-Berrada-Bordeaux.pdf : 2 page(s), texte 8.95 pt, espacement ×1, 96 éléments lus, 3 liens",
+    "3 variantes : texte strictement identique"
+  ]
+}

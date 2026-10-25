@@ -1,0 +1,26 @@
+Licence propriétaire — StackLLM
+Copyright (c) 2026 Oussama Al Mouallim El Kanouni (StackLLM). Tous droits réservés.
+
+Ce dépôt, ses Skills, leurs instructions, ses références, ses scripts et sa documentation
+(« le Produit ») sont la propriété exclusive de leur auteur.
+
+Aucune licence n'est accordée par la simple mise à disposition du Produit.
+Sans accord écrit préalable de l'auteur, il est interdit de copier, modifier,
+distribuer, sous-licencier, vendre, publier ou rendre accessible à des tiers
+tout ou partie du Produit.
+
+Le Produit n'est pas encore commercialisé. Les conditions d'utilisation
+commerciale (périmètre, durée, nombre d'utilisateurs, mises à jour, support)
+seront définies dans un contrat de licence distinct avant toute vente.
+
+Le Produit est fourni « en l'état », sans garantie d'aucune sorte.
+
+Composants tiers inclus, soumis à leur propre licence :
+- carriere/cv-ats/assets/fonts/ — police Geist, SIL Open Font License 1.1
+  (voir carriere/cv-ats/assets/fonts/OFL.txt).
+- frontend/cloneme/exemples/stellar/ — décrit un clone du thème « Stellar » de
+  HTML5 UP (https://html5up.net), licence Creative Commons Attribution 3.0,
+  qui exige l'attribution à HTML5 UP.
+
+Statut : texte provisoire, à faire valider par un juriste avant la mise en vente.
+Contact : oussamakanouni39@gmail.com

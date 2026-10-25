@@ -1,0 +1,41 @@
+{
+  "langue": "en", "marche": "uk", "domaine": "auto", "niveau": "auto",
+  "photo": "portrait.jpg",
+  "identite": {
+    "nom": "Lina Haddad",
+    "titre": "Digital Marketing Manager",
+    "telephone": "+44 7700 900123",
+    "email": "lina.haddad@example.com",
+    "liens": [{"type": "linkedin", "url": "https://linkedin.com/in/lina-haddad-marketing"}],
+    "ville": "London, UK"
+  },
+  "profil": "Digital marketing manager with 5 years of experience in growth and performance marketing for e-commerce and SaaS brands. I turn data into profitable acquisition and retention programmes across paid search, paid social and email.",
+  "realisations": [
+    "Online revenue up +62% in 18 months at Brightcart through paid search and CRO.",
+    "Brightcart named \"Best E-commerce Growth Campaign\" at the UK Digital Awards 2023.",
+    "Cost per lead cut by 38% at Nuvola SaaS with landing-page A/B testing."
+  ],
+  "experiences": [
+    {"poste": "Digital Marketing Manager", "entreprise": "Brightcart", "lieu": "London", "debut": "04/2022", "fin": "Present",
+     "points": ["Grew online revenue by +62% in 18 months through paid search and conversion rate optimisation.",
+                "Managed a £1.2M annual advertising budget across Google Ads, Meta and TikTok.",
+                "Launched a lifecycle email programme with Klaviyo, now 24% of total revenue.",
+                "Led a team of 4: two marketers, one designer and one analyst."]},
+    {"poste": "Performance Marketing Specialist", "entreprise": "Nuvola SaaS", "lieu": "Manchester", "debut": "01/2020", "fin": "03/2022",
+     "points": ["Cut cost per lead by 38% with landing-page A/B tests.",
+                "Built GA4 and Looker Studio dashboards for the sales team."]},
+    {"poste": "Marketing Assistant (internship)", "entreprise": "Hartley & Co", "lieu": "Manchester", "debut": "09/2019", "fin": "12/2019",
+     "points": []}
+  ],
+  "formation": [
+    {"diplome": "BSc Marketing", "etablissement": "University of Manchester", "debut": "2016", "fin": "2019", "mention": "First Class Honours"}
+  ],
+  "competences": [
+    {"groupe": "Acquisition", "elements": ["SEO", "SEA", "paid social", "CRO", "A/B testing"]},
+    {"groupe": "Retention and analytics", "elements": ["email automation", "marketing analytics", "budget management"]},
+    {"groupe": "Tools", "elements": ["Google Ads", "Meta Ads Manager", "GA4", "Looker Studio", "Klaviyo", "HubSpot", "Figma (basics)"]}
+  ],
+  "certifications": [{"nom": "Google Ads Search Certification", "annee": "2024"}, {"nom": "Inbound Marketing", "organisme": "HubSpot", "annee": "2022"}],
+  "langues": [{"langue": "English", "niveau": "native"}, {"langue": "French", "niveau": "fluent"}, {"langue": "Arabic", "niveau": "conversational"}],
+  "a_confirmer": ["missions du stage chez Hartley & Co (non décrites dans la source)"]
+}

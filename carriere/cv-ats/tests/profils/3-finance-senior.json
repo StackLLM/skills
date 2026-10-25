@@ -1,0 +1,176 @@
+{
+  "langue": "fr",
+  "marche": "maroc",
+  "domaine": "auto",
+  "niveau": "auto",
+  "identite": {
+    "nom": "Karim El Fassi",
+    "titre": "Directeur administratif et financier",
+    "telephone": "+212 6 61 98 76 54",
+    "email": "karim.elfassi@example.com",
+    "liens": [
+      {
+        "type": "linkedin",
+        "url": "https://linkedin.com/in/karim-elfassi-daf"
+      }
+    ],
+    "ville": "Casablanca"
+  },
+  "profil": "Directeur administratif et financier, expert-comptable diplômé, avec 14 ans d'expérience en finance d'entreprise dont 6 en direction financière de groupes industriels et de distribution. Je pilote la performance financière, les financements et la transformation des fonctions finance.",
+  "experiences": [
+    {
+      "poste": "Directeur administratif et financier",
+      "entreprise": "Groupe Medina Distribution",
+      "lieu": "Casablanca",
+      "debut": "03/2019",
+      "fin": "Présent",
+      "points": [
+        "Direction financière d'un groupe de 9 filiales, chiffre d'affaires consolidé de 2,4 milliards MAD.",
+        "Management d'une équipe de 28 personnes : comptabilité, contrôle de gestion, trésorerie et juridique.",
+        "Refinancement de la dette : 18 MDH de frais financiers économisés chaque année.",
+        "Passage aux normes IFRS : délai de clôture ramené de 15 à 6 jours.",
+        "Déploiement de l'ERP SAP S/4HANA, livré dans les délais (budget de 25 MDH).",
+        "Membre du comité de direction, reporting au conseil d'administration."
+      ]
+    },
+    {
+      "poste": "Responsable contrôle de gestion groupe",
+      "entreprise": "Holcim Maroc",
+      "lieu": "Casablanca",
+      "debut": "2015",
+      "fin": "2019",
+      "points": [
+        "Élaboration du budget et du plan à 5 ans pour 4 cimenteries.",
+        "Conception des tableaux de bord Power BI du comité exécutif.",
+        "Programme de maîtrise des coûts : -12 % sur les frais généraux.",
+        "Pilotage des investissements (capex de 600 MDH)."
+      ]
+    },
+    {
+      "poste": "Contrôleur de gestion",
+      "entreprise": "Lesieur Cristal",
+      "lieu": "Casablanca",
+      "debut": "2012",
+      "fin": "2015",
+      "points": [
+        "Analyse des marges par gamme et par canal de distribution.",
+        "Calcul des prix de revient industriels.",
+        "Animation du processus budgétaire avec 12 directions."
+      ]
+    },
+    {
+      "poste": "Auditeur senior",
+      "entreprise": "KPMG Maroc",
+      "lieu": "Casablanca",
+      "debut": "2010",
+      "fin": "2012",
+      "points": [
+        "Audit légal de groupes industriels et de distribution.",
+        "Missions de due diligence d'acquisition."
+      ]
+    },
+    {
+      "poste": "Auditeur junior",
+      "entreprise": "Mazars",
+      "lieu": "Casablanca",
+      "debut": "2008",
+      "fin": "2010",
+      "points": [
+        "Audit des comptes annuels et revue du contrôle interne."
+      ]
+    }
+  ],
+  "realisations": [
+    "Économie annuelle de 18 MDH de frais financiers par le refinancement de la dette.",
+    "Passage aux IFRS et clôture des comptes ramenée de 15 à 6 jours.",
+    "Frais généraux réduits de 12 % en 2 ans chez Holcim Maroc."
+  ],
+  "formation": [
+    {
+      "diplome": "Diplôme national d'expert-comptable (DNEC)",
+      "fin": "2014"
+    },
+    {
+      "diplome": "Master Finance et Contrôle",
+      "etablissement": "ISCAE",
+      "lieu": "Casablanca",
+      "debut": "2006",
+      "fin": "2008"
+    },
+    {
+      "diplome": "Licence en sciences économiques",
+      "etablissement": "Université Hassan II",
+      "fin": "2006"
+    }
+  ],
+  "competences": [
+    {
+      "groupe": "Finance d'entreprise",
+      "elements": [
+        "Consolidation IFRS",
+        "fiscalité marocaine",
+        "trésorerie et financement",
+        "M&A",
+        "due diligence"
+      ]
+    },
+    {
+      "groupe": "Pilotage de la performance",
+      "elements": [
+        "contrôle de gestion",
+        "budget",
+        "business plan",
+        "gestion des risques",
+        "contrôle interne"
+      ]
+    },
+    {
+      "groupe": "Leadership",
+      "elements": [
+        "management d'équipe",
+        "conduite du changement"
+      ]
+    },
+    {
+      "groupe": "Outils",
+      "elements": [
+        "SAP S/4HANA",
+        "SAP BPC",
+        "Power BI",
+        "Excel avancé (VBA)",
+        "Sage X3"
+      ]
+    }
+  ],
+  "certifications": [
+    {
+      "nom": "CFA niveau 2",
+      "annee": "2017"
+    },
+    {
+      "nom": "Certificate in IFRS",
+      "organisme": "ACCA",
+      "annee": "2019"
+    }
+  ],
+  "langues": [
+    {
+      "langue": "Arabe",
+      "niveau": "langue maternelle"
+    },
+    {
+      "langue": "Français",
+      "niveau": "bilingue"
+    },
+    {
+      "langue": "Anglais",
+      "niveau": "courant"
+    }
+  ],
+  "interets": [
+    "trésorier bénévole de l'association Injaz Al-Maghrib"
+  ],
+  "a_confirmer": [
+    "organisme du DNEC : la source indique seulement « Expert-comptable diplômé (DNEC), 2014 »"
+  ]
+}

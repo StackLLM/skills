@@ -1,0 +1,111 @@
+{
+  "plan": {
+    "domaine": "tech",
+    "libelle_domaine": "Tech / IT",
+    "niveau": "junior",
+    "annees_experience": 0.0,
+    "principale": [
+      "profil",
+      "formation",
+      "experiences",
+      "projets",
+      "certifications"
+    ],
+    "laterale": [
+      "competences",
+      "langues",
+      "qualites"
+    ],
+    "titre_competences": "Compétences techniques",
+    "chiffres_en_gras": false,
+    "langue": "fr"
+  },
+  "resultats": {
+    "bleu": {
+      "pdf": "tests/resultats/5-junior-data/CV-Hajar-Amrani-Bleu.pdf",
+      "ajustement": {
+        "pages": 1,
+        "part_vide": 0.34,
+        "air": 1.7,
+        "txt": 1.08,
+        "debordement": false,
+        "marges_px": {
+          "principale": 325,
+          "laterale": 534
+        },
+        "deplacees": [],
+        "coordonnees_sur_deux_lignes": false,
+        "lignes_courtes": [],
+        "debordements_horizontaux": [],
+        "corps_texte_pt": 9.67
+      },
+      "pages": 1,
+      "taille_ko": 63,
+      "apercus": [
+        "tests/resultats/5-junior-data/_controle/apercus/CV-Hajar-Amrani-Bleu-p1.png"
+      ]
+    },
+    "emeraude": {
+      "pdf": "tests/resultats/5-junior-data/CV-Hajar-Amrani-Emeraude.pdf",
+      "ajustement": {
+        "pages": 1,
+        "part_vide": 0.34,
+        "air": 1.7,
+        "txt": 1.08,
+        "debordement": false,
+        "marges_px": {
+          "principale": 325,
+          "laterale": 534
+        },
+        "deplacees": [],
+        "coordonnees_sur_deux_lignes": false,
+        "lignes_courtes": [],
+        "debordements_horizontaux": [],
+        "corps_texte_pt": 9.67
+      },
+      "pages": 1,
+      "taille_ko": 63,
+      "apercus": [
+        "tests/resultats/5-junior-data/_controle/apercus/CV-Hajar-Amrani-Emeraude-p1.png"
+      ]
+    },
+    "bordeaux": {
+      "pdf": "tests/resultats/5-junior-data/CV-Hajar-Amrani-Bordeaux.pdf",
+      "ajustement": {
+        "pages": 1,
+        "part_vide": 0.34,
+        "air": 1.7,
+        "txt": 1.08,
+        "debordement": false,
+        "marges_px": {
+          "principale": 325,
+          "laterale": 534
+        },
+        "deplacees": [],
+        "coordonnees_sur_deux_lignes": false,
+        "lignes_courtes": [],
+        "debordements_horizontaux": [],
+        "corps_texte_pt": 9.67
+      },
+      "pages": 1,
+      "taille_ko": 63,
+      "apercus": [
+        "tests/resultats/5-junior-data/_controle/apercus/CV-Hajar-Amrani-Bordeaux-p1.png"
+      ]
+    }
+  },
+  "erreurs": [],
+  "avertissements": [
+    "à confirmer avec le client : niveau de français (non précisé dans la source)",
+    "à confirmer avec le client : mois exacts du stage Banque Populaire (« été 2023, 2 mois »)",
+    "page remplie à 66 % — demander au client plus de détails (missions, résultats, projets), sans rien inventer"
+  ],
+  "ok": [
+    "domaine : Tech / IT (tech), niveau : junior (0.0 an(s) hors stages)",
+    "aucune photo fournie",
+    "CV-Hajar-Amrani-Bleu.pdf : 1 page(s), texte 9.67 pt, espacement ×1.7, 35 éléments lus, 3 liens",
+    "CV-Hajar-Amrani-Emeraude.pdf : 1 page(s), texte 9.67 pt, espacement ×1.7, 35 éléments lus, 3 liens",
+    "CV-Hajar-Amrani-Bordeaux.pdf : 1 page(s), texte 9.67 pt, espacement ×1.7, 35 éléments lus, 3 liens",
+    "3 variantes : texte strictement identique"
+  ]
+}

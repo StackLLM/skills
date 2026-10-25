@@ -1,0 +1,37 @@
+{
+  "langue": "fr", "marche": "maroc", "domaine": "auto", "niveau": "auto",
+  "identite": {
+    "nom": "Hajar Amrani",
+    "titre": "Data Analyst junior",
+    "telephone": "06 12 34 56 78",
+    "email": "hajar.amrani@example.com",
+    "liens": [{"type": "github", "url": "https://github.com/hajar-amrani"}],
+    "ville": "Marrakech"
+  },
+  "profil": "Jeune diplômée d'un master en data science, je transforme les données en tableaux de bord clairs et en analyses utiles à la décision. Deux stages en entreprise, dont six mois chez OCP, m'ont formée à Python, SQL et Power BI sur des données réelles.",
+  "formation": [
+    {"diplome": "Master en data science", "etablissement": "Faculté des Sciences Semlalia (FSSM)", "lieu": "Marrakech", "debut": "2022", "fin": "2024", "mention": "Mention Assez bien"},
+    {"diplome": "Licence en mathématiques appliquées", "etablissement": "Faculté des Sciences Semlalia (FSSM)", "lieu": "Marrakech", "debut": "2019", "fin": "2022"}
+  ],
+  "experiences": [
+    {"poste": "Stage — Data Analyst", "entreprise": "OCP", "lieu": "Benguerir", "debut": "02/2024", "fin": "07/2024",
+     "points": ["Conception d'un tableau de bord Power BI de suivi de la consommation d'énergie des ateliers.",
+                "Nettoyage et préparation des données de capteurs avec Python."]},
+    {"poste": "Stage — Analyse de données", "entreprise": "Banque Populaire", "lieu": "Marrakech", "debut": "07/2023", "fin": "08/2023",
+     "points": ["Analyse des réclamations clients sous Excel."]}
+  ],
+  "projets": [
+    {"nom": "Prédiction du churn télécom", "description": "modèle de classification des clients à risque.", "technologies": ["Python", "scikit-learn"]},
+    {"nom": "Analyse des ventes d'une pharmacie", "description": "requêtes et tableau de bord des ventes.", "technologies": ["SQL", "Power BI"]},
+    {"nom": "Scraping d'avis Booking", "description": "collecte et analyse d'avis clients.", "technologies": ["Python"]}
+  ],
+  "competences": [
+    {"groupe": "Analyse de données", "elements": ["Python (pandas, NumPy, scikit-learn)", "SQL"]},
+    {"groupe": "Visualisation", "elements": ["Power BI", "Tableau", "Excel"]},
+    {"groupe": "Outils", "elements": ["Git"]}
+  ],
+  "langues": [{"langue": "Arabe", "niveau": "langue maternelle"}, {"langue": "Français", "niveau": ""}, {"langue": "Anglais", "niveau": "B2"}],
+  "soft_skills": ["rigueur", "curiosité", "travail en équipe"],
+  "interets": ["bénévolat associatif", "lecture", "randonnée"],
+  "a_confirmer": ["niveau de français (non précisé dans la source)", "mois exacts du stage Banque Populaire (« été 2023, 2 mois »)"]
+}

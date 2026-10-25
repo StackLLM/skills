@@ -1,0 +1,139 @@
+{
+  "surtitre": "Audit de sécurité",
+  "titre": "Audit de sécurité applicative",
+  "projet": "Nom du projet",
+  "date": "30 septembre 2026",
+  "depots": ["org/depot-frontend", "org/depot-backend"],
+  "risque_global": "Élevé",
+  "resume": "L'application protège correctement les mots de passe et les échanges passent en HTTPS. Deux points bloquent une mise en production : une clé d'API est lisible dans le code du site, et une adresse de l'API rend le dossier d'un autre client si on change son numéro dans l'URL. Les deux se corrigent en une demi-journée.",
+
+  "architecture": [
+    { "titre": "Type d'application", "valeur": "Application web interne", "note": "environ 40 utilisateurs, tous salariés" },
+    { "titre": "Frontend", "valeur": "React + Vite", "note": "hébergé en statique" },
+    { "titre": "Backend", "valeur": "FastAPI (Python)", "note": "une seule instance" },
+    { "titre": "Base de données", "valeur": "PostgreSQL", "note": "managée" },
+    { "titre": "Connexion", "valeur": "Jeton JWT", "note": "durée de vie : 7 jours" },
+    { "titre": "Données manipulées", "valeur": "Dossiers clients", "note": "noms, adresses, montants — données personnelles" }
+  ],
+
+  "sections": [
+    {
+      "titre": "Secrets et clés",
+      "intro": "Ce qui ne doit jamais sortir du serveur.",
+      "constats": [
+        {
+          "titre": "Une clé d'API est lisible par tous les visiteurs du site",
+          "criticite": "CRITIQUE",
+          "confiance": "Confirmé",
+          "norme": "OWASP A05 — mauvaise configuration",
+          "pourquoi": "Tout ce que le navigateur télécharge est lisible. La clé est dans le fichier JavaScript envoyé au visiteur : n'importe qui peut l'ouvrir et la copier en trente secondes.",
+          "impact": "Un visiteur peut appeler le service payant avec votre clé, à votre charge. Selon le service, il peut aussi lire les données du compte.",
+          "ou": "ui/src/services/ia.ts:12",
+          "verifier": "Ouvrir le site, puis les outils du navigateur, onglet Sources. Chercher « sk- » dans les fichiers téléchargés.",
+          "chemin": [
+            "Visiteur du site",
+            "Ouvre le code téléchargé par son navigateur",
+            "Copie la clé",
+            "Appelle le service directement, hors de l'application",
+            "Consommation facturée sur votre compte"
+          ],
+          "corriger": [
+            "Aller sur le tableau de bord du fournisseur et révoquer la clé actuelle. Elle est déjà compromise : la retirer du code ne suffit pas.",
+            "Créer une nouvelle clé.",
+            "La mettre dans les variables d'environnement du serveur, jamais dans le code.",
+            "Créer une adresse sur votre backend qui appelle le service à la place du navigateur.",
+            "Faire appeler cette adresse par le frontend, sans clé.",
+            "Vérifier que la clé n'apparaît plus dans le code envoyé au navigateur.",
+            "Vérifier si la clé est dans l'historique Git ; si oui, la considérer comme publique pour toujours.",
+            "Redéployer, puis regarder la consommation du compte pendant quelques jours."
+          ],
+          "prouver": "Recharger le site, chercher « sk- » dans les fichiers téléchargés : plus aucun résultat. Et l'ancienne clé renvoie une erreur d'authentification."
+        }
+      ]
+    },
+    {
+      "titre": "Contrôle des accès",
+      "intro": "Qui a le droit de voir et de modifier quoi.",
+      "constats": [
+        {
+          "titre": "Un utilisateur peut lire le dossier d'un autre en changeant un numéro",
+          "criticite": "CRITIQUE",
+          "confiance": "Confirmé",
+          "norme": "OWASP API1 — accès non maîtrisé à un objet",
+          "pourquoi": "L'adresse vérifie que la personne est connectée, mais pas que le dossier demandé lui appartient. Être connecté et avoir le droit, ce sont deux choses différentes.",
+          "impact": "N'importe quel utilisateur connecté peut lire tous les dossiers clients, donc des données personnelles.",
+          "ou": "server/api/routes/dossiers.py:48",
+          "verifier": "Se connecter avec un compte, ouvrir un dossier, remplacer son numéro dans l'URL par un autre. Si le dossier s'affiche, le problème est confirmé.",
+          "chemin": [
+            "Utilisateur connecté, sans droit particulier",
+            "Adresse qui vérifie seulement la connexion",
+            "Numéro de dossier changé dans l'URL",
+            "Dossier d'un autre client affiché"
+          ],
+          "corriger": [
+            "Dans la fonction qui rend un dossier, récupérer l'identifiant de la personne connectée.",
+            "Filtrer la requête sur cet identifiant, au lieu de chercher le dossier par son seul numéro.",
+            "Renvoyer une erreur 404 quand le dossier existe mais n'appartient pas à la personne. Une erreur 403 confirmerait qu'il existe.",
+            "Appliquer la même règle aux adresses de modification et de suppression.",
+            "Ajouter un test automatique qui tente d'accéder au dossier d'un autre et attend un échec."
+          ],
+          "prouver": "Rejouer la manipulation ci-dessus : le dossier ne s'affiche plus, et le test automatique passe."
+        },
+        {
+          "titre": "La durée de vie des jetons de connexion semble longue",
+          "criticite": "MOYEN",
+          "confiance": "Probable",
+          "pourquoi": "Un jeton volé reste utilisable jusqu'à son expiration. Sept jours laissent beaucoup de temps. La valeur est lue dans la configuration, mais rien ne dit si elle est la même en production.",
+          "impact": "Un jeton récupéré sur un poste partagé reste valable une semaine, même après un changement de mot de passe.",
+          "ou": "server/config.py:23",
+          "verifier": "Regarder la valeur réellement chargée en production, pas celle du fichier d'exemple.",
+          "corriger": [
+            "Confirmer la valeur utilisée en production.",
+            "Ramener la durée du jeton à quelques heures.",
+            "Ajouter un jeton de renouvellement pour éviter de redemander le mot de passe.",
+            "Prévoir une liste de jetons révoqués, ou un changement de secret, pour couper l'accès immédiatement si besoin."
+          ],
+          "prouver": "Se connecter, attendre la nouvelle durée, constater que l'application redemande une connexion."
+        }
+      ]
+    }
+  ],
+
+  "plan": [
+    {
+      "quand": "À corriger immédiatement",
+      "actions": [
+        "Révoquer la clé d'API exposée et la déplacer côté serveur.",
+        "Filtrer les dossiers sur le propriétaire dans toutes les adresses concernées."
+      ]
+    },
+    {
+      "quand": "À corriger avant la mise en production",
+      "actions": [
+        "Confirmer et réduire la durée de vie des jetons.",
+        "Rejouer l'audit sur le code corrigé."
+      ]
+    }
+  ],
+
+  "checklists": [
+    {
+      "titre": "Avant la mise en production",
+      "items": [
+        "Aucune clé dans le code envoyé au navigateur",
+        "Chaque adresse vérifie le propriétaire de la ressource",
+        "Les mots de passe sont hachés avec un algorithme prévu pour cela",
+        "Les variables sensibles sont dans l'environnement du serveur",
+        "HTTPS actif sur tous les domaines"
+      ]
+    }
+  ],
+
+  "limites": [
+    "L'historique Git n'a pas été analysé : dépôt fourni sans son historique.",
+    "La configuration réelle de production n'a pas été vue. Les constats portent sur les fichiers d'exemple.",
+    "Aucun test n'a été lancé contre une instance en fonctionnement."
+  ],
+
+  "pied": "Rapport établi à partir du code du projet. Les valeurs sensibles sont masquées."
+}

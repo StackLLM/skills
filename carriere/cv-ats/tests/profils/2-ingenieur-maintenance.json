@@ -1,0 +1,37 @@
+{
+  "langue": "fr", "marche": "maroc", "domaine": "auto", "niveau": "auto",
+  "identite": {
+    "nom": "Salma Bennani",
+    "titre": "Ingénieure maintenance industrielle",
+    "telephone": "+212 6 70 11 22 33",
+    "email": "salma.bennani@example.com",
+    "liens": [{"type": "linkedin", "url": "https://linkedin.com/in/salma-bennani-maintenance"}],
+    "ville": "Tanger"
+  },
+  "profil": "Ingénieure maintenance avec 6 ans d'expérience dans l'industrie automobile. Spécialisée en TPM, fiabilité des équipements et pilotage d'équipes en 3×8, je fais progresser la disponibilité des lignes tout en maîtrisant les coûts.",
+  "experiences": [
+    {"poste": "Responsable maintenance — ligne emboutissage", "entreprise": "Renault Tanger Med", "lieu": "Tanger", "debut": "2021", "fin": "Présent",
+     "points": ["Pilotage d'une équipe de 12 techniciens en 3×8.",
+                "Déploiement de la TPM sur 4 presses : disponibilité passée de 82 % à 91 %.",
+                "Gestion d'un budget maintenance de 6 MDH et réduction des coûts pièces de 15 %.",
+                "Plans préventifs et analyse des pannes sous SAP PM (AMDEC, 5 pourquoi)."]},
+    {"poste": "Ingénieure méthodes maintenance", "entreprise": "Yazaki Morocco", "lieu": "Tanger", "debut": "2019", "fin": "2021",
+     "points": ["Standardisation des gammes de maintenance préventive.",
+                "Projet de rétrofit des automates Siemens S7-300 vers S7-1500."]},
+    {"poste": "Stage de fin d'études — Ingénieure fiabilité", "entreprise": "Lear Corporation", "lieu": "Kénitra", "debut": "2018", "fin": "2019",
+     "points": ["Fiabilisation d'un banc de test."]}
+  ],
+  "formation": [
+    {"diplome": "Diplôme d'ingénieur d'État en génie industriel", "etablissement": "ENSAM Meknès", "fin": "2018"},
+    {"diplome": "Classes préparatoires MP", "etablissement": "Lycée Moulay Ismail", "debut": "2013", "fin": "2015"}
+  ],
+  "competences": [
+    {"groupe": "Maintenance et fiabilité", "elements": ["TPM", "AMDEC", "SMED", "5S", "Lean Manufacturing"]},
+    {"groupe": "GMAO et pilotage", "elements": ["SAP PM", "MS Project", "Power BI"]},
+    {"groupe": "Automatisme", "elements": ["Siemens TIA Portal", "S7-1500", "pneumatique", "hydraulique"]},
+    {"groupe": "Conception", "elements": ["AutoCAD", "SolidWorks"]}
+  ],
+  "certifications": [{"nom": "Green Belt Lean Six Sigma", "annee": "2022"}, {"nom": "Habilitation électrique BR", "annee": "2023"}],
+  "langues": [{"langue": "Arabe", "niveau": "langue maternelle"}, {"langue": "Français", "niveau": "courant"}, {"langue": "Anglais", "niveau": "technique"}, {"langue": "Espagnol", "niveau": "notions"}],
+  "a_confirmer": ["intitulé exact du stage chez Lear Corporation (source : « fiabilisation d'un banc de test »)"]
+}

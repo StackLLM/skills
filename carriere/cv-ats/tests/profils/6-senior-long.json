@@ -1,0 +1,206 @@
+{
+  "langue": "fr",
+  "marche": "maroc",
+  "domaine": "auto",
+  "niveau": "auto",
+  "identite": {
+    "nom": "Youssef Berrada",
+    "titre": "Directeur des opérations et de la supply chain",
+    "telephone": "+212 6 62 00 11 22",
+    "email": "youssef.berrada@example.com",
+    "liens": [
+      {
+        "type": "linkedin",
+        "url": "https://linkedin.com/in/youssef-berrada-ops"
+      }
+    ],
+    "ville": "Casablanca"
+  },
+  "profil": "Directeur des opérations avec plus de 20 ans d'expérience en logistique, transport et supply chain. Je dirige des organisations multi-sites, je pilote la performance et je conduis des transformations qui améliorent durablement le service client et la rentabilité.",
+  "realisations": [
+    "Réduction de 14 % des coûts de transport du groupe en 3 ans.",
+    "Taux de service porté de 88 % à 96 % sur 9 sites.",
+    "Déploiement d'un WMS et d'un TMS sur 9 sites en 18 mois."
+  ],
+  "experiences": [
+    {
+      "poste": "Directeur des opérations",
+      "entreprise": "LogiMaroc Transport",
+      "lieu": "Casablanca",
+      "debut": "01/2019",
+      "fin": "Présent",
+      "points": [
+        "Pilotage de 3 sites et de 280 collaborateurs, avec un budget annuel de 70 MDH.",
+        "Réduction des coûts de transport de 8 % par la renégociation des contrats et l'optimisation des tournées.",
+        "Déploiement d'un WMS et d'un TMS sur l'ensemble du périmètre, en coordination avec la DSI.",
+        "Amélioration du taux de service client de 88 % à 96 % en deux ans.",
+        "Mise en place de rituels de performance hebdomadaires et de tableaux de bord partagés.",
+        "Conduite du changement auprès des équipes terrain et formation des managers de proximité."
+      ]
+    },
+    {
+      "poste": "Responsable des opérations régionales",
+      "entreprise": "LogiMaroc Transport",
+      "lieu": "Tanger",
+      "debut": "03/2015",
+      "fin": "12/2018",
+      "points": [
+        "Pilotage de 4 sites et de 240 collaborateurs, avec un budget annuel de 60 MDH.",
+        "Réduction des coûts de transport de 9 % par la renégociation des contrats et l'optimisation des tournées.",
+        "Déploiement d'un WMS et d'un TMS sur l'ensemble du périmètre, en coordination avec la DSI.",
+        "Amélioration du taux de service client de 89 % à 96 % en deux ans.",
+        "Mise en place de rituels de performance hebdomadaires et de tableaux de bord partagés.",
+        "Conduite du changement auprès des équipes terrain et formation des managers de proximité."
+      ]
+    },
+    {
+      "poste": "Chef de projet supply chain",
+      "entreprise": "Marjane Holding",
+      "lieu": "Casablanca",
+      "debut": "06/2012",
+      "fin": "02/2015",
+      "points": [
+        "Pilotage de 5 sites et de 200 collaborateurs, avec un budget annuel de 50 MDH.",
+        "Réduction des coûts de transport de 10 % par la renégociation des contrats et l'optimisation des tournées.",
+        "Déploiement d'un WMS et d'un TMS sur l'ensemble du périmètre, en coordination avec la DSI.",
+        "Amélioration du taux de service client de 90 % à 96 % en deux ans.",
+        "Mise en place de rituels de performance hebdomadaires et de tableaux de bord partagés.",
+        "Conduite du changement auprès des équipes terrain et formation des managers de proximité."
+      ]
+    },
+    {
+      "poste": "Responsable d'entrepôt",
+      "entreprise": "Kitea",
+      "lieu": "Casablanca",
+      "debut": "09/2009",
+      "fin": "05/2012",
+      "points": [
+        "Pilotage de 6 sites et de 160 collaborateurs, avec un budget annuel de 40 MDH.",
+        "Réduction des coûts de transport de 11 % par la renégociation des contrats et l'optimisation des tournées.",
+        "Déploiement d'un WMS et d'un TMS sur l'ensemble du périmètre, en coordination avec la DSI.",
+        "Amélioration du taux de service client de 88 % à 96 % en deux ans."
+      ]
+    },
+    {
+      "poste": "Superviseur logistique",
+      "entreprise": "DHL Supply Chain",
+      "lieu": "Casablanca",
+      "debut": "01/2007",
+      "fin": "08/2009",
+      "points": [
+        "Pilotage de 7 sites et de 120 collaborateurs, avec un budget annuel de 30 MDH.",
+        "Réduction des coûts de transport de 12 % par la renégociation des contrats et l'optimisation des tournées.",
+        "Déploiement d'un WMS et d'un TMS sur l'ensemble du périmètre, en coordination avec la DSI.",
+        "Amélioration du taux de service client de 89 % à 96 % en deux ans."
+      ]
+    },
+    {
+      "poste": "Coordinateur transport",
+      "entreprise": "CTM Messagerie",
+      "lieu": "Casablanca",
+      "debut": "07/2005",
+      "fin": "12/2006",
+      "points": [
+        "Pilotage de 8 sites et de 80 collaborateurs, avec un budget annuel de 20 MDH.",
+        "Réduction des coûts de transport de 13 % par la renégociation des contrats et l'optimisation des tournées.",
+        "Déploiement d'un WMS et d'un TMS sur l'ensemble du périmètre, en coordination avec la DSI.",
+        "Amélioration du taux de service client de 90 % à 96 % en deux ans."
+      ]
+    },
+    {
+      "poste": "Assistant logistique",
+      "entreprise": "Lydec",
+      "lieu": "Casablanca",
+      "debut": "09/2004",
+      "fin": "06/2005",
+      "points": [
+        "Pilotage de 9 sites et de 40 collaborateurs, avec un budget annuel de 10 MDH.",
+        "Réduction des coûts de transport de 14 % par la renégociation des contrats et l'optimisation des tournées.",
+        "Déploiement d'un WMS et d'un TMS sur l'ensemble du périmètre, en coordination avec la DSI.",
+        "Amélioration du taux de service client de 88 % à 96 % en deux ans."
+      ]
+    }
+  ],
+  "formation": [
+    {
+      "diplome": "Executive MBA",
+      "etablissement": "HEM Business School",
+      "lieu": "Casablanca",
+      "debut": "2016",
+      "fin": "2018"
+    },
+    {
+      "diplome": "Master en logistique et supply chain",
+      "etablissement": "ENCG Settat",
+      "debut": "2002",
+      "fin": "2004"
+    }
+  ],
+  "competences": [
+    {
+      "groupe": "Opérations",
+      "elements": [
+        "pilotage multi-sites",
+        "supply chain",
+        "transport",
+        "entreposage",
+        "S&OP"
+      ]
+    },
+    {
+      "groupe": "Performance",
+      "elements": [
+        "Lean",
+        "KPI",
+        "gestion budgétaire",
+        "amélioration continue"
+      ]
+    },
+    {
+      "groupe": "Management",
+      "elements": [
+        "leadership",
+        "conduite du changement",
+        "négociation fournisseurs"
+      ]
+    },
+    {
+      "groupe": "Outils",
+      "elements": [
+        "SAP",
+        "WMS Manhattan",
+        "TMS",
+        "Power BI",
+        "Excel avancé"
+      ]
+    }
+  ],
+  "certifications": [
+    {
+      "nom": "Lean Six Sigma Black Belt",
+      "annee": "2017"
+    },
+    {
+      "nom": "APICS CSCP",
+      "annee": "2014"
+    }
+  ],
+  "langues": [
+    {
+      "langue": "Arabe",
+      "niveau": "langue maternelle"
+    },
+    {
+      "langue": "Français",
+      "niveau": "bilingue"
+    },
+    {
+      "langue": "Anglais",
+      "niveau": "courant"
+    }
+  ],
+  "interets": [
+    "course à pied",
+    "mentorat de jeunes diplômés"
+  ]
+}

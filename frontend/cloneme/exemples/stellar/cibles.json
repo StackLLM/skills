@@ -1,0 +1,52 @@
+{
+  "P-01": {
+    "source": "https://html5up.net/uploads/demos/stellar/",
+    "clone": "http://localhost:6090/",
+    "cibles": {
+      "entete": { "source": "#header", "clone": "[data-ref=entete]" },
+      "entete-titre": { "source": "#header h1", "clone": "[data-ref=entete-titre]" },
+      "nav": { "source": "#nav", "clone": "[data-ref=nav]" },
+      "bloc-blanc": { "source": "#main", "clone": "[data-ref=bloc-blanc]" },
+      "intro": { "source": "#intro", "clone": "#intro" },
+      "projecteur-image": { "source": ".spotlight .image", "clone": "[data-ref=projecteur-image]" },
+      "titre-majeur": { "source": "#first header.major h2", "clone": "#first [data-ref=titre-majeur]" },
+      "fonction": { "source": ".features li", "clone": "[data-ref=fonction]" },
+      "statistique": { "source": ".statistics li", "clone": "[data-ref=statistique]" },
+      "bouton-principal": { "source": "#cta .button.primary", "clone": "#cta [data-ref=bouton-principal]" },
+      "pied": { "source": "#footer", "clone": "[data-ref=pied]" },
+      "copyright": { "source": "#footer .copyright", "clone": "[data-ref=copyright]" }
+    }
+  },
+  "P-02": {
+    "source": "https://html5up.net/uploads/demos/stellar/generic.html",
+    "clone": "http://localhost:6090/generique",
+    "cibles": {
+      "entete": { "source": "#header", "clone": "[data-ref=entete]" },
+      "entete-titre": { "source": "#header h1", "clone": "[data-ref=entete-titre]" },
+      "bloc-blanc": { "source": "#main", "clone": "[data-ref=bloc-blanc]" },
+      "image-principale": { "source": "#main .image.main", "clone": "[data-ref=bloc-blanc] .image.principale" },
+      "titre": { "source": "#content h2", "clone": "#content h2" },
+      "pied": { "source": "#footer", "clone": "[data-ref=pied]" }
+    }
+  },
+  "P-03": {
+    "source": "https://html5up.net/uploads/demos/stellar/elements.html",
+    "clone": "http://localhost:6090/elements",
+    "cibles": {
+      "entete-titre": { "source": "#header h1", "clone": "[data-ref=entete-titre]" },
+      "bloc-blanc": { "source": "#main", "clone": "[data-ref=bloc-blanc]" },
+      "citation": { "source": "blockquote", "clone": "blockquote" },
+      "code": { "source": "pre code", "clone": "pre code" },
+      "liste-alt": { "source": "ul.alt", "clone": "ul.alt" },
+      "tableau": { "source": "table", "clone": "table" },
+      "ligne-tableau": { "source": "table tbody tr", "clone": "table tbody tr" },
+      "bouton-principal": { "source": ".button.primary", "clone": ".bouton.principal" },
+      "champ-nom": { "source": "#demo-name", "clone": "#demo-name" },
+      "liste": { "source": "#demo-category", "clone": "#demo-category" },
+      "radio-label": { "source": "label[for=demo-priority-low]", "clone": "label[for=demo-priority-low]" },
+      "zone-texte": { "source": "#demo-message", "clone": "#demo-message" },
+      "image-gauche": { "source": ".image.left", "clone": ".image.gauche" },
+      "pied": { "source": "#footer", "clone": "[data-ref=pied]" }
+    }
+  }
+}

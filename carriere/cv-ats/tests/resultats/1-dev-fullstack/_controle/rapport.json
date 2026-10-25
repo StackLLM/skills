@@ -1,0 +1,107 @@
+{
+  "plan": {
+    "domaine": "tech",
+    "libelle_domaine": "Tech / IT",
+    "niveau": "confirme",
+    "annees_experience": 5.7,
+    "principale": [
+      "profil",
+      "experiences",
+      "projets",
+      "certifications"
+    ],
+    "laterale": [
+      "formation",
+      "competences",
+      "langues",
+      "qualites"
+    ],
+    "titre_competences": "Compétences techniques",
+    "chiffres_en_gras": false,
+    "langue": "fr"
+  },
+  "resultats": {
+    "bleu": {
+      "pdf": "tests/resultats/1-dev-fullstack/CV-Mehdi-Tazi-Bleu.pdf",
+      "ajustement": {
+        "pages": 1,
+        "part_vide": 0.24,
+        "air": 1.7,
+        "txt": 1.08,
+        "debordement": false,
+        "marges_px": {
+          "principale": 223,
+          "laterale": 370
+        },
+        "deplacees": [],
+        "coordonnees_sur_deux_lignes": false,
+        "lignes_courtes": [],
+        "debordements_horizontaux": [],
+        "corps_texte_pt": 9.67
+      },
+      "pages": 1,
+      "taille_ko": 65,
+      "apercus": [
+        "tests/resultats/1-dev-fullstack/_controle/apercus/CV-Mehdi-Tazi-Bleu-p1.png"
+      ]
+    },
+    "emeraude": {
+      "pdf": "tests/resultats/1-dev-fullstack/CV-Mehdi-Tazi-Emeraude.pdf",
+      "ajustement": {
+        "pages": 1,
+        "part_vide": 0.24,
+        "air": 1.7,
+        "txt": 1.08,
+        "debordement": false,
+        "marges_px": {
+          "principale": 223,
+          "laterale": 370
+        },
+        "deplacees": [],
+        "coordonnees_sur_deux_lignes": false,
+        "lignes_courtes": [],
+        "debordements_horizontaux": [],
+        "corps_texte_pt": 9.67
+      },
+      "pages": 1,
+      "taille_ko": 65,
+      "apercus": [
+        "tests/resultats/1-dev-fullstack/_controle/apercus/CV-Mehdi-Tazi-Emeraude-p1.png"
+      ]
+    },
+    "bordeaux": {
+      "pdf": "tests/resultats/1-dev-fullstack/CV-Mehdi-Tazi-Bordeaux.pdf",
+      "ajustement": {
+        "pages": 1,
+        "part_vide": 0.24,
+        "air": 1.7,
+        "txt": 1.08,
+        "debordement": false,
+        "marges_px": {
+          "principale": 223,
+          "laterale": 370
+        },
+        "deplacees": [],
+        "coordonnees_sur_deux_lignes": false,
+        "lignes_courtes": [],
+        "debordements_horizontaux": [],
+        "corps_texte_pt": 9.67
+      },
+      "pages": 1,
+      "taille_ko": 65,
+      "apercus": [
+        "tests/resultats/1-dev-fullstack/_controle/apercus/CV-Mehdi-Tazi-Bordeaux-p1.png"
+      ]
+    }
+  },
+  "erreurs": [],
+  "avertissements": [],
+  "ok": [
+    "domaine : Tech / IT (tech), niveau : confirme (5.7 an(s) hors stages)",
+    "aucune photo fournie",
+    "CV-Mehdi-Tazi-Bleu.pdf : 1 page(s), texte 9.67 pt, espacement ×1.7, 54 éléments lus, 4 liens",
+    "CV-Mehdi-Tazi-Emeraude.pdf : 1 page(s), texte 9.67 pt, espacement ×1.7, 54 éléments lus, 4 liens",
+    "CV-Mehdi-Tazi-Bordeaux.pdf : 1 page(s), texte 9.67 pt, espacement ×1.7, 54 éléments lus, 4 liens",
+    "3 variantes : texte strictement identique"
+  ]
+}

@@ -1,0 +1,227 @@
+{
+  "surtitre": "Audit de déploiement",
+  "titre": "Prêt pour la production ?",
+  "projet": "Nom du projet",
+  "date": "30 septembre 2026",
+  "depots": ["org/depot-frontend", "org/depot-backend"],
+  "risque_global": "Moyen",
+  "resume": "L'application est déployable, mais trois points la feront tomber au premier essai : l'adresse du backend est figée sur le poste du développeur, les fichiers envoyés par les utilisateurs disparaîtront à chaque redémarrage, et aucune page ne permet à l'hébergeur de savoir si le service est vivant. Compter une journée de préparation avant le premier déploiement.",
+
+  "architecture": [
+    { "titre": "Frontend", "valeur": "React + Vite", "note": "fichiers statiques après build" },
+    { "titre": "Backend", "valeur": "FastAPI (Python 3.12)", "note": "un seul processus" },
+    { "titre": "Base de données", "valeur": "PostgreSQL", "note": "migrations Alembic, 15 fichiers" },
+    { "titre": "Fichiers envoyés", "valeur": "disque local", "note": "dossier `uploads/`" },
+    { "titre": "Hébergement", "valeur": "à décider", "note": "deux options comparées plus bas" },
+    { "titre": "Utilisateurs", "valeur": "environ 40, internes", "note": "pas de pointe de trafic attendue" }
+  ],
+
+  "sections": [
+    {
+      "titre": "Ce qui casse au premier déploiement",
+      "intro": "Les points qui empêchent l'application de fonctionner une fois en ligne.",
+      "constats": [
+        {
+          "titre": "Le site appellera « localhost » chez chaque visiteur",
+          "criticite": "CRITIQUE",
+          "confiance": "Confirmé",
+          "pourquoi": "L'adresse du backend est écrite dans le code du frontend. Cette valeur est figée au moment où le site est construit, pas au démarrage. Chaque visiteur appellera donc une adresse qui n'existe que sur le poste du développeur.",
+          "impact": "Le site s'affiche, et aucune donnée n'arrive. L'erreur n'est visible que dans la console du navigateur.",
+          "ou": "ui/src/services/api.ts:8",
+          "verifier": "Après le build, chercher « localhost » dans les fichiers produits. S'il y est, le problème est confirmé.",
+          "chemin": [
+            "Build du frontend sans variable d'environnement",
+            "L'adresse de développement est figée dans les fichiers produits",
+            "Le visiteur charge le site",
+            "Son navigateur appelle localhost, chez lui",
+            "Aucune donnée ne s'affiche"
+          ],
+          "corriger": [
+            "Sortir l'adresse dans une variable d'environnement lue au build.",
+            "Donner cette variable à la machine qui construit le site, pas à celle qui le sert.",
+            "Reconstruire.",
+            "Chercher « localhost » dans les fichiers produits : aucun résultat attendu.",
+            "Faire de même pour toutes les adresses de services externes."
+          ],
+          "prouver": "Ouvrir le site déployé, onglet Réseau du navigateur : les appels partent vers le domaine de production."
+        },
+        {
+          "titre": "Les fichiers envoyés par les utilisateurs disparaîtront",
+          "criticite": "ÉLEVÉ",
+          "confiance": "Confirmé",
+          "pourquoi": "Les fichiers sont écrits dans un dossier du serveur. Sur la plupart des hébergeurs, ce disque est remis à zéro à chaque redémarrage et à chaque nouveau déploiement.",
+          "impact": "Un utilisateur envoie un document, il est visible, puis il disparaît sans message. Les fichiers déjà perdus ne se récupèrent pas.",
+          "ou": "server/api/routes/fichiers.py:34",
+          "verifier": "Envoyer un fichier, redémarrer le service, essayer de le rouvrir.",
+          "chemin": [
+            "Fichier envoyé, écrit dans le dossier du serveur",
+            "Nouveau déploiement ou redémarrage",
+            "Le disque du conteneur est remis à zéro",
+            "Le fichier n'existe plus, la base pointe vers du vide"
+          ],
+          "corriger": [
+            "Choisir où ranger les fichiers : un stockage objet, ou un volume persistant monté sur le serveur.",
+            "Remplacer l'écriture locale par un envoi vers ce stockage.",
+            "Faire de même pour la lecture.",
+            "Décider ce qu'on fait des fichiers déjà envoyés en développement.",
+            "Trancher ce point **avant** le premier déploiement : après, les fichiers sont déjà perdus."
+          ],
+          "prouver": "Envoyer un fichier, redéployer, le rouvrir : il est toujours là."
+        },
+        {
+          "titre": "L'hébergeur ne saura pas si l'application est vivante",
+          "criticite": "MOYEN",
+          "confiance": "Confirmé",
+          "pourquoi": "Aucune adresse ne dit si le service va bien. L'hébergeur ne peut donc ni le surveiller, ni le redémarrer quand il est bloqué.",
+          "impact": "Une application figée reste figée jusqu'à ce qu'un utilisateur se plaigne.",
+          "ou": "server/api/main.py",
+          "verifier": "Chercher une adresse de santé dans le code. Il n'y en a pas.",
+          "corriger": [
+            "Ajouter une adresse qui répond quand tout va bien.",
+            "Lui faire vérifier vraiment quelque chose : que la base répond.",
+            "La déclarer dans la configuration de l'hébergeur.",
+            "Ne pas y mettre d'information sensible : elle est souvent publique."
+          ],
+          "prouver": "Couper la base : l'adresse de santé doit échouer. Si elle répond quand même, elle ne vérifie rien."
+        },
+        {
+          "titre": "Quatorze réglages ne sont déclarés nulle part",
+          "criticite": "ÉLEVÉ",
+          "confiance": "Confirmé",
+          "pourquoi": "Le code lit ces variables, mais aucun fichier ne les documente. Personne ne peut savoir quoi saisir sur l'hébergeur.",
+          "impact": "Au déploiement, elles seront vides. Selon le code, le service s'arrêtera — ou pire, tournera sur des valeurs de repli sans rien signaler.",
+          "ou": "server/config.py",
+          "verifier": "Comparer la liste des variables du code avec le fichier d'exemple.",
+          "corriger": [
+            "Compléter le fichier d'exemple avec les quatorze variables, valeurs factices.",
+            "Marquer lesquelles sont obligatoires.",
+            "Faire échouer le démarrage, avec un message clair, quand une variable obligatoire manque.",
+            "Les saisir sur l'hébergeur avant le premier déploiement."
+          ],
+          "prouver": "Démarrer sans l'une des variables obligatoires : le service refuse de démarrer et dit laquelle manque."
+        },
+        {
+          "titre": "La base de données est publiée hors du réseau interne",
+          "criticite": "ÉLEVÉ",
+          "confiance": "Confirmé",
+          "pourquoi": "Le fichier de composition publie le port de PostgreSQL. La base devient joignable depuis l'extérieur de la machine.",
+          "impact": "N'importe qui peut tenter de s'y connecter. Avec un mot de passe faible, la base est lue et copiée.",
+          "ou": "docker-compose.yml:35",
+          "verifier": "Depuis une autre machine, tenter une connexion sur le port de la base.",
+          "corriger": [
+            "Retirer la publication du port dans le fichier de composition.",
+            "Les autres services atteignent la base par le réseau interne, sans port publié.",
+            "Pour un accès administrateur ponctuel, passer par un tunnel SSH.",
+            "Vérifier que le pare-feu du serveur ne laisse passer que 80 et 443."
+          ],
+          "prouver": "Depuis l'extérieur, la connexion sur le port de la base est refusée. Depuis l'application, elle fonctionne."
+        }
+      ]
+    },
+    {
+      "titre": "Ce qu'il faut décider",
+      "intro": "Deux architectures possibles. Aucune n'est imposée : l'équipe tranche.",
+      "constats": [
+        {
+          "titre": "L'hébergement n'est pas encore choisi",
+          "criticite": "INFORMATION",
+          "confiance": "Confirmé",
+          "pourquoi": "Le projet n'a aucune configuration de déploiement. Le choix reste ouvert, ce qui est une bonne chose : il se fait avec le besoin, pas par habitude.",
+          "impact": "Rien ne peut être déployé tant que ce point n'est pas tranché.",
+          "ou": "—",
+          "verifier": "Aucun fichier de déploiement dans le dépôt.",
+          "corriger": [
+            "Option A — un VPS avec Docker Compose : environ 20 € par mois, plus une demi-journée d'administration par mois. Contrôle total, aucune limite de plateforme. La sauvegarde de la base est à votre charge.",
+            "Option B — plateforme managée pour le backend, hébergement statique pour le frontend, base managée : environ 50 € par mois, presque aucune administration. Sauvegardes incluses. Coût qui monte avec l'usage, et pas de disque persistant.",
+            "Avis : pour quarante utilisateurs internes, l'option B coûte plus cher en euros et moins cher en temps. Comme il y a des fichiers à conserver, l'option B impose de toute façon un stockage objet.",
+            "À trancher : A ou B ?"
+          ],
+          "prouver": "La décision est écrite, et le premier déploiement suit le parcours de l'architecture retenue."
+        }
+      ]
+    }
+  ],
+
+  "plan": [
+    {
+      "quand": "Avant le premier déploiement",
+      "actions": [
+        "Trancher l'hébergement entre les options A et B.",
+        "Sortir l'adresse du backend dans une variable de build.",
+        "Choisir un stockage persistant pour les fichiers envoyés.",
+        "Compléter le fichier d'exemple des variables, et les saisir sur l'hébergeur.",
+        "Retirer la publication du port de la base."
+      ]
+    },
+    {
+      "quand": "Pendant le déploiement",
+      "actions": [
+        "Jouer les migrations avant de démarrer la nouvelle version.",
+        "Vérifier que le service écoute sur le port donné par l'hébergeur.",
+        "Vérifier le certificat et le renouvellement automatique."
+      ]
+    },
+    {
+      "quand": "Après le déploiement",
+      "actions": [
+        "Parcourir à la main : connexion, lecture, écriture, envoi de fichier.",
+        "Provoquer une erreur et vérifier qu'elle remonte quelque part.",
+        "Lancer une sauvegarde, puis la restaurer sur un environnement de test."
+      ]
+    }
+  ],
+
+  "checklists": [
+    {
+      "titre": "Avant le déploiement",
+      "items": [
+        "Version figée et identifiable",
+        "Fichier de verrouillage des dépendances commité",
+        "Version du langage fixée",
+        "Toutes les variables déclarées et saisies",
+        "Aucun secret dans le code ni dans la CI",
+        "Build réussi sur une machine vierge",
+        "Aucun « localhost » dans les fichiers produits",
+        "Base accessible, port non publié",
+        "Migrations prêtes et réversibles",
+        "Stockage persistant pour les fichiers",
+        "Nom de domaine et certificat prêts",
+        "Sauvegarde automatique configurée"
+      ]
+    },
+    {
+      "titre": "Après le déploiement",
+      "items": [
+        "La page de santé répond, et vérifie la base",
+        "La connexion fonctionne",
+        "Une lecture et une écriture fonctionnent",
+        "L'envoi d'un fichier fonctionne, et survit à un redémarrage",
+        "Les e-mails partent",
+        "Les services externes répondent",
+        "Les temps de réponse sont acceptables",
+        "Une erreur provoquée remonte dans les journaux",
+        "Une alerte arrive à quelqu'un"
+      ]
+    },
+    {
+      "titre": "Si ça casse",
+      "items": [
+        "La version précédente est encore disponible",
+        "La migration inverse existe et a été testée",
+        "Une sauvegarde de la base date de moins de 24 heures",
+        "La procédure de retour arrière est écrite",
+        "Quelqu'un sait l'exécuter",
+        "La durée du retour arrière est connue en minutes"
+      ]
+    }
+  ],
+
+  "limites": [
+    "L'hébergeur n'étant pas choisi, les limites de plateforme n'ont pas pu être vérifiées.",
+    "Les réglages réellement saisis en production n'ont pas été vus.",
+    "La charge n'a pas été mesurée : les estimations viennent d'un calcul, pas d'un test.",
+    "Les adresses de retour enregistrées chez les services externes n'ont pas été vérifiées."
+  ],
+
+  "pied": "Rapport établi à partir du code du projet. Les valeurs sensibles sont masquées."
+}

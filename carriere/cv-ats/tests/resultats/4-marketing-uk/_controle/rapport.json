@@ -1,0 +1,112 @@
+{
+  "plan": {
+    "domaine": "marketing",
+    "libelle_domaine": "Marketing / Communication",
+    "niveau": "confirme",
+    "annees_experience": 6.7,
+    "principale": [
+      "profil",
+      "realisations",
+      "experiences",
+      "projets"
+    ],
+    "laterale": [
+      "competences",
+      "formation",
+      "certifications",
+      "langues",
+      "qualites"
+    ],
+    "titre_competences": "Skills",
+    "chiffres_en_gras": true,
+    "langue": "en"
+  },
+  "resultats": {
+    "bleu": {
+      "pdf": "tests/resultats/4-marketing-uk/CV-Lina-Haddad-Bleu.pdf",
+      "ajustement": {
+        "pages": 1,
+        "part_vide": 0.32,
+        "air": 1.7,
+        "txt": 1.08,
+        "debordement": false,
+        "marges_px": {
+          "principale": 303,
+          "laterale": 408
+        },
+        "deplacees": [],
+        "coordonnees_sur_deux_lignes": false,
+        "lignes_courtes": [],
+        "debordements_horizontaux": [],
+        "corps_texte_pt": 9.67
+      },
+      "pages": 1,
+      "taille_ko": 64,
+      "apercus": [
+        "tests/resultats/4-marketing-uk/_controle/apercus/CV-Lina-Haddad-Bleu-p1.png"
+      ]
+    },
+    "emeraude": {
+      "pdf": "tests/resultats/4-marketing-uk/CV-Lina-Haddad-Emeraude.pdf",
+      "ajustement": {
+        "pages": 1,
+        "part_vide": 0.32,
+        "air": 1.7,
+        "txt": 1.08,
+        "debordement": false,
+        "marges_px": {
+          "principale": 303,
+          "laterale": 408
+        },
+        "deplacees": [],
+        "coordonnees_sur_deux_lignes": false,
+        "lignes_courtes": [],
+        "debordements_horizontaux": [],
+        "corps_texte_pt": 9.67
+      },
+      "pages": 1,
+      "taille_ko": 64,
+      "apercus": [
+        "tests/resultats/4-marketing-uk/_controle/apercus/CV-Lina-Haddad-Emeraude-p1.png"
+      ]
+    },
+    "bordeaux": {
+      "pdf": "tests/resultats/4-marketing-uk/CV-Lina-Haddad-Bordeaux.pdf",
+      "ajustement": {
+        "pages": 1,
+        "part_vide": 0.32,
+        "air": 1.7,
+        "txt": 1.08,
+        "debordement": false,
+        "marges_px": {
+          "principale": 303,
+          "laterale": 408
+        },
+        "deplacees": [],
+        "coordonnees_sur_deux_lignes": false,
+        "lignes_courtes": [],
+        "debordements_horizontaux": [],
+        "corps_texte_pt": 9.67
+      },
+      "pages": 1,
+      "taille_ko": 64,
+      "apercus": [
+        "tests/resultats/4-marketing-uk/_controle/apercus/CV-Lina-Haddad-Bordeaux-p1.png"
+      ]
+    }
+  },
+  "erreurs": [],
+  "avertissements": [
+    "aucune mission décrite : Marketing Assistant (internship) / Hartley & Co",
+    "à confirmer avec le client : missions du stage chez Hartley & Co (non décrites dans la source)",
+    "photo retirée : peu d'usage au marché « uk » (forcer avec photo_forcee)",
+    "page remplie à 68 % — demander au client plus de détails (missions, résultats, projets), sans rien inventer"
+  ],
+  "ok": [
+    "domaine : Marketing / Communication (marketing), niveau : confirme (6.7 an(s) hors stages)",
+    "CV-Lina-Haddad-Bleu.pdf : 1 page(s), texte 9.67 pt, espacement ×1.7, 48 éléments lus, 3 liens",
+    "CV-Lina-Haddad-Emeraude.pdf : 1 page(s), texte 9.67 pt, espacement ×1.7, 48 éléments lus, 3 liens",
+    "CV-Lina-Haddad-Bordeaux.pdf : 1 page(s), texte 9.67 pt, espacement ×1.7, 48 éléments lus, 3 liens",
+    "3 variantes : texte strictement identique"
+  ]
+}
