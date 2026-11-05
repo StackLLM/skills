@@ -1,0 +1,9 @@
+{
+  "name": "cv-ats",
+  "version": "0.1.0",
+  "description": "cv-ats : un ancien CV devient 3 PDF d'une page compatibles ATS, contrôlés automatiquement (macOS).",
+  "author": {
+    "name": "StackLLM"
+  },
+  "license": "UNLICENSED"
+}

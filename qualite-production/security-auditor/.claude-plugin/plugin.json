@@ -1,0 +1,9 @@
+{
+  "name": "security-auditor",
+  "version": "0.1.0",
+  "description": "Security Auditor : audit de sécurité orienté chemins d'attaque, rapport HTML avec valeurs sensibles masquées.",
+  "author": {
+    "name": "StackLLM"
+  },
+  "license": "UNLICENSED"
+}

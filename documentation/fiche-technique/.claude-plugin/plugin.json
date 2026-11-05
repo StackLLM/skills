@@ -1,0 +1,9 @@
+{
+  "name": "fiche-technique",
+  "version": "0.1.0",
+  "description": "Fiche technique : fiche de référence d'une application (Markdown, schéma draw.io, PDF).",
+  "author": {
+    "name": "StackLLM"
+  },
+  "license": "UNLICENSED"
+}

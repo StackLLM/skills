@@ -30,6 +30,13 @@ Depuis la racine du dépôt `skills` :
 ./install.sh security-auditor
 ```
 
+Ou comme plugin Claude Code, depuis le marketplace privé du dépôt (voir le README racine) :
+
+```bash
+/plugin marketplace add StackLLM/skills
+/plugin install security-auditor --marketplace StackLLM/skills
+```
+
 Voir le [README du dépôt](../../README.md) pour l'installation complète.
 
 ## Utilisation

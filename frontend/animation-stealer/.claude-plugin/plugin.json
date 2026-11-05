@@ -1,0 +1,9 @@
+{
+  "name": "animation-stealer",
+  "version": "0.1.0",
+  "description": "Animation Stealer : reproduit le comportement d'une animation de scroll avec les vraies valeurs de la source.",
+  "author": {
+    "name": "StackLLM"
+  },
+  "license": "UNLICENSED"
+}

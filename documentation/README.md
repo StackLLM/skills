@@ -35,6 +35,15 @@ Depuis la racine du dépôt `skills` :
 ./install.sh pdf-premium fiche-technique guide-utilisateur diagram-premium
 ```
 
+Ou comme plugins Claude Code (voir le README racine) :
+
+```bash
+/plugin marketplace add StackLLM/skills
+/plugin install pdf-premium --marketplace StackLLM/skills
+```
+
+Même commande pour `fiche-technique`, `guide-utilisateur` et `diagram-premium`.
+
 ## Utilisation
 
 Dans Claude Code : « fais-moi un PDF premium », « fiche technique de ce projet », « guide d'utilisation avec captures », « diagramme du parcours utilisateur ».

@@ -1,0 +1,9 @@
+{
+  "name": "diagram-premium",
+  "version": "0.1.0",
+  "description": "Diagramme premium : fichier draw.io de parcours, navigation ou architecture.",
+  "author": {
+    "name": "StackLLM"
+  },
+  "license": "UNLICENSED"
+}

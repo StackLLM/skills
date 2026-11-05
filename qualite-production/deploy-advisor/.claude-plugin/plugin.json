@@ -1,0 +1,9 @@
+{
+  "name": "deployment-devops-advisor",
+  "version": "0.1.0",
+  "description": "Deployment Advisor : détecte ce qui casse au passage en production, compare les architectures, livre des checklists.",
+  "author": {
+    "name": "StackLLM"
+  },
+  "license": "UNLICENSED"
+}

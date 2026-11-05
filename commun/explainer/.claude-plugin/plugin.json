@@ -1,0 +1,9 @@
+{
+  "name": "explainer",
+  "version": "0.1.0",
+  "description": "Explainer : charte d'écriture partagée, français simple et réponse directe.",
+  "author": {
+    "name": "StackLLM"
+  },
+  "license": "UNLICENSED"
+}

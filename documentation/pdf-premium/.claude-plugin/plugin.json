@@ -1,0 +1,9 @@
+{
+  "name": "pdf-premium",
+  "version": "0.1.0",
+  "description": "PDF premium : rapport, dossier ou note en PDF au rendu cabinet conseil (charte Forêt).",
+  "author": {
+    "name": "StackLLM"
+  },
+  "license": "UNLICENSED"
+}

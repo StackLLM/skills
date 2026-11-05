@@ -85,7 +85,12 @@ gh auth login && gh auth setup-git      # une fois : le dépôt est privé
 /plugin install roadmap-projets --marketplace StackLLM/skills
 ```
 
-Plugins disponibles : `roadmap-projets`. Les autres Skills s'ajoutent de la même façon, au fil des besoins. Une Skill ne doit pas être installée à la fois par `install.sh` et comme plugin.
+Les 12 Skills sont des plugins, au même nom que leur Skill : `cloneme`, `ui-stealer`, `animation-stealer`, `security-auditor`, `deployment-devops-advisor`, `pdf-premium`, `fiche-technique`, `guide-utilisateur`, `diagram-premium`, `roadmap-projets`, `cv-ats`, `explainer`.
+
+Deux précautions :
+
+- Une Skill ne doit pas être installée à la fois par `install.sh` et comme plugin : elle apparaîtrait en double.
+- Chaque plugin est installé dans son propre dossier. CloneMe ne retrouve donc pas UI Stealer et Animation Stealer à côté de lui : il le dit et continue avec des règles minimales. Pour la version complète, installer les trois par `install.sh`.
 
 ## Mise à jour
 

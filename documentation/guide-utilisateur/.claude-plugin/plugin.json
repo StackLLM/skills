@@ -1,0 +1,9 @@
+{
+  "name": "guide-utilisateur",
+  "version": "0.1.0",
+  "description": "Guide utilisateur : guide d'utilisation PDF avec captures annotées.",
+  "author": {
+    "name": "StackLLM"
+  },
+  "license": "UNLICENSED"
+}

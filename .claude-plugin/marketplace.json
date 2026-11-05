@@ -1,14 +1,93 @@
 {
   "name": "stackllm-skills",
   "description": "Skills StackLLM pour Claude Code. Dépôt privé, non commercialisé.",
-  "owner": { "name": "StackLLM" },
+  "owner": {
+    "name": "StackLLM"
+  },
   "plugins": [
+    {
+      "name": "cv-ats",
+      "source": "./carriere/cv-ats",
+      "description": "cv-ats : un ancien CV devient 3 PDF d'une page compatibles ATS, contrôlés automatiquement (macOS).",
+      "version": "0.1.0",
+      "category": "carriere"
+    },
+    {
+      "name": "explainer",
+      "source": "./commun/explainer",
+      "description": "Explainer : charte d'écriture partagée, français simple et réponse directe.",
+      "version": "0.1.0",
+      "category": "commun"
+    },
+    {
+      "name": "diagram-premium",
+      "source": "./documentation/diagram-premium",
+      "description": "Diagramme premium : fichier draw.io de parcours, navigation ou architecture.",
+      "version": "0.1.0",
+      "category": "documentation"
+    },
+    {
+      "name": "fiche-technique",
+      "source": "./documentation/fiche-technique",
+      "description": "Fiche technique : fiche de référence d'une application (Markdown, schéma draw.io, PDF).",
+      "version": "0.1.0",
+      "category": "documentation"
+    },
+    {
+      "name": "guide-utilisateur",
+      "source": "./documentation/guide-utilisateur",
+      "description": "Guide utilisateur : guide d'utilisation PDF avec captures annotées.",
+      "version": "0.1.0",
+      "category": "documentation"
+    },
+    {
+      "name": "pdf-premium",
+      "source": "./documentation/pdf-premium",
+      "description": "PDF premium : rapport, dossier ou note en PDF au rendu cabinet conseil (charte Forêt).",
+      "version": "0.1.0",
+      "category": "documentation"
+    },
+    {
+      "name": "animation-stealer",
+      "source": "./frontend/animation-stealer",
+      "description": "Animation Stealer : reproduit le comportement d'une animation de scroll avec les vraies valeurs de la source.",
+      "version": "0.1.0",
+      "category": "frontend"
+    },
+    {
+      "name": "cloneme",
+      "source": "./frontend/cloneme",
+      "description": "CloneMe : une URL devient un projet frontend complet, piloté par design.md, palette.md et animation.md, vérifié par mesures.",
+      "version": "0.1.0",
+      "category": "frontend"
+    },
+    {
+      "name": "ui-stealer",
+      "source": "./frontend/ui-stealer",
+      "description": "UI Stealer : une image de maquette devient une interface React/Vite dans une charte cohérente.",
+      "version": "0.1.0",
+      "category": "frontend"
+    },
     {
       "name": "roadmap-projets",
       "source": "./gestion-projet/roadmap-projets",
       "description": "Roadmap visuel d'une organisation ou d'un projet, volet par volet : ce qui avance, ce qui attend une action, les décalages à corriger.",
       "version": "0.1.0",
       "category": "gestion-projet"
+    },
+    {
+      "name": "deployment-devops-advisor",
+      "source": "./qualite-production/deploy-advisor",
+      "description": "Deployment Advisor : détecte ce qui casse au passage en production, compare les architectures, livre des checklists.",
+      "version": "0.1.0",
+      "category": "qualite-production"
+    },
+    {
+      "name": "security-auditor",
+      "source": "./qualite-production/security-auditor",
+      "description": "Security Auditor : audit de sécurité orienté chemins d'attaque, rapport HTML avec valeurs sensibles masquées.",
+      "version": "0.1.0",
+      "category": "qualite-production"
     }
   ]
 }

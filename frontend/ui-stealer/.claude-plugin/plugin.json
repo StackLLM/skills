@@ -1,0 +1,9 @@
+{
+  "name": "ui-stealer",
+  "version": "0.1.0",
+  "description": "UI Stealer : une image de maquette devient une interface React/Vite dans une charte cohérente.",
+  "author": {
+    "name": "StackLLM"
+  },
+  "license": "UNLICENSED"
+}
