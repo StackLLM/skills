@@ -1,0 +1,14 @@
+{
+  "name": "stackllm-skills",
+  "description": "Skills StackLLM pour Claude Code. Dépôt privé, non commercialisé.",
+  "owner": { "name": "StackLLM" },
+  "plugins": [
+    {
+      "name": "roadmap-projets",
+      "source": "./gestion-projet/roadmap-projets",
+      "description": "Roadmap visuel d'une organisation ou d'un projet, volet par volet : ce qui avance, ce qui attend une action, les décalages à corriger.",
+      "version": "0.1.0",
+      "category": "gestion-projet"
+    }
+  ]
+}

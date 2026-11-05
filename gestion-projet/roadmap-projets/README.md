@@ -37,6 +37,13 @@ Depuis la racine du dépôt `skills` :
 ./install.sh roadmap-projets
 ```
 
+Ou comme plugin Claude Code, depuis le marketplace privé du dépôt (accès GitHub requis, voir le README racine) :
+
+```bash
+/plugin marketplace add StackLLM/skills
+/plugin install roadmap-projets --marketplace StackLLM/skills
+```
+
 ## Utilisation
 
 Dans Claude Code :

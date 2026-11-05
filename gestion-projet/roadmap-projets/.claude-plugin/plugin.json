@@ -1,0 +1,7 @@
+{
+  "name": "roadmap-projets",
+  "version": "0.1.0",
+  "description": "Roadmap visuel d'une organisation ou d'un projet, volet par volet : ce qui avance, ce qui attend une action, les décalages à corriger.",
+  "author": { "name": "StackLLM" },
+  "license": "UNLICENSED"
+}

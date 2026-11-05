@@ -75,6 +75,18 @@ Les noms à passer sont ceux déclarés dans chaque `SKILL.md` : `cloneme`, `ui-
 
 Le script ne remplace jamais un dossier existant qui n'est pas un lien vers ce dépôt. Autre dossier cible : `CLAUDE_SKILLS_DIR=/chemin ./install.sh`.
 
+## Installation comme plugin
+
+Le dépôt est aussi un marketplace de plugins Claude Code (`.claude-plugin/marketplace.json`). Une Skill y devient un plugin en recevant son propre `.claude-plugin/plugin.json` : aucun fichier n'est dupliqué.
+
+```bash
+gh auth login && gh auth setup-git      # une fois : le dépôt est privé
+/plugin marketplace add StackLLM/skills
+/plugin install roadmap-projets --marketplace StackLLM/skills
+```
+
+Plugins disponibles : `roadmap-projets`. Les autres Skills s'ajoutent de la même façon, au fil des besoins. Une Skill ne doit pas être installée à la fois par `install.sh` et comme plugin.
+
 ## Mise à jour
 
 ```bash

@@ -49,3 +49,9 @@ Pas de fichier vide pour respecter la structure. La licence et le `.gitignore` s
 
 - Après les tests de cv-ats, nettoyer les chemins absolus de `carriere/cv-ats/tests/resultats/*/_controle/rapport.json`.
 - Aucune donnée client, aucune information interne d'un employeur ou d'un autre projet.
+
+## Plugins
+
+- Une Skill devient un plugin en ajoutant `.claude-plugin/plugin.json` dans son dossier (nom, version, description) et une entrée dans `.claude-plugin/marketplace.json` à la racine. `source` pointe vers le dossier de la Skill.
+- La version du plugin suit celle du `CHANGELOG.md` de la Skill.
+- Vérifier avec `claude plugin validate .` et `claude plugin validate <dossier-de-la-skill>`.
