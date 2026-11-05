@@ -2,6 +2,12 @@
 
 Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) · versions : [SemVer](https://semver.org/lang/fr/). Le détail de chaque Skill est dans son propre `CHANGELOG.md`.
 
+## [0.2.0] — 2026-11-05
+
+### Ajouté
+- Skill **Roadmap projets** (catégorie `gestion-projet/`) : roadmap visuel d'une organisation ou d'un projet, volet par volet, avec ce qui avance, les actions attendues et les décalages.
+- Plugin et marketplace Claude Code : voir le README.
+
 ## [0.1.0] — 2026-10-25
 
 ### Ajouté

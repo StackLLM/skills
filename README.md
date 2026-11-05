@@ -8,7 +8,7 @@ Ce ne sont pas de simples prompts. Une Skill embarque des instructions d'exécut
 
 ## La gamme
 
-11 Skills en 5 catégories.
+12 Skills en 6 catégories.
 
 ### Frontend — reproduire une interface ou une interaction
 
@@ -38,6 +38,12 @@ Quatre Skills qui partagent la charte Forêt. Présentation commune : [documenta
 | [**Guide utilisateur**](documentation/guide-utilisateur/) | application + captures → guide d'utilisation PDF | B |
 | [**Diagramme premium**](documentation/diagram-premium/) | parcours ou architecture → fichier `.drawio` | B |
 
+### Gestion de projet — savoir où on en est
+
+| Skill | Entrée → sortie | Maturité |
+|---|---|---|
+| [**Roadmap projets**](gestion-projet/roadmap-projets/) | organisation ou projet → roadmap visuel, ce qui avance, actions à faire, décalages | B |
+
 ### Carrière
 
 | Skill | Entrée → sortie | Maturité |
@@ -65,7 +71,7 @@ cd ~/stackllm/skills
 ./install.sh cloneme cv-ats      # seulement celles-ci
 ```
 
-Les noms à passer sont ceux déclarés dans chaque `SKILL.md` : `cloneme`, `ui-stealer`, `animation-stealer`, `security-auditor`, `deployment-devops-advisor`, `pdf-premium`, `fiche-technique`, `guide-utilisateur`, `diagram-premium`, `cv-ats`, `explainer`.
+Les noms à passer sont ceux déclarés dans chaque `SKILL.md` : `cloneme`, `ui-stealer`, `animation-stealer`, `security-auditor`, `deployment-devops-advisor`, `pdf-premium`, `fiche-technique`, `guide-utilisateur`, `diagram-premium`, `roadmap-projets`, `cv-ats`, `explainer`.
 
 Le script ne remplace jamais un dossier existant qui n'est pas un lien vers ce dépôt. Autre dossier cible : `CLAUDE_SKILLS_DIR=/chemin ./install.sh`.
 
@@ -90,6 +96,7 @@ skills/
 ├── frontend/            cloneme · ui-stealer · animation-stealer
 ├── qualite-production/  security-auditor · deploy-advisor
 ├── documentation/       pdf-premium · fiche-technique · guide-utilisateur · diagram-premium
+├── gestion-projet/      roadmap-projets
 ├── carriere/            cv-ats
 └── commun/              explainer
 ```

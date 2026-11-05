@@ -4,7 +4,7 @@ Règles communes à toutes les Skills du dépôt.
 
 ## Rangement
 
-- Une Skill = un dossier, dans une **catégorie** : `frontend/`, `qualite-production/`, `documentation/`, `carriere/`, `commun/`.
+- Une Skill = un dossier, dans une **catégorie** : `frontend/`, `qualite-production/`, `documentation/`, `gestion-projet/`, `carriere/`, `commun/`.
 - Nom du dossier en minuscules avec tirets. Le nom déclaré (`name:` dans `SKILL.md`) est celui qu'on installe.
 - Nouvelle catégorie seulement quand aucune ne convient. L'ajouter alors au README racine.
 
