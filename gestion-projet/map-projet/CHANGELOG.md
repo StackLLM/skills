@@ -2,6 +2,16 @@
 
 Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) · versions : [SemVer](https://semver.org/lang/fr/).
 
+## [0.3.0] — 2026-11-06
+
+### Modifié
+- Les maps sont dessinées directement dans la conversation avec `show_widget`, comme dans Roadmap projets. Plus besoin de Chrome ni d'Edge.
+- `generer_maps.py` écrit un `<map>.widget.html` par map : fragment prêt pour `show_widget`, aux couleurs du thème de la conversation (clair et sombre).
+- Le PNG devient optionnel : option `--png`. L'ancienne option `--sans-png` disparaît.
+
+### Ajouté
+- Test du fragment : pas de DOCTYPE, pas de commentaire, deux graisses, rien sous 11 px, aucune couleur en dur.
+
 ## [0.2.0] — 2026-11-06
 
 ### Ajouté

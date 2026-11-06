@@ -1,7 +1,7 @@
 {
   "name": "map-projet",
-  "version": "0.2.0",
-  "description": "Map projet : deux maps visuelles d'un projet ou d'une organisation (volets, lots, phases, verdict), livrées dans la conversation.",
+  "version": "0.3.0",
+  "description": "Map projet : deux maps d'un projet ou d'une organisation (volets, lots, phases, verdict), dessinées dans la conversation.",
   "author": { "name": "StackLLM" },
   "license": "UNLICENSED"
 }

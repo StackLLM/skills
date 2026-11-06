@@ -1,6 +1,7 @@
 """Tests du générateur : python -m unittest test_generer_maps (depuis scripts/)."""
 
 import copy
+import re
 import json
 import unittest
 from pathlib import Path
@@ -207,6 +208,20 @@ class Rendu(unittest.TestCase):
         html = g.rendu_projet(copy.deepcopy(c))["par-lot"]
         self.assertNotIn("<script>", html)
         self.assertIn("a &amp; b", html)
+
+    def test_widget_respecte_show_widget(self):
+        c = carte(volet("A", lot("Cadrage", "fait"), lot("Bêta", "a_faire")))
+        page = g.rendu_projet(c)["par-volet"]
+        w = g.widget(page, "A : résumé")
+        self.assertTrue(w.startswith('<h2 class="sr-only">A : résumé</h2>'))
+        for interdit in (r"<!doctype", r"<html[\s>]", r"<head[\s>]", r"<body[\s>]",
+                         r"/\*", r"<!--"):
+            self.assertIsNone(re.search(interdit, w.lower()), interdit)
+        self.assertIsNone(re.search(r"font-weight:\s*(?!400|500)\d+", w))
+        self.assertIsNone(re.search(r"font-size:\s*(\d|10)(\.\d+)?px", w))
+        self.assertNotIn("#", re.search(r"<style>(.*)</style>", w, re.S).group(1))
+        self.assertIn('<div class="mp">', w)
+        self.assertIn("Cadrage", w)
 
 
 if __name__ == "__main__":

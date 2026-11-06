@@ -1,10 +1,10 @@
 # Map projet
 
-> Skill StackLLM · v0.2.0 · usage interne, pas encore commercialisée
+> Skill StackLLM · v0.3.0 · usage interne, pas encore commercialisée
 
-**« On est où ? » — deux images et un verdict.**
+**« On est où ? » — deux maps et un verdict.**
 
-Map projet montre où en est un projet ou toute une organisation GitHub. Les deux maps arrivent en images dans la conversation, téléchargeables en image ou en HTML. Aucun dossier n'est créé dans le projet.
+Map projet montre où en est un projet ou toute une organisation GitHub. Les deux maps sont dessinées directement dans la conversation, avec une version HTML à télécharger. Aucun dossier n'est créé dans le projet.
 
 Remplace **Roadmap projets** (0.1.0).
 
@@ -57,7 +57,8 @@ Dans Claude Code :
 
 - Python 3, bibliothèque standard seulement.
 - `gh` authentifié pour lire une organisation GitHub.
-- Chrome ou Edge pour les images PNG. Sans navigateur, seuls les HTML sont produits. Autre chemin : variable `CHROME`.
+- Claude Code avec l'outil de visualisation en ligne (`show_widget`). Sans lui, les maps arrivent en fichiers HTML.
+- Seulement pour une image PNG (option `--png`) : Chrome ou Edge. Autre chemin : variable `CHROME`.
 
 ## Limites connues
 
@@ -70,7 +71,7 @@ Dans Claude Code :
 cd scripts && python3 test_generer_maps.py
 ```
 
-36 tests : contrôle de la carte, calculs, rendu.
+37 tests : contrôle de la carte, calculs, rendu, fragment pour la conversation.
 
 ## Contenu
 
@@ -80,7 +81,7 @@ cd scripts && python3 test_generer_maps.py
 | `references/format-carte.md` | format de `carte.json` |
 | `scripts/collecter_projet.py` | inventaire d'un projet |
 | `scripts/collecter_orga.py` | inventaire d'une organisation |
-| `scripts/generer_maps.py` | contrôle de `carte.json` et rendu des deux maps |
+| `scripts/generer_maps.py` | contrôle de `carte.json`, rendu des deux maps pour la conversation et en HTML |
 | `scripts/exemple-projet.json` | carte d'exemple |
 | `scripts/test_generer_maps.py` | tests automatiques |
 

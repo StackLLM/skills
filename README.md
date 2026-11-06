@@ -1,6 +1,6 @@
 # StackLLM Skills
 
-> Dépôt privé · v0.3.0 · aucune Skill n'est encore commercialisée
+> Dépôt privé · v0.3.1 · aucune Skill n'est encore commercialisée
 
 Les Skills StackLLM sont des **outils d'automatisation spécialisés pour Claude Code**. Chacune prend en charge un travail complet, de l'analyse jusqu'au livrable vérifié. Elle suit une méthode fixe et passe des contrôles avant de livrer.
 
@@ -42,7 +42,7 @@ Quatre Skills qui partagent la charte Forêt. Présentation commune : [documenta
 
 | Skill | Entrée → sortie | Maturité |
 |---|---|---|
-| [**Map projet**](gestion-projet/map-projet/) | organisation ou projet → deux maps (volets, lots, phases) et un verdict | A |
+| [**Map projet**](gestion-projet/map-projet/) | organisation ou projet → deux maps dessinées dans la conversation (volets, lots, phases) et un verdict | A |
 
 ### Carrière
 

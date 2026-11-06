@@ -2,17 +2,22 @@
 """
 generer_maps.py — transforme un fichier carte.json en deux maps visuelles.
 
-    python generer_maps.py carte.json                 # HTML + PNG à côté du JSON
+    python generer_maps.py carte.json                 # widgets + HTML à côté du JSON
     python generer_maps.py carte.json -o dossier/     # ailleurs
-    python generer_maps.py carte.json --sans-png      # HTML seulement
+    python generer_maps.py carte.json --png           # en plus, PNG (Chrome ou Edge)
     python generer_maps.py carte.json --verifier      # contrôle, sans rien écrire
 
-Les fichiers vont là où est le carte.json. Les maps se livrent dans la
+Les fichiers vont là où est le carte.json. Les maps se dessinent dans la
 conversation, pas dans un dossier du projet : écrire le carte.json dans le
-dossier de travail temporaire de la session, et envoyer les quatre fichiers.
+dossier de travail temporaire de la session.
 
-Type « projet » : par-volet.html/png et par-lot.html/png.
-Type « orga »   : par-projet.html/png et lots-restants.html/png.
+Chaque map sort en deux fichiers :
+- <nom>.widget.html : fragment à passer tel quel à show_widget, pour dessiner
+  la map dans la conversation. Couleurs du thème de l'hôte, clair et sombre.
+- <nom>.html : page complète, à télécharger.
+
+Type « projet » : par-volet et par-lot.
+Type « orga »   : par-projet et lots-restants.
 
 Ce script ne décide d'aucun état à la main. Il calcule tout depuis les lots :
 la couleur de chaque case, la phase, la barre, le verdict, le reste à faire.
@@ -21,7 +26,7 @@ Un même lot ne peut donc pas dire deux choses différentes sur les deux maps.
 Il refuse un fichier qui ne respecte pas les règles : lot sans source, phase
 inconnue, texte trop long. Le format complet est dans references/format-carte.md.
 
-Aucune dépendance Python. Le PNG passe par Chrome ou Edge, sans fenêtre.
+Aucune dépendance Python. Le PNG, optionnel, passe par Chrome ou Edge, sans fenêtre.
 """
 
 from __future__ import annotations
@@ -593,6 +598,63 @@ def page(titre: str, corps: str) -> str:
             f'<body><main class="page">{corps}</main></body></html>')
 
 
+# --------------------------------------------------------------------------
+# Widget : la même map, dessinée dans la conversation par show_widget
+# --------------------------------------------------------------------------
+
+# Les couleurs de la page complète, rebranchées sur celles de l'hôte : la map
+# suit le thème clair ou sombre de la conversation.
+VARIABLES_WIDGET = """.mp {
+  --fond: transparent; --carte: var(--surface-2); --bord: var(--border);
+  --encre: var(--text-primary); --doux: var(--text-secondary);
+  --pale: var(--text-muted); --piste: var(--surface-1);
+  --vert: var(--fill-success); --vert-fond: var(--bg-success);
+  --vert-texte: var(--text-success);
+  --bleu-fond: var(--bg-accent); --bleu-bord: var(--border-accent);
+  --bleu-texte: var(--text-accent);
+  --rouge-fond: var(--bg-danger); --rouge-bord: var(--border-danger);
+  --rouge-texte: var(--text-danger);
+  --gris-fond: var(--surface-1); --gris-texte: var(--text-muted);
+  color: var(--encre); font-size: 14px; line-height: 1.42; padding: 4px 0;
+}
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap; }"""
+
+
+def css_widget() -> str:
+    """Le CSS de la page, adapté aux règles du widget.
+
+    Pas de commentaire, pas de règle sur html ou body, deux graisses (400 et
+    500), rien sous 11 px, pas de défilement interne : le widget fait 680 px.
+    """
+    css = re.sub(r"/\*.*?\*/", "", CSS, flags=re.S)
+    css = re.sub(r":root\s*\{.*?\}", "", css, flags=re.S)
+    css = re.sub(r"(?m)^(\*|html|body|\.page|\.etroite)\s*\{.*?\}", "", css, flags=re.S)
+    css = re.sub(r"@media[^{]*\{.*\}\s*$", "", css, flags=re.S)
+    css = re.sub(r"font-weight:\s*(5[5-9]0|[6-9]\d\d)", "font-weight: 500", css)
+    css = re.sub(r"font-size:\s*10(\.\d+)?px", "font-size: 11px", css)
+    css = css.replace("h1 { font-size: 27px;", "h1 { font-size: 22px; font-weight: 500;")
+    css = css.replace(".titre h2 { font-size: 18.5px;",
+                      ".titre h2 { font-size: 16px; font-weight: 500;")
+    css += """
+.mp .colonnes { display: block; }
+.mp .chiffres { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.mp .matrice td.ligne, .mp .matrice col.tete { width: 150px; }
+.mp .case { font-size: 12px; }
+"""
+    return VARIABLES_WIDGET + re.sub(r"\n\s*\n+", "\n", css)
+
+
+def widget(page_html: str, resume: str) -> str:
+    """Fragment pour show_widget : un titre caché, le style, le contenu.
+
+    Pas de DOCTYPE, pas de html, head ou body : show_widget les refuse.
+    """
+    corps = re.search(r'<main class="page">(.*)</main>', page_html, flags=re.S).group(1)
+    return (f'<h2 class="sr-only">{e(resume)}</h2>'
+            f'<style>{css_widget()}</style><div class="mp">{corps}</div>')
+
+
 def legende() -> str:
     return ('<div class="legende">'
             '<span><i class="l-vert"></i>Terminé</span>'
@@ -978,7 +1040,8 @@ def main() -> int:
     parseur = argparse.ArgumentParser(description=__doc__.split("\n")[1])
     parseur.add_argument("carte", type=Path)
     parseur.add_argument("-o", "--sortie", type=Path)
-    parseur.add_argument("--sans-png", action="store_true")
+    parseur.add_argument("--png", action="store_true",
+                         help="ajoute une image PNG de chaque map (Chrome ou Edge)")
     parseur.add_argument("--verifier", action="store_true")
     options = parseur.parse_args()
 
@@ -1008,12 +1071,16 @@ def main() -> int:
     dossier.mkdir(parents=True, exist_ok=True)
     pages = rendu_projet(carte) if carte["type"] == "projet" else rendu_orga(carte)
 
-    navigateur = None if options.sans_png else trouver_navigateur()
-    if not options.sans_png and not navigateur:
+    navigateur = trouver_navigateur() if options.png else None
+    if options.png and not navigateur:
         print("Attention : ni Chrome ni Edge trouvé, pas de PNG. "
               "Indiquer le chemin dans la variable CHROME.", file=sys.stderr)
 
+    resume = f'{carte["nom"]} : {carte["verdict"]}'
     for nom, contenu in pages.items():
+        fragment = dossier / f"{nom}.widget.html"
+        fragment.write_text(widget(contenu, resume), encoding="utf-8")
+        print(fragment)
         chemin = dossier / f"{nom}.html"
         chemin.write_text(contenu, encoding="utf-8")
         print(chemin)

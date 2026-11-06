@@ -1,9 +1,9 @@
 ---
 name: map-projet
-description: À utiliser quand on veut voir d'un coup d'œil où en est un projet ou toute une organisation GitHub de plusieurs dépôts — volets (front, back, IA…), lots faits et restants, phase (cadrage, construction, pré-production, bêta, lancement), verdict. Les deux maps arrivent en images dans la conversation, téléchargeables en image ou en HTML, sans créer de dossier. Se déclenche sur « fais-moi la map du projet », « map de l'orga », « où en est ce projet », « où en sont mes projets », « état d'avancement », « map par volet », « map par lot », « quels lots il me reste ».
+description: À utiliser quand on veut voir d'un coup d'œil où en est un projet ou toute une organisation GitHub de plusieurs dépôts — volets (front, back, IA…), lots faits et restants, phase (cadrage, construction, pré-production, bêta, lancement), verdict. Les deux maps sont dessinées directement dans la conversation, avec la version HTML à télécharger, sans créer de dossier. Se déclenche sur « fais-moi la map du projet », « map de l'orga », « où en est ce projet », « où en sont mes projets », « état d'avancement », « map par volet », « map par lot », « quels lots il me reste ».
 ---
 
-# Map projet — deux images, un verdict
+# Map projet — deux maps, un verdict
 
 Tu produis **deux maps visuelles** qui disent où en est le travail.
 La map se lit en moins d'une minute. Le lecteur doit savoir ce qu'il a.
@@ -15,8 +15,9 @@ La map se lit en moins d'une minute. Le lecteur doit savoir ce qu'il a.
 
 Mode non précisé : un dossier ou un dépôt, c'est `projet`. Un nom d'orga, c'est `orga`.
 
-**Les maps se livrent dans la conversation.** Deux images à regarder, deux HTML
-à télécharger. Aucun dossier n'est créé dans le projet ni dans Documents.
+**Les maps se dessinent dans la conversation**, avec l'outil de visualisation
+en ligne (`show_widget`). Deux maps à regarder, deux HTML à télécharger. Aucun
+dossier n'est créé dans le projet ni dans Documents.
 
 ## La règle qui prime
 
@@ -197,8 +198,8 @@ le même champ `cause`, et compte une seule fois.
 Format complet : `references/format-carte.md`.
 
 **Rien ne s'écrit dans le projet ni dans Documents.** Le `carte.json` et les
-quatre fichiers produits vont dans le dossier de travail temporaire de la
-session. Ce sont les images qu'on livre, pas un chemin de dossier.
+fichiers produits vont dans le dossier de travail temporaire de la session.
+Ce sont les maps qu'on livre, pas un chemin de dossier.
 
 ```bash
 python scripts/generer_maps.py <dossier-temporaire>/carte.json --verifier
@@ -218,19 +219,32 @@ Le `verdict` donne la situation et sa cause, sans adjectif :
 
 ## 7. Contrôler, puis livrer dans la conversation
 
-Ouvrir les deux PNG et les regarder. Une image très haute est réduite à la lecture :
-recadrer par morceaux pour lire le texte. Texte coupé, carte vide, lot absent de sa
-carte ou verdict qui contredit les lots : corriger `carte.json` et régénérer.
+Le script écrit deux fichiers par map :
 
-**Les quatre fichiers partent dans la conversation**, en un seul envoi avec
-`SendUserFile` :
+| Fichier | Rôle |
+|---|---|
+| `<map>.widget.html` | fragment à dessiner dans la conversation |
+| `<map>.html` | page complète, à télécharger, avec les sources au survol |
 
-| Fichier | Envoi | Pourquoi |
-|---|---|---|
-| `par-volet.png`, `par-lot.png` | `render` | les deux maps, visibles tout de suite |
-| `par-volet.html`, `par-lot.html` | `attach` | la même chose à télécharger, avec les sources au survol |
+Pour un projet, `<map>` vaut `par-volet` puis `par-lot`. Pour une orga, `par-projet`
+puis `lots-restants`.
+
+**Dessiner les deux maps dans la conversation :**
+
+1. Charger le guide de l'outil (`read_me`, module `mockup`), sans le mentionner.
+2. Lire `par-volet.widget.html` et passer son contenu **tel quel** à `show_widget`.
+   Ne rien réécrire à la main : le script a calculé chaque couleur et chaque case.
+3. Une phrase dans la réponse, puis la seconde map de la même façon.
+4. Envoyer les deux `.html` avec `SendUserFile`, en `attach`.
 
 Ne jamais répondre avec un chemin de dossier à ouvrir.
+
+Sans outil de visualisation dans la session : envoyer les deux `.html` avec
+`SendUserFile` en `render`. Seulement si l'utilisateur demande une image :
+relancer avec `--png` (Chrome ou Edge nécessaire) et envoyer les PNG.
+
+Relire la map dessinée : texte coupé, carte vide, lot absent de sa carte ou
+verdict qui contredit les lots, corriger `carte.json` et régénérer.
 
 Réponse à l'utilisateur, dans cet ordre :
 
@@ -242,7 +256,9 @@ Réponse à l'utilisateur, dans cet ordre :
 
 | Erreur | Correction |
 |---|---|
-| Map rangée dans un dossier, chemin donné en réponse | Les images partent dans la conversation |
+| Map rangée dans un dossier, chemin donné en réponse | Les maps se dessinent dans la conversation |
+| Map envoyée en image ou en fichier alors que `show_widget` est là | Dessiner le `.widget.html` avec `show_widget` |
+| Fragment retouché à la main avant `show_widget` | Le passer tel quel ; corriger `carte.json` et régénérer |
 | Map construite depuis le code seul | Lire le plan, et montrer l'écart entre les deux |
 | Ce que l'utilisateur veut ajouter n'est pas dans la map | Sa demande est du plan : un lot, avec la date en source |
 | Volets copiés de l'exemple front, back, IA | Partir des dossiers et des documents du projet |

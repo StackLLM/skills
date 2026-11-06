@@ -2,6 +2,11 @@
 
 Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) · versions : [SemVer](https://semver.org/lang/fr/). Le détail de chaque Skill est dans son propre `CHANGELOG.md`.
 
+## [0.3.1] — 2026-11-06
+
+### Modifié
+- **Map projet** 0.3.0 : les maps sont dessinées directement dans la conversation, sans Chrome ni Edge.
+
 ## [0.3.0] — 2026-11-06
 
 ### Ajouté

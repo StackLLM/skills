@@ -78,8 +78,8 @@
     {
       "name": "map-projet",
       "source": "./gestion-projet/map-projet",
-      "description": "Map projet : deux maps visuelles d'un projet ou d'une organisation (volets, lots, phases, verdict), livrées dans la conversation.",
-      "version": "0.2.0",
+      "description": "Map projet : deux maps d'un projet ou d'une organisation (volets, lots, phases, verdict), dessinées dans la conversation.",
+      "version": "0.3.0",
       "category": "gestion-projet"
     },
     {
