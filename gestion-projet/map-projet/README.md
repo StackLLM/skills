@@ -1,6 +1,6 @@
 # Map projet
 
-> Skill StackLLM · v0.3.0 · usage interne, pas encore commercialisée
+> Skill StackLLM · v0.4.0 · usage interne, pas encore commercialisée
 
 **« On est où ? » — deux maps et un verdict.**
 
@@ -25,6 +25,7 @@ Les phases : Cadrage, Construction, Pré-production, Bêta, Lancement.
 - **Compare** le plan et l'application réelle.
 - **Chaque lot porte sa source** : fichier, commit, ticket ou demande datée. Sans preuve, le lot passe « à confirmer ». Le script refuse un lot sans source.
 - **Le script calcule** les couleurs, la phase, l'avancement et le verdict. Rien n'est estimé à la main.
+- **1, 2 ou 3 colonnes** : trois boutons au-dessus des cartes, ou « en 3 colonnes » dans la demande.
 - **Lecture seule** : rien n'est modifié, l'application n'est pas lancée, aucun `.env` n'est ouvert.
 
 ## Pour qui
@@ -71,7 +72,7 @@ Dans Claude Code :
 cd scripts && python3 test_generer_maps.py
 ```
 
-37 tests : contrôle de la carte, calculs, rendu, fragment pour la conversation.
+38 tests : contrôle de la carte, calculs, rendu, fragment pour la conversation, colonnes.
 
 ## Contenu
 

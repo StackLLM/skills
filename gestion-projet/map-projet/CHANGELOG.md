@@ -2,6 +2,16 @@
 
 Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) · versions : [SemVer](https://semver.org/lang/fr/).
 
+## [0.4.0] — 2026-11-06
+
+### Ajouté
+- Choix du nombre de colonnes : trois boutons 1, 2, 3 au-dessus des cartes, dans la conversation, sans régénérer. Les cartes gardent leur ordre de lecture.
+- Option `--colonnes 1|2|3` : nombre de colonnes à l'ouverture, dans la conversation et dans le HTML.
+- Test du choix des colonnes (38 tests).
+
+### Corrigé
+- La 0.3.0 forçait une seule colonne dans la conversation. La map s'ouvre maintenant en 2 colonnes.
+
 ## [0.3.0] — 2026-11-06
 
 ### Modifié

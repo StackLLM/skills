@@ -204,6 +204,7 @@ Ce sont les maps qu'on livre, pas un chemin de dossier.
 ```bash
 python scripts/generer_maps.py <dossier-temporaire>/carte.json --verifier
 python scripts/generer_maps.py <dossier-temporaire>/carte.json
+python scripts/generer_maps.py <dossier-temporaire>/carte.json --colonnes 3   # si demandé
 ```
 
 Le script refuse la carte tant qu'une règle n'est pas respectée. Corriger et relancer.
@@ -238,6 +239,11 @@ puis `lots-restants`.
 4. Envoyer les deux `.html` avec `SendUserFile`, en `attach`.
 
 Ne jamais répondre avec un chemin de dossier à ouvrir.
+
+**Colonnes.** Au-dessus des cartes, trois boutons font passer la map en 1, 2 ou
+3 colonnes, sans régénérer. Elle s'ouvre en 2 colonnes. Si l'utilisateur demande
+un nombre précis (« en 3 colonnes »), régénérer avec `--colonnes 3` : la map
+s'ouvre alors en 3 colonnes, et le HTML à télécharger aussi.
 
 Sans outil de visualisation dans la session : envoyer les deux `.html` avec
 `SendUserFile` en `render`. Seulement si l'utilisateur demande une image :

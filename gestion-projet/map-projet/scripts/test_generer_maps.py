@@ -223,6 +223,18 @@ class Rendu(unittest.TestCase):
         self.assertIn('<div class="mp">', w)
         self.assertIn("Cadrage", w)
 
+    def test_choix_des_colonnes(self):
+        c = carte(volet("A", lot("Cadrage", "fait")), volet("B", lot("Cadrage", "fait")))
+        self.assertIn('data-n="3"', g.rendu_projet(copy.deepcopy(c))["par-volet"])
+        self.assertIn('data-n="1"', g.rendu_projet(copy.deepcopy(c), 1)["par-volet"])
+        page = g.rendu_projet(copy.deepcopy(c))["par-volet"]
+        self.assertIn('data-i="0"', page)
+        self.assertIn('data-i="1"', page)
+        w = g.widget(page, "r", 2)
+        self.assertIn('<section class="colonnes" data-n="2">', w)
+        for n in (1, 2, 3):
+            self.assertIn(f'data-n="{n}" aria-pressed', w)
+
 
 if __name__ == "__main__":
     unittest.main()

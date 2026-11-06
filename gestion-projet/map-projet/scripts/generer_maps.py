@@ -4,6 +4,7 @@ generer_maps.py — transforme un fichier carte.json en deux maps visuelles.
 
     python generer_maps.py carte.json                 # widgets + HTML à côté du JSON
     python generer_maps.py carte.json -o dossier/     # ailleurs
+    python generer_maps.py carte.json --colonnes 3    # cartes sur 3 colonnes
     python generer_maps.py carte.json --png           # en plus, PNG (Chrome ou Edge)
     python generer_maps.py carte.json --verifier      # contrôle, sans rien écrire
 
@@ -583,12 +584,16 @@ def repartir(cartes: list[tuple[str, float]], nombre: int) -> str:
     """
     colonnes: list[list[str]] = [[] for _ in range(nombre)]
     hauteurs = [0.0] * nombre
-    for contenu, poids in cartes:
+    for rang, (contenu, poids) in enumerate(cartes):
+        # data-i garde l'ordre de lecture : le widget s'en sert pour
+        # redistribuer les cartes quand on change le nombre de colonnes.
+        contenu = contenu.replace('<article class="bloc"',
+                                  f'<article class="bloc" data-i="{rang}"', 1)
         i = hauteurs.index(min(hauteurs))
         colonnes[i].append(contenu)
         hauteurs[i] += poids
     corps = "".join(f'<div class="colonne">{"".join(c)}</div>' for c in colonnes)
-    return f'<section class="colonnes">{corps}</section>'
+    return f'<section class="colonnes" data-n="{nombre}">{corps}</section>'
 
 
 def page(titre: str, corps: str) -> str:
@@ -637,7 +642,11 @@ def css_widget() -> str:
     css = css.replace(".titre h2 { font-size: 18.5px;",
                       ".titre h2 { font-size: 16px; font-weight: 500;")
     css += """
-.mp .colonnes { display: block; }
+.mp .reglage { display: flex; align-items: center; gap: 6px; margin: 0 0 12px;
+  font-size: 13px; color: var(--doux); }
+.mp .reglage button { min-width: 34px; padding: 2px 10px; font-size: 13px; }
+.mp .reglage button[aria-pressed="true"] { border-color: var(--border-accent);
+  color: var(--text-accent); background: var(--bg-accent); }
 .mp .chiffres { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .mp .matrice td.ligne, .mp .matrice col.tete { width: 150px; }
 .mp .case { font-size: 12px; }
@@ -645,14 +654,58 @@ def css_widget() -> str:
     return VARIABLES_WIDGET + re.sub(r"\n\s*\n+", "\n", css)
 
 
-def widget(page_html: str, resume: str) -> str:
+# Redistribue les cartes dans 1, 2 ou 3 colonnes, dans l'ordre de lecture,
+# chaque carte dans la colonne la plus courte : même règle que repartir().
+SCRIPT_COLONNES = """<script>
+(function () {
+  var sec = document.querySelector('.mp .colonnes');
+  if (!sec) return;
+  var cartes = Array.prototype.slice.call(sec.querySelectorAll('.bloc'))
+    .sort(function (a, b) { return a.dataset.i - b.dataset.i; });
+  var boutons = document.querySelectorAll('.mp .reglage button');
+  function poser(n) {
+    sec.innerHTML = '';
+    var cols = [];
+    for (var k = 0; k < n; k++) {
+      var c = document.createElement('div');
+      c.className = 'colonne';
+      sec.appendChild(c);
+      cols.push(c);
+    }
+    cartes.forEach(function (carte) {
+      var courte = cols.reduce(function (a, b) {
+        return b.offsetHeight < a.offsetHeight ? b : a;
+      });
+      courte.appendChild(carte);
+    });
+    boutons.forEach(function (b) {
+      b.setAttribute('aria-pressed', String(Number(b.dataset.n) === n));
+    });
+  }
+  boutons.forEach(function (b) {
+    b.addEventListener('click', function () { poser(Number(b.dataset.n)); });
+  });
+  poser(Number(sec.dataset.n));
+})();
+</script>"""
+
+
+def widget(page_html: str, resume: str, colonnes: int = 2) -> str:
     """Fragment pour show_widget : un titre caché, le style, le contenu.
 
     Pas de DOCTYPE, pas de html, head ou body : show_widget les refuse.
+    Au-dessus des cartes, trois boutons pour passer en 1, 2 ou 3 colonnes.
     """
     corps = re.search(r'<main class="page">(.*)</main>', page_html, flags=re.S).group(1)
+    reglage = ('<div class="reglage">Colonnes'
+               + "".join(f'<button type="button" data-n="{n}" aria-pressed="false">'
+                         f'{n}</button>' for n in (1, 2, 3))
+               + '</div>')
+    corps = re.sub(r'<section class="colonnes" data-n="\d+">',
+                   f'{reglage}<section class="colonnes" data-n="{colonnes}">', corps, count=1)
     return (f'<h2 class="sr-only">{e(resume)}</h2>'
-            f'<style>{css_widget()}</style><div class="mp">{corps}</div>')
+            f'<style>{css_widget()}</style><div class="mp">{corps}</div>'
+            f'{SCRIPT_COLONNES}')
 
 
 def legende() -> str:
@@ -914,7 +967,7 @@ def poids_lots(el: dict, restants_seuls: bool) -> float:
     return 7 + 1.8 * len(lots) + 1.4 * groupes
 
 
-def rendu_projet(carte: dict) -> dict[str, str]:
+def rendu_projet(carte: dict, colonnes: int | None = None) -> dict[str, str]:
     volets = trier(carte)
     date_carte = carte["date"]
     rang = phase_projet(volets)
@@ -927,17 +980,17 @@ def rendu_projet(carte: dict) -> dict[str, str]:
     t = totaux(volets)
     par_volet = (tete + chiffres(t, "volets") + matrice(volets) + legende()
                  + repartir([(carte_synthese(v, date_carte), poids_synthese(v))
-                             for v in volets], 3))
+                             for v in volets], colonnes or 3))
     par_lot = (tete + legende()
                + repartir([(carte_lots(v, date_carte, False), poids_lots(v, False))
-                           for v in volets], 2))
+                           for v in volets], colonnes or 2))
     return {
         "par-volet": page(f'{carte["nom"]} — par volet', par_volet),
         "par-lot": page(f'{carte["nom"]} — par lot', par_lot),
     }
 
 
-def rendu_orga(carte: dict) -> dict[str, str]:
+def rendu_orga(carte: dict, colonnes: int | None = None) -> dict[str, str]:
     projets = trier(carte)
     date_carte = carte["date"]
     sous_titre = carte.get("sous_titre") or "Map de l'organisation"
@@ -955,10 +1008,10 @@ def rendu_orga(carte: dict) -> dict[str, str]:
     par_projet = (tete + chiffres(t, "projets") + matrice(projets) + legende()
                   + repartir([(carte_synthese(p, date_carte, LOTS_EN_TITRES),
                                poids_synthese(p, LOTS_EN_TITRES))
-                              for p in projets], 3))
+                              for p in projets], colonnes or 3))
     restants = (tete + legende()
                 + repartir([(carte_lots(p, date_carte, True), poids_lots(p, True))
-                            for p in projets], 3))
+                            for p in projets], colonnes or 3))
     return {
         "par-projet": page(f'{carte["nom"]} — par projet', par_projet),
         "lots-restants": page(f'{carte["nom"]} — lots restants', restants),
@@ -1040,6 +1093,9 @@ def main() -> int:
     parseur = argparse.ArgumentParser(description=__doc__.split("\n")[1])
     parseur.add_argument("carte", type=Path)
     parseur.add_argument("-o", "--sortie", type=Path)
+    parseur.add_argument("--colonnes", type=int, choices=(1, 2, 3),
+                         help="nombre de colonnes de cartes (défaut : 2 dans la "
+                              "conversation ; 3 par volet et 2 par lot en HTML)")
     parseur.add_argument("--png", action="store_true",
                          help="ajoute une image PNG de chaque map (Chrome ou Edge)")
     parseur.add_argument("--verifier", action="store_true")
@@ -1069,7 +1125,8 @@ def main() -> int:
 
     dossier = options.sortie or options.carte.resolve().parent
     dossier.mkdir(parents=True, exist_ok=True)
-    pages = rendu_projet(carte) if carte["type"] == "projet" else rendu_orga(carte)
+    rendu = rendu_projet if carte["type"] == "projet" else rendu_orga
+    pages = rendu(carte, options.colonnes)
 
     navigateur = trouver_navigateur() if options.png else None
     if options.png and not navigateur:
@@ -1079,7 +1136,8 @@ def main() -> int:
     resume = f'{carte["nom"]} : {carte["verdict"]}'
     for nom, contenu in pages.items():
         fragment = dossier / f"{nom}.widget.html"
-        fragment.write_text(widget(contenu, resume), encoding="utf-8")
+        fragment.write_text(widget(contenu, resume, options.colonnes or 2),
+                            encoding="utf-8")
         print(fragment)
         chemin = dossier / f"{nom}.html"
         chemin.write_text(contenu, encoding="utf-8")
