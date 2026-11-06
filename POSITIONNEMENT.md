@@ -23,8 +23,9 @@ Ce qu'elles apportent, toutes ensemble :
 | Security Auditor | freelances, PME, startups | pas d'audit avant la prod | constats triés par criticité et confiance, avec correction | revue avant mise en production | B+ : scripts + exemple | ne remplace pas un pentest |
 | Deployment Advisor | devs non spécialistes infra | pannes découvertes en production | pièges détectés tôt, architectures chiffrées, checklists | premier déploiement, migration | B+ : scripts + exemple | ne déploie rien ; coûts indicatifs |
 | Docs Premium | freelances, agences, équipes produit | documentation tardive et hétérogène | livrables homogènes, fondés sur le vrai projet | fiche technique, guide, rapport client | B : méthode complète | captures réelles requises pour le guide |
-| Roadmap projets | fondateurs, responsables produit, devs qui pilotent plusieurs projets | l'état réel se perd entre plans, lots, README et Git | une image de l'avancement, les validations en attente, les décalages repérés | point sur une organisation, reprise d'un projet | B : testée sur StackLLM et MySalary | vaut ce que valent les documents du projet ; ne modifie rien |
+| Map projet | fondateurs, responsables produit, devs qui pilotent plusieurs projets | l'état réel se perd entre plans, lots, README et Git | deux maps de l'avancement, chaque lot avec sa source, un verdict calculé | point sur une organisation, reprise d'un projet | A : scripts + 36 tests | vaut ce que valent les documents du projet ; ne modifie rien |
 | cv-ats | candidats, recruteurs, coachs | CV mal lus par les ATS | 3 PDF contrôlés, sans fait inventé | refonte de CV, accompagnement carrière | A : scripts + 6 tests | macOS uniquement |
+| Technical Mentor | développeurs qui préparent un entretien ou veulent maîtriser une notion | savoir nommer une technologie sans savoir la faire ni la défendre | une fiche HTML : mécanisme, mise en œuvre, compromis, questions d'expert | préparation d'entretien, montée en compétence | B+ : scripts de contrôle des fiches | dépend de la recherche disponible ; pas de test de la Skill |
 
 Maturité : **A** = scripts et cas ou tests validés · **B** = méthode complète sans test automatique.
 

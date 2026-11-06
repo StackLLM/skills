@@ -13,6 +13,13 @@
       "category": "carriere"
     },
     {
+      "name": "technical-mentor",
+      "source": "./carriere/technical-mentor",
+      "description": "Technical Mentor : une notion technique mal maîtrisée devient une fiche HTML pour la comprendre, la mettre en œuvre et la défendre en entretien.",
+      "version": "0.2.0",
+      "category": "carriere"
+    },
+    {
       "name": "explainer",
       "source": "./commun/explainer",
       "description": "Explainer : charte d'écriture partagée, français simple et réponse directe.",
@@ -69,10 +76,10 @@
       "category": "frontend"
     },
     {
-      "name": "roadmap-projets",
-      "source": "./gestion-projet/roadmap-projets",
-      "description": "Roadmap visuel d'une organisation ou d'un projet, volet par volet : ce qui avance, ce qui attend une action, les décalages à corriger.",
-      "version": "0.1.0",
+      "name": "map-projet",
+      "source": "./gestion-projet/map-projet",
+      "description": "Map projet : deux maps visuelles d'un projet ou d'une organisation (volets, lots, phases, verdict), livrées dans la conversation.",
+      "version": "0.2.0",
       "category": "gestion-projet"
     },
     {

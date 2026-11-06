@@ -1,6 +1,6 @@
 # StackLLM Skills
 
-> Dépôt privé · v0.1.0 · aucune Skill n'est encore commercialisée
+> Dépôt privé · v0.3.0 · aucune Skill n'est encore commercialisée
 
 Les Skills StackLLM sont des **outils d'automatisation spécialisés pour Claude Code**. Chacune prend en charge un travail complet, de l'analyse jusqu'au livrable vérifié. Elle suit une méthode fixe et passe des contrôles avant de livrer.
 
@@ -8,7 +8,7 @@ Ce ne sont pas de simples prompts. Une Skill embarque des instructions d'exécut
 
 ## La gamme
 
-12 Skills en 6 catégories.
+13 Skills en 6 catégories.
 
 ### Frontend — reproduire une interface ou une interaction
 
@@ -42,13 +42,14 @@ Quatre Skills qui partagent la charte Forêt. Présentation commune : [documenta
 
 | Skill | Entrée → sortie | Maturité |
 |---|---|---|
-| [**Roadmap projets**](gestion-projet/roadmap-projets/) | organisation ou projet → roadmap visuel, ce qui avance, actions à faire, décalages | B |
+| [**Map projet**](gestion-projet/map-projet/) | organisation ou projet → deux maps (volets, lots, phases) et un verdict | A |
 
 ### Carrière
 
 | Skill | Entrée → sortie | Maturité |
 |---|---|---|
 | [**cv-ats**](carriere/cv-ats/) | ancien CV → 3 PDF compatibles ATS, contrôlés | A |
+| [**Technical Mentor**](carriere/technical-mentor/) | notion mal maîtrisée → fiche HTML pour la comprendre, la faire et la défendre en entretien | B+ |
 
 ### Commun
 
@@ -71,7 +72,7 @@ cd ~/stackllm/skills
 ./install.sh cloneme cv-ats      # seulement celles-ci
 ```
 
-Les noms à passer sont ceux déclarés dans chaque `SKILL.md` : `cloneme`, `ui-stealer`, `animation-stealer`, `security-auditor`, `deployment-devops-advisor`, `pdf-premium`, `fiche-technique`, `guide-utilisateur`, `diagram-premium`, `roadmap-projets`, `cv-ats`, `explainer`.
+Les noms à passer sont ceux déclarés dans chaque `SKILL.md` : `cloneme`, `ui-stealer`, `animation-stealer`, `security-auditor`, `deployment-devops-advisor`, `pdf-premium`, `fiche-technique`, `guide-utilisateur`, `diagram-premium`, `map-projet`, `cv-ats`, `technical-mentor`, `explainer`.
 
 Le script ne remplace jamais un dossier existant qui n'est pas un lien vers ce dépôt. Autre dossier cible : `CLAUDE_SKILLS_DIR=/chemin ./install.sh`.
 
@@ -82,10 +83,10 @@ Le dépôt est aussi un marketplace de plugins Claude Code (`.claude-plugin/mark
 ```bash
 gh auth login && gh auth setup-git      # une fois : le dépôt est privé
 /plugin marketplace add StackLLM/skills
-/plugin install roadmap-projets --marketplace StackLLM/skills
+/plugin install map-projet --marketplace StackLLM/skills
 ```
 
-Les 12 Skills sont des plugins, au même nom que leur Skill : `cloneme`, `ui-stealer`, `animation-stealer`, `security-auditor`, `deployment-devops-advisor`, `pdf-premium`, `fiche-technique`, `guide-utilisateur`, `diagram-premium`, `roadmap-projets`, `cv-ats`, `explainer`.
+Les 13 Skills sont des plugins, au même nom que leur Skill : `cloneme`, `ui-stealer`, `animation-stealer`, `security-auditor`, `deployment-devops-advisor`, `pdf-premium`, `fiche-technique`, `guide-utilisateur`, `diagram-premium`, `map-projet`, `cv-ats`, `technical-mentor`, `explainer`.
 
 Deux précautions :
 
@@ -113,8 +114,8 @@ skills/
 ├── frontend/            cloneme · ui-stealer · animation-stealer
 ├── qualite-production/  security-auditor · deploy-advisor
 ├── documentation/       pdf-premium · fiche-technique · guide-utilisateur · diagram-premium
-├── gestion-projet/      roadmap-projets
-├── carriere/            cv-ats
+├── gestion-projet/      map-projet
+├── carriere/            cv-ats · technical-mentor
 └── commun/              explainer
 ```
 

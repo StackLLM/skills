@@ -1,0 +1,7 @@
+{
+  "name": "technical-mentor",
+  "version": "0.2.0",
+  "description": "Technical Mentor : une notion technique mal maîtrisée devient une fiche HTML pour la comprendre, la mettre en œuvre et la défendre en entretien.",
+  "author": { "name": "StackLLM" },
+  "license": "UNLICENSED"
+}

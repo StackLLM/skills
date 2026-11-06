@@ -2,6 +2,15 @@
 
 Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) · versions : [SemVer](https://semver.org/lang/fr/). Le détail de chaque Skill est dans son propre `CHANGELOG.md`.
 
+## [0.3.0] — 2026-11-06
+
+### Ajouté
+- Skill **Technical Mentor** (catégorie `carriere/`) : une notion technique mal maîtrisée devient une fiche HTML pour la comprendre, la mettre en œuvre et la défendre en entretien.
+- Skill **Map projet** (catégorie `gestion-projet/`) : deux maps visuelles d'un projet ou d'une organisation, avec scripts de collecte et de rendu et 36 tests.
+
+### Retiré
+- Skill **Roadmap projets**, remplacée par Map projet.
+
 ## [0.2.0] — 2026-11-05
 
 ### Ajouté
