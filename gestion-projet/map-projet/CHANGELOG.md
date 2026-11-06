@@ -2,6 +2,14 @@
 
 Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) · versions : [SemVer](https://semver.org/lang/fr/).
 
+## [0.4.1] — 2026-11-06
+
+### Corrigé
+- Commandes en `python3` : `python` n'existe pas sur macOS. Le dossier des scripts est donné par `$SKILL`, le dossier de la skill.
+- Le tableau des phases dépassait de 10 px à droite dans la conversation.
+- En 3 colonnes, les cartes étroites passent en mode compact : noms de phases raccourcis, pastilles sous le titre du lot. Plus aucun texte ne déborde.
+- Sur un écran étroit (téléphone), la map prend moins de colonnes que demandé (200 px au moins par colonne) et le tableau des phases défile à l'horizontale.
+
 ## [0.4.0] — 2026-11-06
 
 ### Ajouté

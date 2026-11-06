@@ -1,6 +1,6 @@
 # StackLLM Skills
 
-> Dépôt privé · v0.3.2 · aucune Skill n'est encore commercialisée
+> Dépôt privé · v0.3.3 · aucune Skill n'est encore commercialisée
 
 Les Skills StackLLM sont des **outils d'automatisation spécialisés pour Claude Code**. Chacune prend en charge un travail complet, de l'analyse jusqu'au livrable vérifié. Elle suit une méthode fixe et passe des contrôles avant de livrer.
 

@@ -2,6 +2,11 @@
 
 Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) · versions : [SemVer](https://semver.org/lang/fr/). Le détail de chaque Skill est dans son propre `CHANGELOG.md`.
 
+## [0.3.3] — 2026-11-06
+
+### Corrigé
+- **Map projet** 0.4.1 : commandes en `python3`, rendu sans débordement en 3 colonnes et sur téléphone.
+
 ## [0.3.2] — 2026-11-06
 
 ### Modifié

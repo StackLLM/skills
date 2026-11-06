@@ -2,11 +2,11 @@
 """
 generer_maps.py — transforme un fichier carte.json en deux maps visuelles.
 
-    python generer_maps.py carte.json                 # widgets + HTML à côté du JSON
-    python generer_maps.py carte.json -o dossier/     # ailleurs
-    python generer_maps.py carte.json --colonnes 3    # cartes sur 3 colonnes
-    python generer_maps.py carte.json --png           # en plus, PNG (Chrome ou Edge)
-    python generer_maps.py carte.json --verifier      # contrôle, sans rien écrire
+    python3 generer_maps.py carte.json                 # widgets + HTML à côté du JSON
+    python3 generer_maps.py carte.json -o dossier/     # ailleurs
+    python3 generer_maps.py carte.json --colonnes 3    # cartes sur 3 colonnes
+    python3 generer_maps.py carte.json --png           # en plus, PNG (Chrome ou Edge)
+    python3 generer_maps.py carte.json --verifier      # contrôle, sans rien écrire
 
 Les fichiers vont là où est le carte.json. Les maps se dessinent dans la
 conversation, pas dans un dossier du projet : écrire le carte.json dans le
@@ -648,14 +648,31 @@ def css_widget() -> str:
 .mp .reglage button[aria-pressed="true"] { border-color: var(--border-accent);
   color: var(--text-accent); background: var(--bg-accent); }
 .mp .chiffres { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.mp .matrice { margin: 0 0 4px; width: 100%; border-spacing: 6px 8px; }
 .mp .matrice td.ligne, .mp .matrice col.tete { width: 150px; }
 .mp .case { font-size: 12px; }
+.mp .etroit { gap: 12px; }
+.mp .etroit .bloc { padding: 14px 14px; margin-bottom: 12px; }
+.mp .etroit .mini-noms span { overflow: hidden; text-overflow: ellipsis;
+  white-space: nowrap; }
+.mp .etroit .lot { flex-direction: column; align-items: flex-start; gap: 4px; }
+.mp .etroit .pastille { width: auto; padding: 2px 8px; font-size: 12px; }
+.mp .etroit .tag { white-space: normal; }
+@media (max-width: 560px) {
+  .mp .defile { overflow-x: auto; }
+  .mp .matrice { min-width: 560px; }
+  .mp .frise { grid-template-columns: repeat(5, minmax(0, 1fr)); font-size: 12px; }
+  .mp .etape { font-size: 12px; padding: 8px 4px; }
+  .mp .entete { flex-direction: column; gap: 4px; }
+}
 """
     return VARIABLES_WIDGET + re.sub(r"\n\s*\n+", "\n", css)
 
 
 # Redistribue les cartes dans 1, 2 ou 3 colonnes, dans l'ordre de lecture,
 # chaque carte dans la colonne la plus courte : même règle que repartir().
+# Une colonne fait au moins 200 px : sur un écran étroit
+# (téléphone), la map prend moins de colonnes que demandé.
 SCRIPT_COLONNES = """<script>
 (function () {
   var sec = document.querySelector('.mp .colonnes');
@@ -664,7 +681,9 @@ SCRIPT_COLONNES = """<script>
     .sort(function (a, b) { return a.dataset.i - b.dataset.i; });
   var boutons = document.querySelectorAll('.mp .reglage button');
   function poser(n) {
+    n = Math.max(1, Math.min(n, Math.floor((sec.clientWidth + 20) / 220)));
     sec.innerHTML = '';
+    sec.classList.toggle('etroit', sec.clientWidth / n < 300);
     var cols = [];
     for (var k = 0; k < n; k++) {
       var c = document.createElement('div');

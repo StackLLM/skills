@@ -38,16 +38,21 @@ La map observe. Les projets restent intacts :
 
 ## 1. Collecter
 
+Dans les commandes, `$SKILL` est le dossier de cette skill : celui qui contient
+ce `SKILL.md` (« Base directory » au chargement de la skill). Les commandes
+tournent depuis le projet de l'utilisateur, pas depuis ce dossier. Toujours
+`python3` : `python` n'existe pas sur macOS.
+
 **Projet :**
 
 ```bash
-python scripts/collecter_projet.py <chemin> -o inventaire.json
+python3 "$SKILL"/scripts/collecter_projet.py <chemin> -o inventaire.json
 ```
 
 **Orga :**
 
 ```bash
-python scripts/collecter_orga.py <orga> --racine <dossier-des-clones> -o inventaire-orga.json
+python3 "$SKILL"/scripts/collecter_orga.py <orga> --racine <dossier-des-clones> -o inventaire-orga.json
 ```
 
 Le script dit où chercher. Il ne remplace pas la lecture.
@@ -202,9 +207,9 @@ fichiers produits vont dans le dossier de travail temporaire de la session.
 Ce sont les maps qu'on livre, pas un chemin de dossier.
 
 ```bash
-python scripts/generer_maps.py <dossier-temporaire>/carte.json --verifier
-python scripts/generer_maps.py <dossier-temporaire>/carte.json
-python scripts/generer_maps.py <dossier-temporaire>/carte.json --colonnes 3   # si demandé
+python3 "$SKILL"/scripts/generer_maps.py <dossier-temporaire>/carte.json --verifier
+python3 "$SKILL"/scripts/generer_maps.py <dossier-temporaire>/carte.json
+python3 "$SKILL"/scripts/generer_maps.py <dossier-temporaire>/carte.json --colonnes 3   # si demandé
 ```
 
 Le script refuse la carte tant qu'une règle n'est pas respectée. Corriger et relancer.

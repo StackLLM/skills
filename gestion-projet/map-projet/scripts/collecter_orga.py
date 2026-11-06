@@ -2,8 +2,8 @@
 """
 collecter_orga.py — fait l'inventaire de tous les dépôts d'une organisation GitHub.
 
-    python collecter_orga.py StackLLM -o inventaire-orga.json
-    python collecter_orga.py StackLLM --racine ~/Documents/Developer
+    python3 collecter_orga.py StackLLM -o inventaire-orga.json
+    python3 collecter_orga.py StackLLM --racine ~/Documents/Developer
 
 Pour chaque dépôt, sans rien cloner : dernière activité, tickets, jalons,
 dernière version publiée, documents de suivi, fichiers de test et de déploiement.

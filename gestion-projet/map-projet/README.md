@@ -1,6 +1,6 @@
 # Map projet
 
-> Skill StackLLM · v0.4.0 · usage interne, pas encore commercialisée
+> Skill StackLLM · v0.4.1 · usage interne, pas encore commercialisée
 
 **« On est où ? » — deux maps et un verdict.**
 
@@ -56,7 +56,7 @@ Dans Claude Code :
 
 ## Prérequis
 
-- Python 3, bibliothèque standard seulement.
+- Python 3.9 ou plus (`python3`), bibliothèque standard seulement.
 - `gh` authentifié pour lire une organisation GitHub.
 - Claude Code avec l'outil de visualisation en ligne (`show_widget`). Sans lui, les maps arrivent en fichiers HTML.
 - Seulement pour une image PNG (option `--png`) : Chrome ou Edge. Autre chemin : variable `CHROME`.

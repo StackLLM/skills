@@ -2,7 +2,7 @@
 """
 collecter_projet.py — fait l'inventaire d'un projet local, pour bâtir sa map.
 
-    python collecter_projet.py chemin/du/projet -o inventaire.json
+    python3 collecter_projet.py chemin/du/projet -o inventaire.json
 
 Ce script ne juge rien. Il dit où chercher :
 - l'activité git (dernier commit, tags, branches) ;

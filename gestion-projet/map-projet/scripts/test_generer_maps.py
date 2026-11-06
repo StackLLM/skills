@@ -1,4 +1,4 @@
-"""Tests du générateur : python -m unittest test_generer_maps (depuis scripts/)."""
+"""Tests du générateur : python3 -m unittest test_generer_maps (depuis scripts/)."""
 
 import copy
 import re
