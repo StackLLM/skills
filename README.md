@@ -99,6 +99,14 @@ Deux précautions :
 cd ~/stackllm/skills && git pull
 ```
 
+Après une modification, une seule commande publie et met à jour les plugins installés :
+
+```bash
+./publier.sh "message du commit"
+```
+
+Elle valide le marketplace et chaque plugin, committe, pousse sur chaque URL de push d'`origin`, puis met à jour le marketplace `stackllm-skills` et les plugins installés.
+
 Les liens suivent automatiquement. Les changements de la gamme sont dans [CHANGELOG.md](CHANGELOG.md), ceux de chaque Skill dans son propre `CHANGELOG.md`.
 
 ## Organisation du dépôt
@@ -111,6 +119,7 @@ skills/
 ├── CHANGELOG.md         versions de la gamme
 ├── LICENSE              licence propriétaire + composants tiers
 ├── install.sh           installation dans ~/.claude/skills
+├── publier.sh           commit, push et mise à jour des plugins
 ├── frontend/            cloneme · ui-stealer · animation-stealer
 ├── qualite-production/  security-auditor · deploy-advisor
 ├── documentation/       pdf-premium · fiche-technique · guide-utilisateur · diagram-premium
