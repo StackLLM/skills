@@ -96,7 +96,7 @@ le résultat par mail.
 ## 4. La livraison vers main
 
 ```bash
-# sur la branche de recette, quand ce qui doit partir est fini et vérifié
+# sur la branche de recette, quand la phase est finie et vérifiée
 git switch dev; git pull
 git commit --allow-empty -m "livraison"
 git push

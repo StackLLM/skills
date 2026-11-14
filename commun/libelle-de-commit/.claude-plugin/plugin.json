@@ -1,6 +1,6 @@
 {
   "name": "libelle-de-commit",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Libellé de commit : propose après chaque changement un libellé « préfixe: type de livraison — objectif » et la commande prête à coller, sans jamais committer.",
   "author": {
     "name": "StackLLM"

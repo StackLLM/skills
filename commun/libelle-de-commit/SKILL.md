@@ -139,17 +139,21 @@ Trois conditions, sinon **un seul libellé** :
 Quand on retombe sur un seul libellé, il porte le type de **ce qui a le plus de
 valeur** dans la livraison, et l'objectif peut nommer le reste.
 
-## 4. Fermer la livraison
+## 4. Le commit « livraison » : la fin d'une phase
 
-Si l'équipe borne ses livraisons par un commit vide « livraison », le rappeler
-en une ligne sous le libellé quand la réponse termine un lot — le travail est
-poussé, la livraison est complète :
+Le commit vide `livraison` se pose **quand une phase est finie** : il la fait
+passer en version de production (branche `dev` → `main`). Ce n'est pas un
+commit de fin de lot, ni de fin de réponse.
+
+C'est **la décision du dev**. Ne jamais le proposer de soi-même sous un
+libellé. Seulement si le dev dit que la phase est finie, lui rappeler les
+commandes, sur la branche de recette :
 
 ```bash
-git commit --allow-empty -m "livraison"
+git switch dev; git pull; git commit --allow-empty -m "livraison"; git push
 ```
 
-Jamais au milieu d'un travail en cours.
+Puis, CI verte, le script de livraison du projet (`livrer`) pousse vers `main`.
 
 ## 5. Exemples
 
@@ -184,3 +188,4 @@ Jamais au milieu d'un travail en cours.
 | **Deux blocs `git add -A; git commit` à la suite** | le premier prend tout : un commit, au mauvais type, et le second échoue |
 | Les mots « sans valeur » ou « norme du métier » dans un libellé qui livre | ils font passer une livraison pour du rangement |
 | Oublier la section après un changement | la trace se perd, le dev tape `update` |
+| Proposer `livraison` sous un libellé ordinaire | il met une phase en production : c'est la décision du dev, à la fin d'une phase |

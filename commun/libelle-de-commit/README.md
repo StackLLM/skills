@@ -1,6 +1,6 @@
 # Libellé de commit
 
-> Skill StackLLM · v0.1.0 · usage interne, pas encore commercialisée
+> Skill StackLLM · v0.1.1 · usage interne, pas encore commercialisée
 
 **Chaque changement de code se termine par un libellé de commit qui dit ce qui a été livré, et de quel type.**
 

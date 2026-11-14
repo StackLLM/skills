@@ -8,7 +8,7 @@
 |---|---|---|
 | `map-projet-reponse` | La map d'avancement d'un projet ou d'une organisation GitHub, **affichée dans la conversation** : volets, lots, phases, bloquants, verdict. Réglage 1, 2 ou 3 colonnes. Rien à installer. | 0.1.1 |
 | `map-projet` | Les mêmes maps **en fichiers** : 2 PNG et 2 HTML, à garder, imprimer ou envoyer. Le PNG demande Chrome ou Edge. | 0.5.1 |
-| `adviser-dev` | Le conseiller de développement. Projet existant : audit du socle, rapport de refactoring en lots, accompagnement lot par lot. Projet à créer : socle `frontend/` + `backend/` prêt pour la production (tests, CI, Docker, santé, limites, en-têtes, journaux, sauvegarde). Se lance seulement avec `/adviser-dev`. | 0.1.2 |
+| `adviser-dev` | Le conseiller de développement. Projet existant : audit du socle, rapport de refactoring en lots, accompagnement lot par lot. Projet à créer : socle `frontend/` + `backend/` prêt pour la production (tests, CI, Docker, santé, limites, en-têtes, journaux, sauvegarde). Se lance seulement avec `/adviser-dev`. | 0.1.3 |
 
 Les deux skills de map lisent le même `carte.json` : une carte faite pour l'une marche telle quelle dans l'autre.
 

@@ -2,6 +2,11 @@
 
 Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) · versions : [SemVer](https://semver.org/lang/fr/).
 
+## 2026-11-14 (4)
+
+### Modifié
+- `adviser-dev` 0.1.3 : le commit `livraison` se pose à la fin d'une phase pour la mettre en production. Rappelé seulement quand le dev dit la phase finie, comme dans `libelle-de-commit` 0.1.1.
+
 ## 2026-11-14 (3)
 
 ### Corrigé

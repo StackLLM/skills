@@ -196,9 +196,11 @@ feature/<nom>  ──PR + CI verte──▶  dev (recette)  ──« livraison �
 
 Détails, cas de conflit, correctif urgent : `references/git-et-livraison.md`.
 
-> Le commit `livraison` est une **décision du dev** : il borne aussi la
-> livraison dans l'historique. La skill explique le mécanisme. Elle ne crée jamais ce commit
-> et ne le propose jamais en fin de réponse.
+> Le commit `livraison` se pose **quand une phase est finie** : il la fait
+> passer en version de production (`dev` → `main`). C'est une **décision du
+> dev**. La skill explique le mécanisme. Elle ne crée jamais ce commit et ne
+> le propose pas d'elle-même en fin de réponse ; si le dev dit que la phase est
+> finie, elle lui rappelle les commandes.
 
 ---
 
@@ -227,7 +229,7 @@ plus tard, en production, sans peur de le toucher.
 | Proposer une technologie hors de `references/piles.md` (Django, Next.js pour un nouveau projet…) | l'équipe maintient ce qu'elle connaît ; une nouvelle pile est une décision écrite |
 | Choisir l'hébergeur à la place de l'équipe | l'hébergement change ; le socle doit tourner partout (voir `references/hebergement.md`) |
 | Commiter, pousser ou livrer sans demande explicite | c'est le geste du dev |
-| Créer ou proposer le commit `livraison` | il engage le dev et déclenche la prime |
+| Créer le commit `livraison`, ou le proposer sans que le dev ait dit la phase finie | il met une phase en production : c'est la décision du dev |
 | Ouvrir un `.env`, afficher un secret, écrire un mot de passe | un secret vu est un secret à changer |
 | Tout refactorer d'un coup | un gros changement sans filet casse la prod ; on avance par lots testés |
 | Ajouter une sécurité non demandée qui change le parcours (2FA, SSO) | c'est une décision produit : la proposer en fiche |

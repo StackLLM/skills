@@ -30,7 +30,7 @@
       "name": "libelle-de-commit",
       "source": "./commun/libelle-de-commit",
       "description": "Libellé de commit : propose après chaque changement un libellé « préfixe: type de livraison — objectif » et la commande prête à coller, sans jamais committer.",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "category": "commun"
     },
     {
@@ -86,7 +86,7 @@
       "name": "adviser-dev",
       "source": "./piloter-les-projets/adviser-dev",
       "description": "Adviser dev : conseiller de développement. Audit du socle et refactoring par lots d'un projet existant, ou création d'un socle frontend/backend prêt pour la production. Se lance avec /adviser-dev.",
-      "version": "0.1.2",
+      "version": "0.1.3",
       "category": "piloter-les-projets"
     },
     {
