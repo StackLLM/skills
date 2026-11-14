@@ -2,6 +2,11 @@
 
 Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) · versions : [SemVer](https://semver.org/lang/fr/).
 
+## 2026-11-14 (3)
+
+### Corrigé
+- `adviser-dev` 0.1.2 : plus aucune mention d'un outil de prime interne. Le commit `livraison` borne la livraison ; les libellés suivent `libelle-de-commit`.
+
 ## 2026-11-14 (2)
 
 ### Corrigé

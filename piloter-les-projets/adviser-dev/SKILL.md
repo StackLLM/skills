@@ -196,8 +196,8 @@ feature/<nom>  ──PR + CI verte──▶  dev (recette)  ──« livraison �
 
 Détails, cas de conflit, correctif urgent : `references/git-et-livraison.md`.
 
-> Le commit `livraison` est une **décision du dev** : il déclenche aussi la
-> prime PayPlan. La skill explique le mécanisme. Elle ne crée jamais ce commit
+> Le commit `livraison` est une **décision du dev** : il borne aussi la
+> livraison dans l'historique. La skill explique le mécanisme. Elle ne crée jamais ce commit
 > et ne le propose jamais en fin de réponse.
 
 ---

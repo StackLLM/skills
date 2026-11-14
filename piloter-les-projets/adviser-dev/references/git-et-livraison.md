@@ -121,7 +121,7 @@ Le mail vert dit « c'est possible », le dev décide « on y va ». Un script p
 automatiser la poussée (job déclenché par la CI verte) ; l'équipe a choisi la
 version manuelle, plus sûre tant qu'il n'y a pas de recette automatisée.
 
-**Le commit `livraison`** est aussi la borne que PayPlan lit pour la prime :
+**Le commit `livraison`** est aussi la borne de la livraison dans l'historique :
 seul le dev sait quand le cahier des charges est fini. Ni l'IA ni la skill ne
 le créent ou ne le proposent.
 
@@ -177,7 +177,7 @@ actions GitHub et de l'image Docker. Chaque PR de mise à jour passe par la CI.
 
 ## 7. Commits et Pull Requests
 
-- Un commit = une intention. Libellé : `<préfixe>: <type PayPlan> — <objectif>`
+- Un commit = une intention. Libellé : `<préfixe>: <type de livraison> — <objectif>`
   (skill `libelle-de-commit`). Exemple : `feat: fonctionnalité — ajoute la réservation en ligne`.
 - Commits petits et fréquents sur la branche de travail ; la PR raconte l'ensemble.
 - **Description de PR** (modèle `.github/pull_request_template.md`) : ce qui
