@@ -27,6 +27,13 @@
       "category": "commun"
     },
     {
+      "name": "libelle-de-commit",
+      "source": "./commun/libelle-de-commit",
+      "description": "Libellé de commit : propose après chaque changement un libellé « préfixe: type de livraison — objectif » et la commande prête à coller, sans jamais committer.",
+      "version": "0.1.0",
+      "category": "commun"
+    },
+    {
       "name": "diagram-premium",
       "source": "./documentation/diagram-premium",
       "description": "Diagramme premium : fichier draw.io de parcours, navigation ou architecture.",

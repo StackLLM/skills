@@ -2,6 +2,11 @@
 
 Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) · versions : [SemVer](https://semver.org/lang/fr/). Le détail de chaque Skill est dans son propre `CHANGELOG.md`.
 
+## [0.5.0] — 2026-11-14
+
+### Ajouté
+- Skill **Libellé de commit** (catégorie `commun/`) : libellé « préfixe: type de livraison — objectif » proposé après chaque changement, avec la commande prête à coller.
+
 ## [0.4.1] — 2026-11-14
 
 ### Corrigé
