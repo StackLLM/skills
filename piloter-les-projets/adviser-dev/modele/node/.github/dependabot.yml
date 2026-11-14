@@ -1,0 +1,14 @@
+# Mises à jour proposées chaque semaine. Chaque PR passe par la CI avant d'être fusionnée.
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule: { interval: weekly }
+    groups:
+      mineures: { update-types: [minor, patch] }
+  - package-ecosystem: github-actions
+    directory: /
+    schedule: { interval: weekly }
+  - package-ecosystem: docker
+    directory: /infra/docker
+    schedule: { interval: weekly }

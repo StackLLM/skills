@@ -8,6 +8,28 @@ quelque chose qui a de la valeur**.
 
 ---
 
+## 0. Le portillon — six éléments, sinon ce n'est pas un constat
+
+Avant d'écrire quoi que ce soit, il faut pouvoir nommer les six :
+
+| # | Élément | Exemple |
+|---|---|---|
+| 1 | Qui | un utilisateur connecté, sans droit particulier |
+| 2 | Par où | l'adresse qui rend un dossier par son numéro |
+| 3 | Le contrôle censé l'arrêter | la vérification du propriétaire |
+| 4 | La frontière franchie | client A → client B |
+| 5 | Ce qui est touché | le dossier d'un autre client |
+| 6 | Le résultat observable | nom, adresse et montants affichés |
+
+Il en manque un : ce n'est pas un constat de sécurité. C'est une remarque de
+durcissement, et elle va dans « Améliorations recommandées ».
+
+Ce portillon écarte d'un coup : la bonne pratique absente sans chemin, le
+comportement de déploiement supposé, le plantage sans conséquence, et
+l'utilisateur qui s'abîme lui-même.
+
+---
+
 ## 1. Commencer par ce qui a de la valeur
 
 Avant de chercher une porte, savoir ce qu'il y a derrière. Lister les biens du
@@ -145,6 +167,9 @@ On peut **toujours** donner la manière de vérifier soi-même. C'est le champ
 « comment le constater ». Sans lui, le lecteur doit croire sur parole.
 
 ---
+
+> Les angles de recherche, classe par classe, et comment choisir ceux qui
+> existent dans ce projet : [classes-attaque.md](classes-attaque.md).
 
 ## 5. Les angles morts fréquents
 

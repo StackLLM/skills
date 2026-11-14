@@ -1,0 +1,18 @@
+# Ce qui n'entre jamais dans l'image Docker. Un .env copié dans une image est un secret publié.
+**/node_modules
+**/dist
+**/.venv
+**/__pycache__
+**/.pytest_cache
+**/.mypy_cache
+**/.ruff_cache
+backend/data
+**/.env
+**/.env.*
+!**/.env.example
+**/*.log
+.git
+.github
+.claude
+docs
+infra/*.sh

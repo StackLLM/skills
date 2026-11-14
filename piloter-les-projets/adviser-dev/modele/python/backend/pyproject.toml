@@ -1,0 +1,45 @@
+[project]
+name = "{{NOM_TECHNIQUE}}-backend"
+version = "0.1.0"
+description = "Backend de {{NOM}}"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.160",
+    "pydantic[email]>=2.14",
+    "pydantic-settings>=2.6",
+    "uvicorn[standard]>=0.50",
+]
+
+[dependency-groups]
+dev = [
+    # Client HTTP du TestClient : Starlette demande httpx2 (httpx seul donne un avertissement d'abandon).
+    "httpx2>=2.16",
+    "mypy>=2.0",
+    "pytest>=9.0",
+    "ruff>=0.17",
+]
+
+[tool.uv]
+package = false
+
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+
+[tool.ruff.lint]
+# E/F : erreurs ; I : imports triés ; B : pièges courants ; UP : syntaxe moderne ;
+# SIM : simplifications ; S : sécurité (bandit) ; N : noms ; RUF : règles de ruff.
+select = ["E", "F", "I", "B", "UP", "SIM", "S", "N", "RUF"]
+
+[tool.ruff.lint.per-file-ignores]
+# Dans les tests, assert est l'outil normal, et les faux secrets servent à vérifier le masquage.
+"tests/*" = ["S101", "S105", "S106"]
+
+[tool.mypy]
+strict = true
+python_version = "3.12"
+plugins = ["pydantic.mypy"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

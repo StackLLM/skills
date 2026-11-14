@@ -2,6 +2,15 @@
 
 Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) · versions : [SemVer](https://semver.org/lang/fr/). Le détail de chaque Skill est dans son propre `CHANGELOG.md`.
 
+## [0.4.0] — 2026-11-14
+
+### Ajouté
+- Catégorie **Piloter les projets** (`piloter-les-projets/`), qui remplace `gestion-projet/` : `map-projet-reponse` 0.1.0, `map-projet` 0.5.0, `adviser-dev` 0.1.0.
+
+### Modifié
+- **Security Auditor** 0.2.0 : fusion avec la skill `security-audit` de Cloudflare (MIT), deux modes, registre de couverture, relecture indépendante.
+- **Map projet** 0.5.0 : retour à la version de l'auteur, en fichiers. L'affichage dans la conversation passe à Map projet dans la réponse.
+
 ## [0.3.3] — 2026-11-06
 
 ### Corrigé

@@ -81,9 +81,13 @@ en fond plein, jamais sur du texte courant.
 | MOYEN | `#A08200` | `#FBF8EA` | `#7A6300` |
 | FAIBLE | `#3E88B5` | `#E6F0F7` | `#215C80` |
 | INFORMATION | `#5C6873` | `#F4F1EA` | `#5C6873` |
+| À VÉRIFIER | `#96A1AB` | `#F7F5F0` | `#5C6873` |
 
 Un niveau **n'est jamais seul**. Il est toujours accompagné de la phrase qui
 dit pourquoi ce niveau-là.
+
+`À VÉRIFIER` n'est pas une faille faible : c'est une question ouverte. Il est
+gris exprès, pour qu'on ne le lise pas comme un petit problème.
 
 ---
 
@@ -101,6 +105,14 @@ niveau de criticité.
 
 Un constat « Probable » ne s'écrit **jamais** comme un fait. La phrase le dit :
 « le code semble… », pas « le code permet… ».
+
+**La criticité et la confiance sont deux axes.** Les confondre produit des
+rapports faux, et le script le refuse :
+
+| Confiance | Criticité autorisée |
+|---|---|
+| Confirmé, Probable | CRITIQUE à INFORMATION — et `frontiere` et `resultat` sont obligatoires |
+| À vérifier, Non vérifiable | `À VÉRIFIER` seulement |
 
 ---
 
@@ -140,6 +152,7 @@ Architecture          ce qui a été compris du projet, en mots simples
 Sections de constats  une par domaine, triées du plus grave au moins grave
 Plan de correction    immédiat / avant production / rapide / recommandé
 Checklists            avant production, après déploiement
+Ce qui a été regardé  le registre de couverture, et sa phrase de fin
 Ce qui n'a pas pu être vérifié
 ```
 
@@ -155,8 +168,10 @@ Le script rend ces champs. Tous sont attendus, sauf `chemin` et `norme`.
 | Champ | Contenu |
 |---|---|
 | `titre` | le problème en une phrase, sans jargon |
-| `criticite` | CRITIQUE · ÉLEVÉ · MOYEN · FAIBLE · INFORMATION |
+| `criticite` | CRITIQUE · ÉLEVÉ · MOYEN · FAIBLE · INFORMATION · À VÉRIFIER |
 | `confiance` | Confirmé · Probable · À vérifier · Non vérifiable |
+| `frontiere` | qui franchit quoi, et ce qui était censé l'arrêter *(obligatoire si tranché)* |
+| `resultat` | ce qui se passe réellement, observable *(obligatoire si tranché)* |
 | `pourquoi` | pourquoi c'est dangereux, en mots simples |
 | `impact` | ce qui peut arriver concrètement |
 | `ou` | le fichier et la ligne |
@@ -180,10 +195,34 @@ Données d'un autre client lues
 
 ---
 
-## 8. Ce que le script refuse
+## 8. Le registre de couverture
+
+Le bloc `couverture` dit ce qui a été regardé, et ce qui ne l'a pas été.
+
+```json
+"couverture": {
+  "phrase": "Cet audit a couvert 6 unités sur 8. …",
+  "unites": [
+    { "surface": "API dossiers", "frontiere": "client A → client B",
+      "classe": "Cloisonnement des données", "etat": "couvert",
+      "lu": "api/routes/dossiers.py" }
+  ]
+}
+```
+
+États possibles : `prévu`, `assigné`, `couvert`, `à vérifier`, `reporté`,
+`hors périmètre`. **`hors périmètre` n'est jamais `couvert`.**
+Méthode : [couverture.md](couverture.md).
+
+---
+
+## 9. Ce que le script refuse
 
 - Un constat sans `confiance` → erreur, pas de rapport.
-- Une valeur qui ressemble à un secret → masquée, toujours.
 - Un niveau de criticité inconnu → erreur.
+- Une criticité chiffrée sur un constat « À vérifier » ou « Non vérifiable » → erreur.
+- `À VÉRIFIER` sur un constat « Confirmé » ou « Probable » → erreur.
+- Un constat tranché sans `frontiere` ou sans `resultat` → erreur.
+- Une valeur qui ressemble à un secret → masquée, toujours.
 
-Le rapport ne se génère pas tant que ces trois points ne passent pas.
+Le rapport ne se génère pas tant que ces points ne passent pas.

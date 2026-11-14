@@ -21,6 +21,9 @@ Composants tiers inclus, soumis à leur propre licence :
 - frontend/cloneme/exemples/stellar/ — décrit un clone du thème « Stellar » de
   HTML5 UP (https://html5up.net), licence Creative Commons Attribution 3.0,
   qui exige l'attribution à HTML5 UP.
+- qualite-production/security-auditor/ — reprend des éléments de la skill
+  « security-audit » de Cloudflare (https://github.com/cloudflare/security-audit-skill),
+  licence MIT, Copyright (c) 2025-2026 Cloudflare, Inc. Détail dans ORIGINES.md.
 
 Statut : texte provisoire, à faire valider par un juriste avant la mise en vente.
 Contact : oussamakanouni39@gmail.com

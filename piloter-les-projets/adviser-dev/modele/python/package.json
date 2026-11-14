@@ -1,0 +1,20 @@
+{
+  "name": "{{NOM_TECHNIQUE}}",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": [
+    "frontend"
+  ],
+  "engines": {
+    "node": ">=24.7"
+  },
+  "scripts": {
+    "dev:frontend": "npm run dev -w frontend",
+    "dev:backend": "uv run --directory backend python -m uvicorn app.main:application --reload",
+    "lint": "npm run lint --workspaces --if-present && uv run --directory backend python -m ruff check . && uv run --directory backend python -m ruff format --check . && uv run --directory backend python -m mypy app",
+    "test": "npm test --workspaces --if-present && uv run --directory backend python -m pytest",
+    "build": "npm run build --workspaces --if-present",
+    "verifier": "npm run lint && npm test && npm run build",
+    "start": "uv run --directory backend python -m uvicorn app.main:application"
+  }
+}

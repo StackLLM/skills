@@ -1,0 +1,359 @@
+{
+  "type": "projet",
+  "nom": "Original Fit",
+  "sous_titre": "Boutique en ligne : exemple repris des images de référence",
+  "date": "2026-11-04",
+  "verdict": "Le site marche en local. Il ne peut pas partir en ligne : les vrais prix et tailles manquent.",
+  "prochaine_action": "Obtenir les vrais prix et tailles, puis trancher le paiement (D3).",
+  "volets": [
+    {
+      "nom": "Interface",
+      "sous_titre": "Ce que voit le client",
+      "resume": "Toutes les pages clonées, sauf le hero H MODE. Menu avec un seul lien actif.",
+      "etiquettes": {
+        "Construction": "lots 1–7",
+        "Pré-production": "retouches 02/11"
+      },
+      "lots": [
+        {
+          "titre": "Cadrage de l'interface",
+          "phase": "Cadrage",
+          "statut": "fait",
+          "source": "image par-volet"
+        },
+        {
+          "titre": "15.1 Tokens et polices",
+          "phase": "Construction",
+          "statut": "fait",
+          "source": "image par-lot"
+        },
+        {
+          "titre": "15.2 Gabarit",
+          "detail": "En-tête, menu, recherche, pied",
+          "phase": "Construction",
+          "statut": "fait",
+          "source": "image par-lot"
+        },
+        {
+          "titre": "15.3 Carte produit",
+          "phase": "Construction",
+          "statut": "fait",
+          "source": "image par-lot"
+        },
+        {
+          "titre": "15.4 Boutique",
+          "detail": "Filtres, pagination 24",
+          "phase": "Construction",
+          "statut": "fait",
+          "source": "image par-lot"
+        },
+        {
+          "titre": "15.5 Accueil",
+          "phase": "Construction",
+          "statut": "fait",
+          "source": "image par-lot"
+        },
+        {
+          "titre": "15.6 Fiche produit et pages",
+          "phase": "Construction",
+          "statut": "fait",
+          "source": "image par-lot"
+        },
+        {
+          "titre": "16.1 Hero photomontage",
+          "detail": "Pastilles couleur, lien Accueil",
+          "phase": "Construction",
+          "statut": "fait",
+          "source": "image par-lot"
+        },
+        {
+          "titre": "Checkout, panier, intro",
+          "detail": "P-05, P-06, A-14",
+          "phase": "Pré-production",
+          "statut": "fait",
+          "source": "image par-lot"
+        },
+        {
+          "titre": "17 Retouches 02/11",
+          "detail": "Menu, un seul serveur",
+          "phase": "Pré-production",
+          "statut": "fait",
+          "source": "image par-lot"
+        },
+        {
+          "titre": "Photo du hero en HD",
+          "phase": "Pré-production",
+          "statut": "a_fournir",
+          "source": "image par-lot"
+        },
+        {
+          "titre": "Vidéo d'intro",
+          "phase": "Pré-production",
+          "statut": "a_trancher",
+          "source": "image par-lot"
+        }
+      ]
+    },
+    {
+      "nom": "Comptes et commandes",
+      "sous_titre": "Se connecter, commander, être livré",
+      "resume": "Connexion, panier lié au compte, commande en base puis WhatsApp. Paiement à la livraison.",
+      "etiquettes": {
+        "Cadrage": "ADR 0005",
+        "Construction": "lots 1–8",
+        "Pré-production": "URLs, DEMO-"
+      },
+      "lots": [
+        {
+          "titre": "ADR 0005",
+          "phase": "Cadrage",
+          "statut": "fait",
+          "source": "image par-volet"
+        },
+        {
+          "titre": "16.2 Commande directe",
+          "detail": "Boutons de la fiche",
+          "phase": "Construction",
+          "statut": "fait",
+          "source": "image par-lot"
+        },
+        {
+          "titre": "16.3 Recherche réelle",
+          "phase": "Construction",
+          "statut": "fait",
+          "source": "image par-lot"
+        },
+        {
+          "titre": "16.4 Base Supabase",
+          "detail": "Schéma, RLS, ADR 0005",
+          "phase": "Construction",
+          "statut": "fait",
+          "source": "image par-lot"
+        },
+        {
+          "titre": "16.5 Connexion, inscription",
+          "phase": "Construction",
+          "statut": "fait",
+          "source": "image par-lot"
+        },
+        {
+          "titre": "16.6 Panier lié au compte",
+          "phase": "Construction",
+          "statut": "fait",
+          "source": "image par-lot"
+        },
+        {
+          "titre": "16.7 Checkout en base",
+          "detail": "Puis WhatsApp",
+          "phase": "Construction",
+          "statut": "fait",
+          "source": "image par-lot"
+        },
+        {
+          "titre": "Site URL et Redirect URLs",
+          "detail": "Réglage Supabase en ligne",
+          "phase": "Pré-production",
+          "statut": "a_faire",
+          "source": "image par-lot"
+        },
+        {
+          "titre": "Nettoyer les DEMO-",
+          "phase": "Pré-production",
+          "statut": "a_faire",
+          "source": "image par-lot"
+        },
+        {
+          "titre": "Favoris en base",
+          "detail": "Locaux aujourd'hui",
+          "phase": "Pré-production",
+          "statut": "a_trancher",
+          "source": "image par-lot"
+        }
+      ]
+    },
+    {
+      "nom": "Catalogue",
+      "sous_titre": "Les pièces, leurs photos et leurs prix",
+      "resume": "62 pièces publiées, toutes marquées homme. Prix de démo en attendant les vrais.",
+      "etiquettes": {
+        "Cadrage": "D3 D5 D6 D9",
+        "Construction": "fiches en ligne",
+        "Pré-production": "vrais prix"
+      },
+      "lots": [
+        {
+          "titre": "D3 Paiement",
+          "phase": "Cadrage",
+          "statut": "a_trancher",
+          "source": "image par-lot"
+        },
+        {
+          "titre": "D5 Logo source",
+          "phase": "Cadrage",
+          "statut": "a_trancher",
+          "source": "image par-lot"
+        },
+        {
+          "titre": "D6 Photo de campagne",
+          "phase": "Cadrage",
+          "statut": "a_trancher",
+          "source": "image par-lot"
+        },
+        {
+          "titre": "D9 Adresse, livraison, retours",
+          "phase": "Cadrage",
+          "statut": "a_trancher",
+          "source": "image par-lot"
+        },
+        {
+          "titre": "1 Photos triées",
+          "detail": "WebP 480 et 960",
+          "phase": "Construction",
+          "statut": "fait",
+          "source": "image par-lot"
+        },
+        {
+          "titre": "4 Catalogue JSON",
+          "detail": "Prix null par défaut",
+          "phase": "Construction",
+          "statut": "fait",
+          "source": "image par-lot"
+        },
+        {
+          "titre": "12 Pièces du Scrapping",
+          "phase": "Construction",
+          "statut": "fait",
+          "source": "image par-lot"
+        },
+        {
+          "titre": "17 Genre homme",
+          "detail": "Femmes, Soldes vides",
+          "phase": "Construction",
+          "statut": "fait",
+          "source": "image par-lot"
+        },
+        {
+          "titre": "D2 Vrais prix et tailles",
+          "phase": "Pré-production",
+          "statut": "bloquant",
+          "source": "image par-lot"
+        }
+      ]
+    },
+    {
+      "nom": "Qualité",
+      "sous_titre": "Tests, vitesse, mobile",
+      "resume": "38 tests unitaires et 30 vérifications sur Supabase local, tous verts. Types et build OK.",
+      "etiquettes": {
+        "Construction": "38 + 30 tests",
+        "Pré-production": "Lighthouse, clavier",
+        "Bêta": "Playwright"
+      },
+      "lots": [
+        {
+          "titre": "Plan de tests",
+          "phase": "Cadrage",
+          "statut": "fait",
+          "source": "image par-volet"
+        },
+        {
+          "titre": "Tests unitaires",
+          "detail": "38 verts",
+          "phase": "Construction",
+          "statut": "fait",
+          "source": "image par-lot"
+        },
+        {
+          "titre": "16.8 Supabase local",
+          "detail": "30 vérifications",
+          "phase": "Construction",
+          "statut": "fait",
+          "source": "image par-lot"
+        },
+        {
+          "titre": "Types et build",
+          "phase": "Construction",
+          "statut": "fait",
+          "source": "image par-lot"
+        },
+        {
+          "titre": "Mobile 320 px",
+          "detail": "18 pages sans débordement",
+          "phase": "Pré-production",
+          "statut": "fait",
+          "source": "image par-lot"
+        },
+        {
+          "titre": "Lighthouse",
+          "phase": "Pré-production",
+          "statut": "a_venir",
+          "source": "image par-lot"
+        },
+        {
+          "titre": "Audit clavier complet",
+          "phase": "Pré-production",
+          "statut": "a_venir",
+          "source": "image par-lot"
+        },
+        {
+          "titre": "Playwright",
+          "phase": "Bêta",
+          "statut": "a_venir",
+          "source": "image par-lot"
+        }
+      ]
+    },
+    {
+      "nom": "Mise en ligne",
+      "sous_titre": "Mettre le site devant les clients",
+      "resume": "Production locale prête par Docker et nginx. Rien n'est encore en ligne.",
+      "etiquettes": {
+        "Cadrage": "Docker 6111",
+        "Construction": "Netlify",
+        "Pré-production": "variables env",
+        "Lancement": "lancement"
+      },
+      "lots": [
+        {
+          "titre": "2 Docker et nginx",
+          "detail": "Production locale 6111",
+          "phase": "Cadrage",
+          "statut": "fait",
+          "source": "image par-lot"
+        },
+        {
+          "titre": "Redirections SPA",
+          "detail": "_redirects",
+          "phase": "Cadrage",
+          "statut": "fait",
+          "source": "image par-lot"
+        },
+        {
+          "titre": "Hébergement Netlify",
+          "phase": "Construction",
+          "statut": "a_venir",
+          "source": "image par-lot"
+        },
+        {
+          "titre": "Variables Supabase",
+          "phase": "Pré-production",
+          "statut": "a_venir",
+          "source": "image par-lot"
+        },
+        {
+          "titre": "Nom de domaine",
+          "phase": "Pré-production",
+          "statut": "a_venir",
+          "source": "image par-lot"
+        },
+        {
+          "titre": "Retrait de l'ancien site",
+          "detail": "Le jour du lancement",
+          "phase": "Lancement",
+          "statut": "a_venir",
+          "source": "image par-lot"
+        }
+      ]
+    }
+  ]
+}

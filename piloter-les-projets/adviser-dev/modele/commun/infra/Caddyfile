@@ -1,0 +1,10 @@
+# Caddy prend le certificat HTTPS tout seul et le renouvelle.
+# Les en-têtes de sécurité viennent du service : ils sont les mêmes en local et en ligne.
+{$SITE_DOMAINE} {
+	encode zstd gzip
+	reverse_proxy service:{{PORT}}
+}
+
+www.{$SITE_DOMAINE} {
+	redir https://{$SITE_DOMAINE}{uri} permanent
+}

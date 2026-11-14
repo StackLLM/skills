@@ -1,0 +1,5 @@
+{
+  "depots": {{DEPOTS_JSON}},
+  "brancheRecette": "dev",
+  "workflowCi": "CI"
+}

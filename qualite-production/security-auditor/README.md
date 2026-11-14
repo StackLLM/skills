@@ -1,6 +1,6 @@
 # Security Auditor
 
-> Skill StackLLM · v0.1.0 · usage interne, pas encore commercialisée
+> Skill StackLLM · v0.2.0 · usage interne, pas encore commercialisée
 
 **Chercher comment une application peut être attaquée, pas cocher des cases.**
 
@@ -67,7 +67,8 @@ python3 scripts/rapport.py scripts/constats.exemple.json --sortie rapport.html
 | Chemin | Rôle |
 |---|---|
 | `SKILL.md` | règles et déroulé en six temps |
-| `references/` | méthode d'attaque, contrôles, secrets, format du rapport |
+| `references/` | méthode d'attaque, classes d'attaque, contrôles, couverture, exécution sûre, secrets, format du rapport |
+| `ORIGINES.md` | ce qui vient de la skill `security-audit` de Cloudflare (MIT) |
 | `scripts/` | sondage du projet, recherche de secrets, rendu du rapport, exemple de constats |
 
 ## Mise à jour

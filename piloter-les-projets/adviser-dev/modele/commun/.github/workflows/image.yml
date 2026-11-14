@@ -1,0 +1,58 @@
+# Sur main ou sur un tag v*, après une CI verte : l'image Docker part sur GHCR (le registre de GitHub).
+# C'est elle que le serveur récupère ; les anciennes images servent à revenir en arrière.
+# Le déploiement s'ajoutera quand l'hébergeur sera choisi.
+name: Image
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+
+permissions:
+  contents: read
+
+jobs:
+  verifier:
+    # Avec des miroirs, seule l'organisation principale publie l'image.
+    if: github.repository == '{{DEPOT_PRINCIPAL}}'
+    uses: ./.github/workflows/ci.yml
+
+  image:
+    name: Image Docker
+    needs: verifier
+    if: github.repository == '{{DEPOT_PRINCIPAL}}'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: docker/setup-buildx-action@v4
+
+      - uses: docker/login-action@v4
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - id: meta
+        uses: docker/metadata-action@v6
+        with:
+          # En minuscules : GHCR refuse les majuscules.
+          images: ghcr.io/{{DEPOT_PRINCIPAL_MINUSCULES}}
+          tags: |
+            type=raw,value=latest,enable={{is_default_branch}}
+            type=semver,pattern={{version}}
+            type=sha
+
+      - uses: docker/build-push-action@v7
+        with:
+          context: .
+          file: infra/docker/Dockerfile
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max

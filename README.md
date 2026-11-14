@@ -1,6 +1,6 @@
 # StackLLM Skills
 
-> Dépôt privé · v0.3.3 · aucune Skill n'est encore commercialisée
+> Dépôt privé · v0.4.0 · aucune Skill n'est encore commercialisée
 
 Les Skills StackLLM sont des **outils d'automatisation spécialisés pour Claude Code**. Chacune prend en charge un travail complet, de l'analyse jusqu'au livrable vérifié. Elle suit une méthode fixe et passe des contrôles avant de livrer.
 
@@ -8,7 +8,7 @@ Ce ne sont pas de simples prompts. Une Skill embarque des instructions d'exécut
 
 ## La gamme
 
-13 Skills en 6 catégories.
+15 Skills en 6 catégories.
 
 ### Frontend — reproduire une interface ou une interaction
 
@@ -38,11 +38,15 @@ Quatre Skills qui partagent la charte Forêt. Présentation commune : [documenta
 | [**Guide utilisateur**](documentation/guide-utilisateur/) | application + captures → guide d'utilisation PDF | B |
 | [**Diagramme premium**](documentation/diagram-premium/) | parcours ou architecture → fichier `.drawio` | B |
 
-### Gestion de projet — savoir où on en est
+### Piloter les projets — savoir où on en est, tenir le socle
+
+Présentation commune : [piloter-les-projets/](piloter-les-projets/).
 
 | Skill | Entrée → sortie | Maturité |
 |---|---|---|
-| [**Map projet**](gestion-projet/map-projet/) | organisation ou projet → deux maps dessinées dans la conversation (volets, lots, phases) et un verdict | A |
+| [**Map projet dans la réponse**](piloter-les-projets/map-projet-reponse/) | organisation ou projet → map d'avancement affichée dans la conversation, 1 à 3 colonnes | A |
+| [**Map projet**](piloter-les-projets/map-projet/) | organisation ou projet → deux maps en fichiers PNG et HTML | A |
+| [**Adviser dev**](piloter-les-projets/adviser-dev/) | projet existant ou plan → audit et refactoring par lots, ou socle prêt pour la production (`/adviser-dev`) | B+ |
 
 ### Carrière
 
@@ -72,7 +76,7 @@ cd ~/stackllm/skills
 ./install.sh cloneme cv-ats      # seulement celles-ci
 ```
 
-Les noms à passer sont ceux déclarés dans chaque `SKILL.md` : `cloneme`, `ui-stealer`, `animation-stealer`, `security-auditor`, `deployment-devops-advisor`, `pdf-premium`, `fiche-technique`, `guide-utilisateur`, `diagram-premium`, `map-projet`, `cv-ats`, `technical-mentor`, `explainer`.
+Les noms à passer sont ceux déclarés dans chaque `SKILL.md` : `cloneme`, `ui-stealer`, `animation-stealer`, `security-auditor`, `deployment-devops-advisor`, `pdf-premium`, `fiche-technique`, `guide-utilisateur`, `diagram-premium`, `map-projet-reponse`, `map-projet`, `adviser-dev`, `cv-ats`, `technical-mentor`, `explainer`.
 
 Le script ne remplace jamais un dossier existant qui n'est pas un lien vers ce dépôt. Autre dossier cible : `CLAUDE_SKILLS_DIR=/chemin ./install.sh`.
 
@@ -86,7 +90,7 @@ gh auth login && gh auth setup-git      # une fois : le dépôt est privé
 /plugin install map-projet --marketplace StackLLM/skills
 ```
 
-Les 13 Skills sont des plugins, au même nom que leur Skill : `cloneme`, `ui-stealer`, `animation-stealer`, `security-auditor`, `deployment-devops-advisor`, `pdf-premium`, `fiche-technique`, `guide-utilisateur`, `diagram-premium`, `map-projet`, `cv-ats`, `technical-mentor`, `explainer`.
+Les 15 Skills sont des plugins, au même nom que leur Skill : `cloneme`, `ui-stealer`, `animation-stealer`, `security-auditor`, `deployment-devops-advisor`, `pdf-premium`, `fiche-technique`, `guide-utilisateur`, `diagram-premium`, `map-projet-reponse`, `map-projet`, `adviser-dev`, `cv-ats`, `technical-mentor`, `explainer`.
 
 Deux précautions :
 
@@ -123,7 +127,7 @@ skills/
 ├── frontend/            cloneme · ui-stealer · animation-stealer
 ├── qualite-production/  security-auditor · deploy-advisor
 ├── documentation/       pdf-premium · fiche-technique · guide-utilisateur · diagram-premium
-├── gestion-projet/      map-projet
+├── piloter-les-projets/ map-projet-reponse · map-projet · adviser-dev
 ├── carriere/            cv-ats · technical-mentor
 └── commun/              explainer
 ```

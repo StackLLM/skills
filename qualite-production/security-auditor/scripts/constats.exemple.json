@@ -3,19 +3,44 @@
   "titre": "Audit de sécurité applicative",
   "projet": "Nom du projet",
   "date": "30 septembre 2026",
-  "depots": ["org/depot-frontend", "org/depot-backend"],
+  "depots": [
+    "org/depot-frontend",
+    "org/depot-backend"
+  ],
   "risque_global": "Élevé",
   "resume": "L'application protège correctement les mots de passe et les échanges passent en HTTPS. Deux points bloquent une mise en production : une clé d'API est lisible dans le code du site, et une adresse de l'API rend le dossier d'un autre client si on change son numéro dans l'URL. Les deux se corrigent en une demi-journée.",
-
   "architecture": [
-    { "titre": "Type d'application", "valeur": "Application web interne", "note": "environ 40 utilisateurs, tous salariés" },
-    { "titre": "Frontend", "valeur": "React + Vite", "note": "hébergé en statique" },
-    { "titre": "Backend", "valeur": "FastAPI (Python)", "note": "une seule instance" },
-    { "titre": "Base de données", "valeur": "PostgreSQL", "note": "managée" },
-    { "titre": "Connexion", "valeur": "Jeton JWT", "note": "durée de vie : 7 jours" },
-    { "titre": "Données manipulées", "valeur": "Dossiers clients", "note": "noms, adresses, montants — données personnelles" }
+    {
+      "titre": "Type d'application",
+      "valeur": "Application web interne",
+      "note": "environ 40 utilisateurs, tous salariés"
+    },
+    {
+      "titre": "Frontend",
+      "valeur": "React + Vite",
+      "note": "hébergé en statique"
+    },
+    {
+      "titre": "Backend",
+      "valeur": "FastAPI (Python)",
+      "note": "une seule instance"
+    },
+    {
+      "titre": "Base de données",
+      "valeur": "PostgreSQL",
+      "note": "managée"
+    },
+    {
+      "titre": "Connexion",
+      "valeur": "Jeton JWT",
+      "note": "durée de vie : 7 jours"
+    },
+    {
+      "titre": "Données manipulées",
+      "valeur": "Dossiers clients",
+      "note": "noms, adresses, montants — données personnelles"
+    }
   ],
-
   "sections": [
     {
       "titre": "Secrets et clés",
@@ -26,6 +51,8 @@
           "criticite": "CRITIQUE",
           "confiance": "Confirmé",
           "norme": "OWASP A05 — mauvaise configuration",
+          "frontiere": "Un visiteur non connecté franchit la frontière « serveur → navigateur » : le secret du serveur se retrouve du côté public.",
+          "resultat": "La clé est lisible en clair dans un fichier téléchargé par le navigateur, et elle fonctionne hors de l'application.",
           "pourquoi": "Tout ce que le navigateur télécharge est lisible. La clé est dans le fichier JavaScript envoyé au visiteur : n'importe qui peut l'ouvrir et la copier en trente secondes.",
           "impact": "Un visiteur peut appeler le service payant avec votre clé, à votre charge. Selon le service, il peut aussi lire les données du compte.",
           "ou": "ui/src/services/ia.ts:12",
@@ -60,6 +87,8 @@
           "criticite": "CRITIQUE",
           "confiance": "Confirmé",
           "norme": "OWASP API1 — accès non maîtrisé à un objet",
+          "frontiere": "Un utilisateur connecté franchit la frontière « client A → client B » : l'adresse vérifie la connexion, pas la propriété du dossier.",
+          "resultat": "Le dossier complet d'un autre client s'affiche : nom, adresse, montants.",
           "pourquoi": "L'adresse vérifie que la personne est connectée, mais pas que le dossier demandé lui appartient. Être connecté et avoir le droit, ce sont deux choses différentes.",
           "impact": "N'importe quel utilisateur connecté peut lire tous les dossiers clients, donc des données personnelles.",
           "ou": "server/api/routes/dossiers.py:48",
@@ -81,8 +110,8 @@
         },
         {
           "titre": "La durée de vie des jetons de connexion semble longue",
-          "criticite": "MOYEN",
-          "confiance": "Probable",
+          "criticite": "À VÉRIFIER",
+          "confiance": "À vérifier",
           "pourquoi": "Un jeton volé reste utilisable jusqu'à son expiration. Sept jours laissent beaucoup de temps. La valeur est lue dans la configuration, mais rien ne dit si elle est la même en production.",
           "impact": "Un jeton récupéré sur un poste partagé reste valable une semaine, même après un changement de mot de passe.",
           "ou": "server/config.py:23",
@@ -98,7 +127,6 @@
       ]
     }
   ],
-
   "plan": [
     {
       "quand": "À corriger immédiatement",
@@ -115,7 +143,6 @@
       ]
     }
   ],
-
   "checklists": [
     {
       "titre": "Avant la mise en production",
@@ -128,12 +155,71 @@
       ]
     }
   ],
-
+  "couverture": {
+    "phrase": "Cet audit a couvert 6 unités sur 8. Une attend un fait extérieur au dépôt, une est hors périmètre faute d'accès à l'infrastructure. Aucune passe ne rend un sujet complet : ce qui n'est pas listé ici n'a pas été regardé.",
+    "unites": [
+      {
+        "surface": "API dossiers",
+        "frontiere": "visiteur → serveur",
+        "classe": "Contrôle des accès",
+        "etat": "couvert",
+        "lu": "api/routes/dossiers.py, api/middleware/auth.py"
+      },
+      {
+        "surface": "API dossiers",
+        "frontiere": "client A → client B",
+        "classe": "Cloisonnement des données",
+        "etat": "couvert",
+        "lu": "api/routes/dossiers.py, api/models/dossier.py"
+      },
+      {
+        "surface": "Connexion",
+        "frontiere": "visiteur → compte",
+        "classe": "Web et authentification",
+        "etat": "à vérifier",
+        "lu": "api/auth.py — la durée du jeton vient d'une variable absente du dépôt"
+      },
+      {
+        "surface": "Code du navigateur",
+        "frontiere": "serveur → navigateur",
+        "classe": "Côté client",
+        "etat": "couvert",
+        "lu": "ui/src/services/, ui/dist/assets/"
+      },
+      {
+        "surface": "Dépendances",
+        "frontiere": "amont → application",
+        "classe": "Chaîne logicielle",
+        "etat": "couvert",
+        "lu": "package-lock.json, requirements.txt"
+      },
+      {
+        "surface": "Historique Git",
+        "frontiere": "ancien code → secrets",
+        "classe": "Chiffrement et secrets",
+        "etat": "hors périmètre",
+        "lu": "dépôt fourni sans son historique"
+      },
+      {
+        "surface": "Upload de documents",
+        "frontiere": "utilisateur → disque",
+        "classe": "Ressources et fichiers",
+        "etat": "couvert",
+        "lu": "api/routes/fichiers.py"
+      },
+      {
+        "surface": "Déploiement",
+        "frontiere": "internet → machine",
+        "classe": "Cloud et déploiement",
+        "etat": "hors périmètre",
+        "lu": "pas d'accès à l'infrastructure"
+      }
+    ]
+  },
   "limites": [
     "L'historique Git n'a pas été analysé : dépôt fourni sans son historique.",
     "La configuration réelle de production n'a pas été vue. Les constats portent sur les fichiers d'exemple.",
     "Aucun test n'a été lancé contre une instance en fonctionnement."
   ],
-
   "pied": "Rapport établi à partir du code du projet. Les valeurs sensibles sont masquées."
 }

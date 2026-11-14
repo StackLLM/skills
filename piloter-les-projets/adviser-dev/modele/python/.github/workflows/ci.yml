@@ -1,0 +1,87 @@
+# Vérifie chaque push et chaque pull request : types, lint, tests, compilation.
+# Rouge = on ne fusionne pas, on ne livre pas.
+name: CI
+
+on:
+  push:
+  pull_request:
+  workflow_call:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verifier:
+    name: Types, tests et compilation
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+
+      - uses: astral-sh/setup-uv@v10
+        with:
+          enable-cache: true
+
+      - name: Installation exacte
+        run: |
+          npm ci --no-audit --no-fund
+          uv sync --directory backend --frozen
+
+      - name: Types et lint
+        run: npm run lint
+
+      - name: Tests
+        run: npm test
+
+      - name: Compilation
+        run: npm run build
+
+      - name: Failles connues dans les dépendances (avertissement)
+        run: |
+          npm audit --omit=dev --audit-level=high || echo "::warning::npm audit signale des failles."
+          uv export --directory backend --frozen --no-dev --no-hashes --format requirements-txt > /tmp/exigences.txt
+          uvx pip-audit -r /tmp/exigences.txt || echo "::warning::pip-audit signale des failles."
+
+  # Seulement sur un commit « livraison » poussé : tout est-il prêt pour que main avance ?
+  # Ce job ne pousse rien. Le résultat arrive par mail ; la poussée se fait ensuite avec livrer.
+  pret-pour-main:
+    name: Prêt pour main
+    needs: verifier
+    if: github.event_name == 'push' && github.event.head_commit.message == 'livraison'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: La livraison part de la branche de recette
+        run: |
+          attendue=$(jq -r .brancheRecette .github/livraison.json)
+          if [ "$GITHUB_REF_NAME" != "$attendue" ]; then
+            echo "::error::La livraison part de « $attendue », pas de « $GITHUB_REF_NAME »."
+            exit 1
+          fi
+
+      - name: main peut avancer sans conflit
+        run: |
+          if ! git ls-remote --exit-code --heads origin main > /dev/null; then
+            echo "main n'existe pas encore : première livraison, rien à comparer."
+            exit 0
+          fi
+          git fetch --quiet origin main
+          if git merge-base --is-ancestor origin/main HEAD; then
+            echo "main est déjà contenu dans $GITHUB_REF_NAME : il avancera sans fusion, donc sans conflit."
+          else
+            echo "::error::main contient des commits absents de $GITHUB_REF_NAME. Sur $GITHUB_REF_NAME : git merge origin/main, régler les conflits, npm run verifier, pousser, puis un nouveau commit livraison."
+            exit 1
+          fi

@@ -32,9 +32,16 @@ CRITICITES = {
     "MOYEN":       ("#A08200", "#FBF8EA", "#7A6300"),
     "FAIBLE":      ("#3E88B5", "#E6F0F7", "#215C80"),
     "INFORMATION": ("#5C6873", "#F4F1EA", "#5C6873"),
+    # Pas une faille faible : une question ouverte. Elle ne porte pas de niveau
+    # tant que le fait qui manque n'est pas obtenu.
+    "À VÉRIFIER":  ("#96A1AB", "#F7F5F0", "#5C6873"),
 }
 ORDRE = list(CRITICITES)
 CONFIANCES = ("Confirmé", "Probable", "À vérifier", "Non vérifiable")
+
+# La criticite et la certitude sont deux axes. Un constat non tranche ne recoit
+# pas de niveau : il porte « À VÉRIFIER ».
+SANS_NIVEAU = ("À vérifier", "Non vérifiable")
 
 # --- Masquage des secrets ----------------------------------------------------
 # Filet de sécurité, pas la première ligne de défense : la skill dit déjà de ne
@@ -95,6 +102,20 @@ def valider(donnees: dict) -> list[str]:
             if c.get("confiance") not in CONFIANCES:
                 erreurs.append(f"{ou} : confiance « {c.get('confiance')} » manquante "
                                f"ou inconnue. Attendu : {', '.join(CONFIANCES)}.")
+                continue
+            tranche = c["confiance"] not in SANS_NIVEAU
+            if tranche and c.get("criticite") == "À VÉRIFIER":
+                erreurs.append(f"{ou} : confiance « {c['confiance']} » mais criticité "
+                               f"« À VÉRIFIER ». Donner un niveau, ou baisser la confiance.")
+            if not tranche and c.get("criticite") != "À VÉRIFIER":
+                erreurs.append(f"{ou} : confiance « {c['confiance']} » ne peut pas porter "
+                               f"la criticité « {c.get('criticite')} ». Mettre « À VÉRIFIER ».")
+            if tranche:
+                for cle, quoi in (("frontiere", "la frontière franchie, et par qui"),
+                                  ("resultat", "le résultat concret et observable")):
+                    if not c.get(cle):
+                        erreurs.append(f"{ou} : il manque « {cle} » — {quoi}. "
+                                       f"Sans elle, ce n'est pas un constat de sécurité.")
     return erreurs
 
 
@@ -111,7 +132,9 @@ def rendre_constat(c: dict) -> str:
     p += ['  </div>',
           f'  <h3>{e(c["titre"])}</h3>']
 
-    for cle, libelle in (("pourquoi", "Pourquoi c'est dangereux"),
+    for cle, libelle in (("frontiere", "La frontière franchie"),
+                         ("resultat", "Le résultat concret"),
+                         ("pourquoi", "Pourquoi c'est dangereux"),
                          ("impact", "Ce qui peut arriver"),
                          ("ou", "Où"),
                          ("verifier", "Comment le constater"),
@@ -183,6 +206,24 @@ def rendre(donnees: dict) -> str:
             for cl in donnees["checklists"])
         checklists = f'<section class="bloc"><h2>Checklists</h2><div class="rangee">{blocs}</div></section>'
 
+    couverture = ""
+    if donnees.get("couverture"):
+        cv = donnees["couverture"]
+        lignes = "".join(
+            "<tr>"
+            + "".join(f"<td>{e(u.get(k, ''))}</td>"
+                      for k in ("surface", "frontiere", "classe", "etat", "lu"))
+            + "</tr>"
+            for u in cv.get("unites", []))
+        phrase = (f'<p class="intro">{e(cv["phrase"])}</p>' if cv.get("phrase") else "")
+        couverture = (
+            '<section class="bloc"><h2>Ce qui a été regardé</h2>'
+            + phrase
+            + '<div class="carte"><table class="couverture">'
+            '<tr><th>Surface</th><th>Frontière</th><th>Classe</th>'
+            '<th>État</th><th>Ce qui a été lu</th></tr>'
+            + lignes + '</table></div></section>')
+
     limites = ""
     if donnees.get("limites"):
         items = "".join(f"<li>{e(x)}</li>" for x in donnees["limites"])
@@ -211,6 +252,11 @@ def rendre(donnees: dict) -> str:
   --ombre:0 2px 6px rgba(30,44,56,.06);
 }}
 *{{box-sizing:border-box;}}
+table.couverture{{width:100%;border-collapse:collapse;font-size:14px;}}
+table.couverture th{{text-align:left;font-weight:600;color:var(--gris);
+  border-bottom:1px solid var(--bordure);padding:6px 10px 6px 0;}}
+table.couverture td{{padding:6px 10px 6px 0;vertical-align:top;
+  border-bottom:1px solid var(--sable);}}
 body{{margin:0;background:var(--beige);color:var(--encre);
   font-family:'IBM Plex Sans',Arial,sans-serif;font-size:15.5px;line-height:1.7;}}
 h1,h2,h3{{font-family:'Source Serif 4',Georgia,serif;font-weight:600;margin:0;}}
@@ -314,6 +360,7 @@ ul.puces li::before{{content:"—";position:absolute;left:0;color:var(--eteint);
   {"".join(corps)}
   {plan}
   {checklists}
+  {couverture}
   {limites}
 </main>
 

@@ -1,0 +1,31 @@
+# Dépendances et compilations
+node_modules/
+dist/
+build/
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+coverage/
+.coverage
+
+# Réglages et secrets : seul .env.example entre dans Git
+.env
+.env.*
+!.env.example
+
+# Données locales du backend (base, versions, envois)
+backend/data/
+
+# Journaux et fichiers du système
+*.log
+.DS_Store
+Thumbs.db
+
+# Réglages locaux de l'éditeur et de Claude Code
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.claude/settings.local.json

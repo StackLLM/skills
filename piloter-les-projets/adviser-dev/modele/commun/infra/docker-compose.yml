@@ -1,0 +1,47 @@
+# {{NOM}} sur une machine avec Docker (VPS, serveur de l'équipe) : le service, et Caddy devant pour le HTTPS.
+# Ce fichier ne dépend d'aucun hébergeur. Dans infra/ : copier .env.example en .env, le remplir, puis
+#   docker compose up -d
+# Mise à jour : docker compose pull; docker compose up -d   (le volume de données reste)
+name: {{NOM_TECHNIQUE}}
+
+services:
+  service:
+    image: ${IMAGE:-ghcr.io/{{DEPOT_PRINCIPAL_MINUSCULES}}:latest}
+    build:
+      context: ..
+      dockerfile: infra/docker/Dockerfile
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      # Caddy est le seul à parler au service : on fait confiance à son X-Forwarded-For.
+      {{PREFIXE}}_PROXY: "1"
+      {{PREFIXE}}_HOTE: 0.0.0.0
+    volumes:
+      - donnees:/donnees
+    # Aucun port ouvert vers l'extérieur : tout passe par Caddy.
+    expose:
+      - "{{PORT}}"
+
+  caddy:
+    image: caddy:2.10-alpine
+    restart: unless-stopped
+    depends_on:
+      service:
+        condition: service_healthy
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    environment:
+      SITE_DOMAINE: ${SITE_DOMAINE:?SITE_DOMAINE manque dans infra/.env}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_donnees:/data
+      - caddy_config:/config
+
+volumes:
+  # Base, fichiers envoyés, contenu du client : c'est ce volume qu'on sauvegarde.
+  donnees:
+  # Certificats HTTPS.
+  caddy_donnees:
+  caddy_config:

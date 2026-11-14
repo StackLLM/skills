@@ -69,6 +69,10 @@ ENV = re.compile(r"""(?:os\.environ(?:\.get)?\[?\s*["']([A-Z0-9_]{3,})["']|"""
                  r"""process\.env\.([A-Z0-9_]{3,})|"""
                  r"""import\.meta\.env\.([A-Z0-9_]{3,}))""")
 
+#: Fournies par l'outil de construction, jamais a declarer. Les signaler comme
+#: "manquantes" envoyait chercher une variable qui n'existe pas.
+INTEGREES = {"DEV", "PROD", "MODE", "SSR", "BASE_URL", "NODE_ENV"}
+
 
 def parcourir(racine: Path, extensions: set[str] | None = None):
     for chemin in racine.rglob("*"):
@@ -249,7 +253,7 @@ def rendre(r: dict, declarees: set[str], deps: list[str], racine: Path) -> str:
             l.append(f"| … | {len(items) - 50} autres |")
         l.append("")
 
-    manquantes = sorted(set(r["variables"]) - declarees)
+    manquantes = sorted(set(r["variables"]) - declarees - INTEGREES)
     l += ["## Variables d'environnement", "",
           f"{len(r['variables'])} variables utilisées dans le code.", ""]
     if manquantes:

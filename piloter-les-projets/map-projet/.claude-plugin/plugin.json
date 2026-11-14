@@ -1,0 +1,9 @@
+{
+  "name": "map-projet",
+  "version": "0.5.0",
+  "description": "Map projet : deux maps d'un projet ou d'une organisation (volets, lots, phases, verdict), en fichiers PNG et HTML à garder ou envoyer.",
+  "author": {
+    "name": "StackLLM"
+  },
+  "license": "UNLICENSED"
+}
