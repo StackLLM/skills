@@ -79,21 +79,21 @@
       "name": "adviser-dev",
       "source": "./piloter-les-projets/adviser-dev",
       "description": "Adviser dev : conseiller de développement. Audit du socle et refactoring par lots d'un projet existant, ou création d'un socle frontend/backend prêt pour la production. Se lance avec /adviser-dev.",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "category": "piloter-les-projets"
     },
     {
       "name": "map-projet",
       "source": "./piloter-les-projets/map-projet",
       "description": "Map projet : deux maps d'un projet ou d'une organisation (volets, lots, phases, verdict), en fichiers PNG et HTML à garder ou envoyer.",
-      "version": "0.5.0",
+      "version": "0.5.1",
       "category": "piloter-les-projets"
     },
     {
       "name": "map-projet-reponse",
       "source": "./piloter-les-projets/map-projet-reponse",
       "description": "Map projet dans la réponse : la map d'avancement d'un projet ou d'une organisation, affichée directement dans la conversation, en 1, 2 ou 3 colonnes.",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "category": "piloter-les-projets"
     },
     {

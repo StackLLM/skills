@@ -1,4 +1,4 @@
-"""Tests : python -m unittest test_generer_widget (depuis scripts/).
+"""Tests : python3 -m unittest test_generer_widget (depuis scripts/).
 
 Le moteur est celui de la skill `map-projet` : les mêmes cartes doivent
 donner les mêmes phases, les mêmes verdicts et les mêmes couleurs.

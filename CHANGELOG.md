@@ -2,6 +2,11 @@
 
 Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) · versions : [SemVer](https://semver.org/lang/fr/). Le détail de chaque Skill est dans son propre `CHANGELOG.md`.
 
+## [0.4.1] — 2026-11-14
+
+### Corrigé
+- Suite **Piloter les projets** : commandes en `python3`, plus aucune mention d'un employeur.
+
 ## [0.4.0] — 2026-11-14
 
 ### Ajouté

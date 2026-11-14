@@ -1,6 +1,6 @@
 """Crée le socle d'un projet : copie le modèle (commun + pile choisie) et remplace les noms.
 
-    python creer_socle.py <dossier> --nom "La Fourchette" --pile python --type vitrine \
+    python3 creer_socle.py <dossier> --nom "La Fourchette" --pile python --type vitrine \
         --depot Org/depot [--depot Miroir/depot] [--prefixe APP] [--port 8000] [--essai]
 
 Règles :

@@ -1,6 +1,6 @@
 """Inventaire du socle d'un projet existant : ce qui est présent, partiel ou absent, bloc par bloc.
 
-    python auditer.py <dossier-du-projet> [-o audit.json] [--en-ligne]
+    python3 auditer.py <dossier-du-projet> [-o audit.json] [--en-ligne]
 
 Lecture seule. N'ouvre jamais un fichier .env (seul son suivi par Git est vérifié).
 Le script donne des INDICES avec leur preuve (fichier, ligne) : il ne juge pas la qualité du code.

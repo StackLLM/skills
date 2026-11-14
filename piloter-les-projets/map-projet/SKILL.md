@@ -40,13 +40,13 @@ La map observe. Les projets restent intacts :
 **Projet :**
 
 ```bash
-python scripts/collecter_projet.py <chemin> -o inventaire.json
+python3 "<chemin-de-la-skill>/scripts/collecter_projet.py" <chemin> -o inventaire.json
 ```
 
 **Orga :**
 
 ```bash
-python scripts/collecter_orga.py <orga> --racine <dossier-des-clones> -o inventaire-orga.json
+python3 "<chemin-de-la-skill>/scripts/collecter_orga.py" <orga> --racine <dossier-des-clones> -o inventaire-orga.json
 ```
 
 Le script dit où chercher. Il ne remplace pas la lecture.
@@ -201,8 +201,8 @@ quatre fichiers produits vont dans le dossier de travail temporaire de la
 session. Ce sont les images qu'on livre, pas un chemin de dossier.
 
 ```bash
-python scripts/generer_maps.py <dossier-temporaire>/carte.json --verifier
-python scripts/generer_maps.py <dossier-temporaire>/carte.json
+python3 "<chemin-de-la-skill>/scripts/generer_maps.py" <dossier-temporaire>/carte.json --verifier
+python3 "<chemin-de-la-skill>/scripts/generer_maps.py" <dossier-temporaire>/carte.json
 ```
 
 Le script refuse la carte tant qu'une règle n'est pas respectée. Corriger et relancer.

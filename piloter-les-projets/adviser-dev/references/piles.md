@@ -81,8 +81,7 @@ framework, avec les mêmes briques (santé, limites, journaux, en-têtes).
 | Qualité | **ruff** + **mypy** | dans `npm run lint` et dans la CI |
 | Outils en ligne de commande | `typer` | — |
 
-**Flask** existe dans 4 anciens projets (`excel-to-dossier`, `melko-tfpb-automation`,
-`melko_facture_ocr`…). On l'audite avec les mêmes douze blocs :
+**Flask** existe dans 4 anciens projets. On l'audite avec les mêmes douze blocs :
 `flask-limiter` pour les limites, `flask-talisman` pour les en-têtes,
 `flask-wtf` pour le CSRF, `gunicorn` en production (jamais `app.run()`).
 Pas de nouveau projet en Flask : FastAPI.
@@ -150,7 +149,7 @@ Le cœur de beaucoup de projets de l'équipe (CEE, factures, TFPB).
 
 | Rencontré | Où | Ce que fait la skill |
 |---|---|---|
-| **Next.js** | `Melko-dashboard`, `melko-constellation` | audit avec les douze blocs (le frontend est reconnu) ; pas proposé pour un nouveau projet |
+| **Next.js** | 2 projets | audit avec les douze blocs (le frontend est reconnu) ; pas proposé pour un nouveau projet |
 | **Flask** | 4 projets Python | audit (section 3) ; migration vers FastAPI seulement sur décision |
 | **Streamlit** | 2 outils | audit allégé : outil interne, jamais exposé |
 | Go | `paperclip` (dépôt externe) | hors périmètre |
@@ -161,9 +160,9 @@ Le cœur de beaucoup de projets de l'équipe (CEE, factures, TFPB).
 
 | Noms | Projets |
 |---|---|
-| `ui/` + `server/` | 15 projets (AskMe, CEE-CHECK, CEE_GUIDE, PROSPECTION, LuxuryOS, agenda_tasks, money_guru, school, boilerplate…) |
-| `frontend/` + `backend/` | 8 projets (CEE_bot, TeamBot, melko-hub, Site-vitrine-restau, excel-to-dossier…) |
-| `web/` + `api/` | Melko-webV3 |
+| `ui/` + `server/` | 15 projets |
+| `frontend/` + `backend/` | 8 projets |
+| `web/` + `api/` | 1 projet |
 
 Nouveau projet : **`frontend/` + `backend/`**, sans exception. Projet existant :
 le script reconnaît `ui/`, `server/`, `web/`, `api/` à leur contenu ; le

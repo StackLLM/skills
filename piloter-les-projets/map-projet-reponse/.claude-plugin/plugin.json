@@ -1,6 +1,6 @@
 {
   "name": "map-projet-reponse",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Map projet dans la réponse : la map d'avancement d'un projet ou d'une organisation, affichée directement dans la conversation, en 1, 2 ou 3 colonnes.",
   "author": {
     "name": "StackLLM"

@@ -2,10 +2,10 @@
 """
 generer_maps.py — transforme un fichier carte.json en deux maps visuelles.
 
-    python generer_maps.py carte.json                 # HTML + PNG à côté du JSON
-    python generer_maps.py carte.json -o dossier/     # ailleurs
-    python generer_maps.py carte.json --sans-png      # HTML seulement
-    python generer_maps.py carte.json --verifier      # contrôle, sans rien écrire
+    python3 generer_maps.py carte.json                 # HTML + PNG à côté du JSON
+    python3 generer_maps.py carte.json -o dossier/     # ailleurs
+    python3 generer_maps.py carte.json --sans-png      # HTML seulement
+    python3 generer_maps.py carte.json --verifier      # contrôle, sans rien écrire
 
 Les fichiers vont là où est le carte.json. Les maps se livrent dans la
 conversation, pas dans un dossier du projet : écrire le carte.json dans le

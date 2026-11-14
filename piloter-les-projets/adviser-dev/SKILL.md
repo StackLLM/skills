@@ -65,7 +65,7 @@ pas absents. Tableau d'adaptation : `references/architecture.md`, section 3.
 ### Étape 1 — Mesurer, sans rien toucher
 
 ```bash
-python "<chemin-de-la-skill>/scripts/auditer.py" <dossier-du-projet> -o audit.json --en-ligne
+python3 "<chemin-de-la-skill>/scripts/auditer.py" <dossier-du-projet> -o audit.json --en-ligne
 ```
 
 Le script reconnaît le frontend et le backend **à leur contenu** (`web/` +
@@ -150,7 +150,7 @@ Le choix et sa raison s'écrivent dans `docs/decisions/0001-pile-technique.md`.
 ### Étape 3 — Créer le socle
 
 ```bash
-python "<chemin-de-la-skill>/scripts/creer_socle.py" <dossier> --nom <nom-du-projet> --pile python --type saas --depot <org>/<depot>
+python3 "<chemin-de-la-skill>/scripts/creer_socle.py" <dossier> --nom <nom-du-projet> --pile python --type saas --depot <org>/<depot>
 ```
 
 `--pile` : `python` ou `node`. `--type` : `vitrine`, `saas`, `interne`, `api`.

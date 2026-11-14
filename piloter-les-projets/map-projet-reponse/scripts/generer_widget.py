@@ -2,9 +2,9 @@
 """
 generer_widget.py — transforme un carte.json en deux maps à afficher DANS la réponse.
 
-    python generer_widget.py carte.json --verifier   # contrôle, sans rien écrire
-    python generer_widget.py carte.json              # écrit les deux fragments
-    python generer_widget.py carte.json -o dossier/  # ailleurs
+    python3 generer_widget.py carte.json --verifier   # contrôle, sans rien écrire
+    python3 generer_widget.py carte.json              # écrit les deux fragments
+    python3 generer_widget.py carte.json -o dossier/  # ailleurs
 
 Sortie : deux fragments HTML, à passer tels quels à l'outil d'affichage de la
 conversation (`show_widget`). Ce ne sont pas des pages : pas de doctype, pas de

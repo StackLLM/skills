@@ -2,6 +2,12 @@
 
 Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) · versions : [SemVer](https://semver.org/lang/fr/).
 
+## 2026-11-14 (2)
+
+### Corrigé
+- `map-projet` 0.5.1, `map-projet-reponse` 0.1.1, `adviser-dev` 0.1.1 : commandes en `python3` avec le chemin de la skill (`python` n'existe pas sur macOS).
+- Plus aucun nom de projet ou d'organisation d'un employeur : exemples en `StackLLM`, comptes de projets sans noms dans `adviser-dev/references/piles.md`.
+
 ## 2026-11-14
 
 ### Ajouté
