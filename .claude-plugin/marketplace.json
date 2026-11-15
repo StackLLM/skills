@@ -62,6 +62,13 @@
       "category": "documentation"
     },
     {
+      "name": "guide-exploitation",
+      "source": "./documentation/guide-exploitation",
+      "description": "Guide d'exploitation : guide PDF de déploiement, d'hébergement et de maintenance d'un projet web, adapté à son type, aux prix datés et sourcés (charte nacre et bronze).",
+      "version": "0.1.0",
+      "category": "documentation"
+    },
+    {
       "name": "animation-stealer",
       "source": "./frontend/animation-stealer",
       "description": "Animation Stealer : reproduit le comportement d'une animation de scroll avec les vraies valeurs de la source.",

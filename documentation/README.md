@@ -12,6 +12,7 @@ Quatre Skills qui partagent la même charte (charte Forêt : vert sapin, papier 
 | `fiche-technique` | Fiche technique de référence d'une application : Markdown dans le dépôt, schéma draw.io, PDF. 18 parties, fonction par fonction, avec fichiers et raisons des choix. |
 | `guide-utilisateur` | Guide d'utilisation PDF avec captures annotées : référence rapide, démarrage en 5 minutes, fonctions écran par écran, dépannage, FAQ, glossaire. |
 | `diagram-premium` | Diagramme `.drawio` prêt à ouvrir : parcours, navigation, cycle de vie, architecture. |
+| `guide-exploitation` | Guide PDF de déploiement, d'hébergement et de maintenance d'un projet, adapté à son type (vitrine, boutique, SaaS, API, IA, outil interne, mobile, automatisation). **Charte à part** (« nacre et bronze », sans logo) et rendu par Chromium + Paged.js : voir son [README](guide-exploitation/README.md). |
 
 ## Le problème
 

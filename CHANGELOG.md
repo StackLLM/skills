@@ -2,6 +2,11 @@
 
 Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) · versions : [SemVer](https://semver.org/lang/fr/). Le détail de chaque Skill est dans son propre `CHANGELOG.md`.
 
+## [0.6.0] — 2026-11-15
+
+### Ajouté
+- Skill **Guide d'exploitation** 0.1.0 (catégorie `documentation/`) : guide PDF de déploiement, d'hébergement et de maintenance, adapté au type de projet, prix datés et sourcés, charte « nacre et bronze » sans logo.
+
 ## [0.5.0] — 2026-11-14
 
 ### Ajouté
