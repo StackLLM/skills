@@ -1,0 +1,13 @@
+{
+  "name": "securiser-et-deployer",
+  "version": "0.1.0",
+  "description": "Sécuriser et déployer : l'audit de sécurité par chemins d'attaque et le conseil de mise en production.",
+  "author": {
+    "name": "StackLLM"
+  },
+  "license": "UNLICENSED",
+  "skills": [
+    "./deployment-devops-advisor",
+    "./security-auditor"
+  ]
+}

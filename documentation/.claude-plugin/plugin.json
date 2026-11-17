@@ -1,0 +1,16 @@
+{
+  "name": "documentation",
+  "version": "0.1.0",
+  "description": "Documentation : PDF premium, fiche technique, guide utilisateur, diagramme draw.io et guide d'exploitation.",
+  "author": {
+    "name": "StackLLM"
+  },
+  "license": "UNLICENSED",
+  "skills": [
+    "./diagram-premium",
+    "./fiche-technique",
+    "./guide-exploitation",
+    "./guide-utilisateur",
+    "./pdf-premium"
+  ]
+}

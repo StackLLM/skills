@@ -40,8 +40,8 @@ Depuis la racine du dépôt `skills` :
 Ou comme plugin Claude Code, depuis le marketplace privé du dépôt (voir le README racine) :
 
 ```bash
-/plugin marketplace add StackLLM/skills
-/plugin install cloneme --marketplace StackLLM/skills
+claude plugin marketplace add StackLLM/skills
+claude plugin install construire-l-interface@stackllm-skills
 ```
 
 Voir le [README du dépôt](../../README.md) pour l'installation complète.
@@ -52,7 +52,7 @@ CloneMe s'appuie sur UI Stealer et Animation Stealer, rangées à côté dans `c
 ./install.sh cloneme ui-stealer animation-stealer
 ```
 
-Sans les deux partenaires, CloneMe le signale et continue avec des règles minimales.
+Le plugin `construire-l-interface` les installe toutes les trois. Sans les deux partenaires, CloneMe le signale et continue avec des règles minimales.
 
 ## Utilisation
 

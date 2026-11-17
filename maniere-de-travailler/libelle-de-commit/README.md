@@ -25,7 +25,7 @@ feat: fonctionnalité — ajoute l'export des factures en PDF
 Ou comme plugin Claude Code (voir le README racine) :
 
 ```bash
-/plugin install libelle-de-commit --marketplace StackLLM/skills
+claude plugin install maniere-de-travailler@stackllm-skills
 ```
 
 ## Limites connues

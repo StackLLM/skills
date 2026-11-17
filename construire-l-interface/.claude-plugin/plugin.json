@@ -1,0 +1,14 @@
+{
+  "name": "construire-l-interface",
+  "version": "0.1.0",
+  "description": "Construire l'interface : copier un site (cloneme), une maquette (ui-stealer) ou une animation (animation-stealer) dans un vrai projet.",
+  "author": {
+    "name": "StackLLM"
+  },
+  "license": "UNLICENSED",
+  "skills": [
+    "./animation-stealer",
+    "./cloneme",
+    "./ui-stealer"
+  ]
+}

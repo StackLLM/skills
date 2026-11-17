@@ -52,6 +52,8 @@ Pas de fichier vide pour respecter la structure. La licence et le `.gitignore` s
 
 ## Plugins
 
-- Une Skill devient un plugin en ajoutant `.claude-plugin/plugin.json` dans son dossier (nom, version, description) et une entrée dans `.claude-plugin/marketplace.json` à la racine. `source` pointe vers le dossier de la Skill.
-- La version du plugin suit celle du `CHANGELOG.md` de la Skill.
-- Vérifier avec `claude plugin validate .` et `claude plugin validate <dossier-de-la-skill>`.
+- **Un volet = un plugin**, au nom du dossier du volet. Son `.claude-plugin/plugin.json` liste ses skills dans `skills` (`["./explainer", "./libelle-de-commit"]`). Une skill s'appelle alors `<volet>:<skill>`.
+- Une skill n'a pas de `.claude-plugin/` à elle.
+- Toute modification d'une skill fait monter la version du plugin de son volet (`plugin.json` et `marketplace.json`) : sinon `claude plugin update` ne la reprend pas. La version de la skill reste dans son `CHANGELOG.md`.
+- Une nouvelle skill : son dossier dans le volet, son chemin dans `skills`, sa ligne dans `outils/skills.json`, puis régénérer la carte.
+- Vérifier avec `claude plugin validate .` et `claude plugin validate <volet>`.

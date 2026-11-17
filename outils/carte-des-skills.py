@@ -15,7 +15,8 @@ sur ce poste.
 
 Tout se calcule depuis le fichier. Le script vérifie aussi que chaque dossier
 existe et que son SKILL.md déclare bien le nom attendu ; les versions viennent
-du marketplace du dépôt ~/stackllm/skills quand il est là.
+du marketplace du dépôt ~/stackllm/skills quand il est là : un plugin par volet,
+et une skill s'appelle <volet>:<skill>.
 """
 
 from __future__ import annotations
@@ -182,10 +183,11 @@ def rendre(donnees: dict, colonnes: int) -> str:
             dans = s.get("plugin") is not False
             appel = ""
             if dans:
-                version = vers.get(s["nom"], "")
                 maturite = f" · maturité {s['maturite']}" if s.get("maturite", "—") != "—" else ""
-                appel = (f'<div class="appel">{e(s["nom"])}@{e(plugin)}'
-                         f'{" · " + e(version) if version else ""}{e(maturite)}</div>')
+                volet_id = v["dossier"].strip("/")
+                version = vers.get(volet_id, "")
+                appel = (f'<div class="appel">{e(volet_id)}:{e(s["nom"])}'
+                         f'{e(maturite)}{" · plugin " + e(volet_id) + " " + e(version) if version else ""}</div>')
             items.append(f'<li class="{"partagee" if dans else ""}"><div class="haut"><i></i>'
                          f'<span class="nom">{e(s["nom"])}</span></div>'
                          f'<div class="sert-a">{e(s["sert_a"])}</div>{appel}</li>')

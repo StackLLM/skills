@@ -1,9 +1,0 @@
-{
-  "name": "cloneme",
-  "version": "0.1.1",
-  "description": "CloneMe : une URL devient un projet frontend complet, piloté par design.md, palette.md et animation.md, vérifié par mesures.",
-  "author": {
-    "name": "StackLLM"
-  },
-  "license": "UNLICENSED"
-}

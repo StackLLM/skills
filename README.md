@@ -1,6 +1,6 @@
 # StackLLM Skills
 
-> Dépôt privé · v0.7.0 · aucune Skill n'est encore commercialisée
+> Dépôt privé · v0.8.0 · aucune Skill n'est encore commercialisée
 
 Ce dépôt contient **18 skills vivantes** pour Claude Code, rangées en **6 volets**.
 Un volet = un besoin. Une skill = un dossier avec un `SKILL.md`.
@@ -11,7 +11,7 @@ utile, ses scripts et ses tests.
 
 Pour voir tout le dépôt d'un coup d'œil : **[CARTE-DES-SKILLS.html](CARTE-DES-SKILLS.html)**.
 Une carte par volet, et dans chaque carte chaque skill avec ce à quoi elle sert,
-son nom de plugin, sa version et sa maturité.
+son nom d'appel (`volet:skill`) et sa maturité.
 
 Quand une skill arrive, part ou change de place : modifier sa ligne dans
 `outils/skills.json`, puis régénérer.
@@ -111,9 +111,9 @@ Public, problème résolu, bénéfices et limites de chaque skill : [POSITIONNEM
 |---|---|---|
 | `Documents/SKILLS/` | **Le dossier de travail**, rangé comme ce dépôt. On y dépose une nouvelle version, et on y garde les archives (`_archives/`, jamais publié). | Moi |
 | `~/stackllm/skills/` | **La source publiée** : le clone de ce dépôt, où l'on modifie avant de publier. | `publier.sh` |
-| Plugin `stackllm-skills` | La copie installée, la même sur tous les postes. | Claude Code |
+| Marketplace `stackllm-skills` | Les 6 plugins installés, un par volet, les mêmes sur tous les postes. | Claude Code |
 
-**Les 18 skills sont dans le plugin.** Le dépôt est poussé à deux endroits à
+**Les 18 skills sont dans les 6 plugins de volet.** Le dépôt est poussé à deux endroits à
 chaque publication : [StackLLM/skills](https://github.com/StackLLM/skills) et
 [oussamaalmouallim/skills](https://github.com/oussamaalmouallim/skills) (privé).
 
@@ -122,20 +122,18 @@ chaque publication : [StackLLM/skills](https://github.com/StackLLM/skills) et
 ## Installation
 
 Le dépôt est un marketplace de plugins Claude Code (`.claude-plugin/marketplace.json`).
-Chaque skill y est un plugin, au même nom que sa skill.
+**Un volet = un plugin**, au nom de son dossier. Une skill s'appelle
+`<volet>:<skill>`, par exemple `piloter-les-projets:map-projet`.
 
 ```bash
 gh auth login && gh auth setup-git      # une fois : le dépôt est privé
 claude plugin marketplace add StackLLM/skills
-claude plugin install map-projet-reponse@stackllm-skills
+claude plugin install piloter-les-projets@stackllm-skills
 ```
 
-Une commande `install` par skill voulue. Les noms : `explainer`,
-`libelle-de-commit`, `technical-mentor`, `cv-ats`, `map-projet-reponse`,
-`map-projet`, `plan-par-lots`, `adviser-dev`, `cloneme`, `ui-stealer`,
-`animation-stealer`, `security-auditor`, `deployment-devops-advisor`,
-`pdf-premium`, `fiche-technique`, `guide-utilisateur`, `diagram-premium`,
-`guide-exploitation`.
+Une commande `install` par volet voulu. Les six plugins :
+`maniere-de-travailler`, `apprendre-et-evoluer`, `piloter-les-projets`,
+`construire-l-interface`, `securiser-et-deployer`, `documentation`.
 
 Sans plugin, `install.sh` crée un lien par skill dans `~/.claude/skills/` :
 
@@ -145,9 +143,7 @@ cd ~/stackllm/skills && ./install.sh cloneme cv-ats
 ```
 
 Ne jamais installer une même skill par les deux moyens : elle apparaîtrait en
-double. Installée comme plugin, CloneMe ne retrouve pas UI Stealer et Animation
-Stealer à côté d'elle : pour sa version complète, installer les trois par
-`install.sh`.
+double.
 
 ---
 
@@ -178,6 +174,7 @@ skills/
 ├── LICENSE                  licence propriétaire + composants tiers
 ├── install.sh               installation par liens dans ~/.claude/skills
 ├── publier.sh               commit, push et mise à jour des plugins
+├── <volet>/.claude-plugin/  un plugin par volet, qui liste ses skills
 ├── maniere-de-travailler/   explainer · libelle-de-commit
 ├── apprendre-et-evoluer/    technical-mentor · cv-ats
 ├── piloter-les-projets/     map-projet-reponse · map-projet · plan-par-lots · adviser-dev

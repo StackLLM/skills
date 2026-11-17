@@ -21,13 +21,10 @@ Depuis la racine du dépôt `skills` :
 ./install.sh map-projet-reponse map-projet adviser-dev plan-par-lots
 ```
 
-Ou comme plugins Claude Code (voir le README racine) :
+Ou comme plugin Claude Code (voir le README racine) : un seul plugin pour les quatre skills du volet.
 
 ```bash
-/plugin install map-projet-reponse --marketplace StackLLM/skills
-/plugin install map-projet --marketplace StackLLM/skills
-/plugin install adviser-dev --marketplace StackLLM/skills
-/plugin install plan-par-lots --marketplace StackLLM/skills
+claude plugin install piloter-les-projets@stackllm-skills
 ```
 
 ## Prérequis

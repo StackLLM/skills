@@ -33,17 +33,15 @@ Freelances, agences et équipes produit qui livrent de la documentation à des c
 Depuis la racine du dépôt `skills` :
 
 ```bash
-./install.sh pdf-premium fiche-technique guide-utilisateur diagram-premium
+./install.sh pdf-premium fiche-technique guide-utilisateur diagram-premium guide-exploitation
 ```
 
-Ou comme plugins Claude Code (voir le README racine) :
+Ou comme plugin Claude Code (voir le README racine) : un seul plugin pour les cinq skills du volet.
 
 ```bash
-/plugin marketplace add StackLLM/skills
-/plugin install pdf-premium --marketplace StackLLM/skills
+claude plugin marketplace add StackLLM/skills
+claude plugin install documentation@stackllm-skills
 ```
-
-Même commande pour `fiche-technique`, `guide-utilisateur` et `diagram-premium`.
 
 ## Utilisation
 

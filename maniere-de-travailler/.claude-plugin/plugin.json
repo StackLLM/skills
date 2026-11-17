@@ -1,0 +1,13 @@
+{
+  "name": "maniere-de-travailler",
+  "version": "0.1.0",
+  "description": "Manière de travailler : la grille de toutes les réponses (explainer) et le libellé de chaque commit (libelle-de-commit).",
+  "author": {
+    "name": "StackLLM"
+  },
+  "license": "UNLICENSED",
+  "skills": [
+    "./explainer",
+    "./libelle-de-commit"
+  ]
+}

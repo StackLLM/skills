@@ -34,8 +34,8 @@ Depuis la racine du dépôt `skills` :
 Ou comme plugin Claude Code (accès GitHub requis, voir le README racine) :
 
 ```bash
-/plugin marketplace add StackLLM/skills
-/plugin install technical-mentor --marketplace StackLLM/skills
+claude plugin marketplace add StackLLM/skills
+claude plugin install apprendre-et-evoluer@stackllm-skills
 ```
 
 ## Utilisation

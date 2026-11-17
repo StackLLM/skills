@@ -35,8 +35,8 @@ Depuis la racine du dépôt `skills` :
 Ou comme plugin Claude Code, depuis le marketplace privé du dépôt (voir le README racine) :
 
 ```bash
-/plugin marketplace add StackLLM/skills
-/plugin install cv-ats --marketplace StackLLM/skills
+claude plugin marketplace add StackLLM/skills
+claude plugin install apprendre-et-evoluer@stackllm-skills
 ```
 
 Voir le [README du dépôt](../../README.md) pour l'installation complète.

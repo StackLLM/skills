@@ -6,128 +6,44 @@
   },
   "plugins": [
     {
-      "name": "explainer",
-      "source": "./maniere-de-travailler/explainer",
-      "description": "Explainer : charte d'écriture partagée, français simple et réponse directe.",
+      "name": "maniere-de-travailler",
+      "source": "./maniere-de-travailler",
+      "description": "Manière de travailler : la grille de toutes les réponses (explainer) et le libellé de chaque commit (libelle-de-commit).",
       "version": "0.1.0",
       "category": "maniere-de-travailler"
     },
     {
-      "name": "libelle-de-commit",
-      "source": "./maniere-de-travailler/libelle-de-commit",
-      "description": "Libellé de commit : propose après chaque changement un libellé « préfixe: type de livraison — objectif » et la commande prête à coller, sans jamais committer.",
-      "version": "0.1.1",
-      "category": "maniere-de-travailler"
-    },
-    {
-      "name": "cv-ats",
-      "source": "./apprendre-et-evoluer/cv-ats",
-      "description": "cv-ats : un ancien CV devient 3 PDF d'une page compatibles ATS, contrôlés automatiquement (macOS).",
+      "name": "apprendre-et-evoluer",
+      "source": "./apprendre-et-evoluer",
+      "description": "Apprendre et évoluer : maîtriser une notion technique pour de vrai (technical-mentor) et refaire son CV compatible ATS (cv-ats).",
       "version": "0.1.0",
       "category": "apprendre-et-evoluer"
     },
     {
-      "name": "technical-mentor",
-      "source": "./apprendre-et-evoluer/technical-mentor",
-      "description": "Technical Mentor : une notion technique mal maîtrisée devient une fiche HTML pour la comprendre, la mettre en œuvre et la défendre en entretien.",
-      "version": "0.2.0",
-      "category": "apprendre-et-evoluer"
-    },
-    {
-      "name": "adviser-dev",
-      "source": "./piloter-les-projets/adviser-dev",
-      "description": "Adviser dev : conseiller de développement. Audit du socle et refactoring par lots d'un projet existant, ou création d'un socle frontend/backend prêt pour la production. Se lance avec /adviser-dev.",
-      "version": "0.1.3",
-      "category": "piloter-les-projets"
-    },
-    {
-      "name": "map-projet",
-      "source": "./piloter-les-projets/map-projet",
-      "description": "Map projet : deux maps d'un projet ou d'une organisation (volets, lots, phases, verdict), en fichiers PNG et HTML à garder ou envoyer.",
-      "version": "0.5.1",
-      "category": "piloter-les-projets"
-    },
-    {
-      "name": "map-projet-reponse",
-      "source": "./piloter-les-projets/map-projet-reponse",
-      "description": "Map projet dans la réponse : la map d'avancement d'un projet ou d'une organisation, affichée directement dans la conversation, en 1, 2 ou 3 colonnes.",
-      "version": "0.1.1",
-      "category": "piloter-les-projets"
-    },
-    {
-      "name": "plan-par-lots",
-      "source": "./piloter-les-projets/plan-par-lots",
-      "description": "Plan par lots : un plan de travail en phases et en lots, dans un fichier Markdown à structure fixe, tenu à jour à la fin de chaque lot.",
+      "name": "piloter-les-projets",
+      "source": "./piloter-les-projets",
+      "description": "Piloter les projets : la map d'avancement dans la réponse ou en fichiers, le plan par lots, et le tech lead /adviser-dev.",
       "version": "0.1.0",
       "category": "piloter-les-projets"
     },
     {
-      "name": "animation-stealer",
-      "source": "./construire-l-interface/animation-stealer",
-      "description": "Animation Stealer : reproduit le comportement d'une animation de scroll avec les vraies valeurs de la source.",
+      "name": "construire-l-interface",
+      "source": "./construire-l-interface",
+      "description": "Construire l'interface : copier un site (cloneme), une maquette (ui-stealer) ou une animation (animation-stealer) dans un vrai projet.",
       "version": "0.1.0",
       "category": "construire-l-interface"
     },
     {
-      "name": "cloneme",
-      "source": "./construire-l-interface/cloneme",
-      "description": "CloneMe : une URL devient un projet frontend complet, piloté par design.md, palette.md et animation.md, vérifié par mesures.",
-      "version": "0.1.1",
-      "category": "construire-l-interface"
-    },
-    {
-      "name": "ui-stealer",
-      "source": "./construire-l-interface/ui-stealer",
-      "description": "UI Stealer : une image de maquette devient une interface React/Vite dans une charte cohérente.",
-      "version": "0.1.0",
-      "category": "construire-l-interface"
-    },
-    {
-      "name": "deployment-devops-advisor",
-      "source": "./securiser-et-deployer/deployment-devops-advisor",
-      "description": "Deployment Advisor : détecte ce qui casse au passage en production, compare les architectures, livre des checklists.",
+      "name": "securiser-et-deployer",
+      "source": "./securiser-et-deployer",
+      "description": "Sécuriser et déployer : l'audit de sécurité par chemins d'attaque et le conseil de mise en production.",
       "version": "0.1.0",
       "category": "securiser-et-deployer"
     },
     {
-      "name": "security-auditor",
-      "source": "./securiser-et-deployer/security-auditor",
-      "description": "Security Auditor : audit de sécurité orienté chemins d'attaque, rapport HTML avec valeurs sensibles masquées.",
-      "version": "0.2.0",
-      "category": "securiser-et-deployer"
-    },
-    {
-      "name": "diagram-premium",
-      "source": "./documentation/diagram-premium",
-      "description": "Diagramme premium : fichier draw.io de parcours, navigation ou architecture.",
-      "version": "0.1.0",
-      "category": "documentation"
-    },
-    {
-      "name": "fiche-technique",
-      "source": "./documentation/fiche-technique",
-      "description": "Fiche technique : fiche de référence d'une application (Markdown, schéma draw.io, PDF).",
-      "version": "0.1.0",
-      "category": "documentation"
-    },
-    {
-      "name": "guide-exploitation",
-      "source": "./documentation/guide-exploitation",
-      "description": "Guide d'exploitation : guide PDF de déploiement, d'hébergement et de maintenance d'un projet web, adapté à son type, aux prix datés et sourcés (charte nacre et bronze).",
-      "version": "0.1.0",
-      "category": "documentation"
-    },
-    {
-      "name": "guide-utilisateur",
-      "source": "./documentation/guide-utilisateur",
-      "description": "Guide utilisateur : guide d'utilisation PDF avec captures annotées.",
-      "version": "0.1.0",
-      "category": "documentation"
-    },
-    {
-      "name": "pdf-premium",
-      "source": "./documentation/pdf-premium",
-      "description": "PDF premium : rapport, dossier ou note en PDF au rendu cabinet conseil (charte Forêt).",
+      "name": "documentation",
+      "source": "./documentation",
+      "description": "Documentation : PDF premium, fiche technique, guide utilisateur, diagramme draw.io et guide d'exploitation.",
       "version": "0.1.0",
       "category": "documentation"
     }

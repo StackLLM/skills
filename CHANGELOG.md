@@ -2,6 +2,13 @@
 
 Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) · versions : [SemVer](https://semver.org/lang/fr/). Le détail de chaque Skill est dans son propre `CHANGELOG.md`.
 
+## [0.8.0] — 2026-11-17
+
+### Modifié
+- **Un plugin par volet**, au nom du dossier : `maniere-de-travailler`, `apprendre-et-evoluer`, `piloter-les-projets`, `construire-l-interface`, `securiser-et-deployer`, `documentation`. Ils remplacent les 18 plugins d'une skill chacun. Une skill s'appelle `<volet>:<skill>`.
+- CloneMe trouve UI Stealer et Animation Stealer dans le même plugin.
+- Conventions, README et carte mis à jour.
+
 ## [0.7.0] — 2026-11-17
 
 ### Ajouté

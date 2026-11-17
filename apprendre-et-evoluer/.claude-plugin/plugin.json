@@ -1,0 +1,13 @@
+{
+  "name": "apprendre-et-evoluer",
+  "version": "0.1.0",
+  "description": "Apprendre et évoluer : maîtriser une notion technique pour de vrai (technical-mentor) et refaire son CV compatible ATS (cv-ats).",
+  "author": {
+    "name": "StackLLM"
+  },
+  "license": "UNLICENSED",
+  "skills": [
+    "./cv-ats",
+    "./technical-mentor"
+  ]
+}
