@@ -1,0 +1,9 @@
+{
+  "name": "plan-par-lots",
+  "version": "0.1.0",
+  "description": "Plan par lots : un plan de travail en phases et en lots, dans un fichier Markdown à structure fixe, tenu à jour à la fin de chaque lot.",
+  "author": {
+    "name": "StackLLM"
+  },
+  "license": "UNLICENSED"
+}

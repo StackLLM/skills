@@ -8,4 +8,4 @@ node_modules/
 *.log
 
 # binaire compilé automatiquement depuis scripts/cvtool.swift
-carriere/cv-ats/scripts/.bin/
+apprendre-et-evoluer/cv-ats/scripts/.bin/

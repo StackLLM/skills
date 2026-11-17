@@ -16,12 +16,12 @@ seront définies dans un contrat de licence distinct avant toute vente.
 Le Produit est fourni « en l'état », sans garantie d'aucune sorte.
 
 Composants tiers inclus, soumis à leur propre licence :
-- carriere/cv-ats/assets/fonts/ — police Geist, SIL Open Font License 1.1
-  (voir carriere/cv-ats/assets/fonts/OFL.txt).
-- frontend/cloneme/exemples/stellar/ — décrit un clone du thème « Stellar » de
+- apprendre-et-evoluer/cv-ats/assets/fonts/ — police Geist, SIL Open Font License 1.1
+  (voir apprendre-et-evoluer/cv-ats/assets/fonts/OFL.txt).
+- construire-l-interface/cloneme/exemples/stellar/ — décrit un clone du thème « Stellar » de
   HTML5 UP (https://html5up.net), licence Creative Commons Attribution 3.0,
   qui exige l'attribution à HTML5 UP.
-- qualite-production/security-auditor/ — reprend des éléments de la skill
+- securiser-et-deployer/security-auditor/ — reprend des éléments de la skill
   « security-audit » de Cloudflare (https://github.com/cloudflare/security-audit-skill),
   licence MIT, Copyright (c) 2025-2026 Cloudflare, Inc. Détail dans ORIGINES.md.
 

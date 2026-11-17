@@ -4,17 +4,17 @@ Règles communes à toutes les Skills du dépôt.
 
 ## Rangement
 
-- Une Skill = un dossier, dans une **catégorie** : `frontend/`, `qualite-production/`, `documentation/`, `piloter-les-projets/`, `carriere/`, `commun/`.
+- Une Skill = un dossier, dans un **volet** : `maniere-de-travailler/`, `apprendre-et-evoluer/`, `piloter-les-projets/`, `construire-l-interface/`, `securiser-et-deployer/`, `documentation/`.
 - Nom du dossier en minuscules avec tirets. Le nom déclaré (`name:` dans `SKILL.md`) est celui qu'on installe.
-- Nouvelle catégorie seulement quand aucune ne convient. L'ajouter alors au README racine.
+- Nouveau volet seulement quand aucun ne convient. L'ajouter alors au README racine.
 
 ## Contenu d'une Skill
 
 | Fichier ou dossier | Obligatoire | Rôle |
 |---|---|---|
 | `SKILL.md` | oui | instructions et règles d'exécution, avec `name` et `description` en en-tête |
-| `README.md` | oui (ou README de catégorie pour une suite) | valeur, capacités vérifiées, installation, prérequis, limites |
-| `CHANGELOG.md` | oui (ou celui de la catégorie pour une suite) | historique des versions |
+| `README.md` | oui (ou README de volet pour une suite) | valeur, capacités vérifiées, installation, prérequis, limites |
+| `CHANGELOG.md` | oui (ou celui du volet pour une suite) | historique des versions |
 | `references/` | si utile | méthode détaillée, lue à la demande |
 | `scripts/` | si utile | outils exécutables |
 | `tests/` ou `exemples/` | si disponible | preuve que la Skill marche |
@@ -24,7 +24,7 @@ Pas de fichier vide pour respecter la structure. La licence et le `.gitignore` s
 ## Dépendances
 
 - Une dépendance entre Skills est **déclarée** dans le README, jamais copiée.
-- Les Skills qui dépendent l'une de l'autre restent dans la même catégorie, côte à côte (ex. CloneMe, UI Stealer et Animation Stealer).
+- Les Skills qui dépendent l'une de l'autre restent dans le même volet, côte à côte (ex. CloneMe, UI Stealer et Animation Stealer).
 - Scripts : bibliothèque standard de préférence. Toute dépendance externe est citée dans les prérequis.
 
 ## Versions
@@ -37,17 +37,17 @@ Pas de fichier vide pour respecter la structure. La licence et le `.gitignore` s
 - Aucune valeur inventée : ce qui n'est ni lu ni mesuré est marqué comme déduction.
 - Chaque constat porte son niveau de confiance.
 - Validation par mesure, test ou contrôle avant de livrer.
-- Écriture selon `commun/explainer`.
+- Écriture selon `maniere-de-travailler/explainer`.
 
 ## Avant chaque envoi
 
 - Rechercher secrets, données personnelles et chemins locaux :
 
   ```bash
-  python3 qualite-production/security-auditor/scripts/chercher_secrets.py .
+  python3 securiser-et-deployer/security-auditor/scripts/chercher_secrets.py .
   ```
 
-- Après les tests de cv-ats, nettoyer les chemins absolus de `carriere/cv-ats/tests/resultats/*/_controle/rapport.json`.
+- Après les tests de cv-ats, nettoyer les chemins absolus de `apprendre-et-evoluer/cv-ats/tests/resultats/*/_controle/rapport.json`.
 - Aucune donnée client, aucune information interne d'un employeur ou d'un autre projet.
 
 ## Plugins

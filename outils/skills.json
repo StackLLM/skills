@@ -1,0 +1,184 @@
+{
+  "nom": "SKILLS",
+  "sous_titre": "Chaque volet, les skills qu'il contient, et à quoi elles servent",
+  "plugin": "stackllm-skills",
+  "hors_carte": "Rien n'y est chargé, rien n'y est perdu : les versions remplacées et les arrivées déjà intégrées sont dans _archives/, sur le poste de travail seulement.",
+  "volets": [
+    {
+      "nom": "Manière de travailler",
+      "resume": "La grille de toutes les réponses, et la trace laissée par chaque commit.",
+      "skills": [
+        {
+          "nom": "explainer",
+          "dossier": "maniere-de-travailler/explainer/",
+          "maturite": "—",
+          "sert_a": "La manière d'expliquer de référence : français simple, phrases courtes, réponse directe, sections séparées."
+        },
+        {
+          "nom": "libelle-de-commit",
+          "dossier": "maniere-de-travailler/libelle-de-commit/",
+          "maturite": "—",
+          "sert_a": "Propose le libellé de commit à la fin de chaque réponse qui a changé du code. Ne commite jamais à ta place."
+        }
+      ],
+      "dossier": "maniere-de-travailler/"
+    },
+    {
+      "nom": "Apprendre et évoluer",
+      "resume": "Maîtriser une notion pour de vrai, et présenter son parcours.",
+      "skills": [
+        {
+          "nom": "technical-mentor",
+          "dossier": "apprendre-et-evoluer/technical-mentor/",
+          "maturite": "B+",
+          "sert_a": "Transforme une notion technique mal maîtrisée en fiche HTML : problème, mécanisme, mise en œuvre, questions d'entretien. Deux modes : notion et architecture."
+        },
+        {
+          "nom": "cv-ats",
+          "dossier": "apprendre-et-evoluer/cv-ats/",
+          "maturite": "A",
+          "sert_a": "Un ancien CV devient 3 PDF d'une page compatibles ATS, contrôlés automatiquement. macOS seulement."
+        }
+      ],
+      "dossier": "apprendre-et-evoluer/"
+    },
+    {
+      "nom": "Piloter les projets",
+      "dossier": "piloter-les-projets/",
+      "resume": "Savoir où en est le travail, et tenir le socle technique en avançant.",
+      "skills": [
+        {
+          "nom": "map-projet-reponse",
+          "dossier": "piloter-les-projets/map-projet-reponse/",
+          "maturite": "A",
+          "sert_a": "La map d'avancement d'un projet ou d'une orga GitHub, affichée dans la réponse. Réglage 1, 2 ou 3 colonnes. Aucun fichier créé."
+        },
+        {
+          "nom": "map-projet",
+          "dossier": "piloter-les-projets/map-projet/",
+          "maturite": "A",
+          "sert_a": "La même map en fichiers : 2 PNG et 2 HTML, à garder, imprimer ou envoyer."
+        },
+        {
+          "nom": "plan-par-lots",
+          "dossier": "piloter-les-projets/plan-par-lots/",
+          "maturite": "B",
+          "sert_a": "Le plan de travail en phases et en lots, dans un fichier Markdown à structure fixe. Mis à jour à la fin de chaque lot : c'est la source de vérité du chantier."
+        },
+        {
+          "nom": "adviser-dev",
+          "dossier": "piloter-les-projets/adviser-dev/",
+          "maturite": "B+",
+          "sert_a": "Le tech lead : audit du socle d'un projet existant, ou socle front et back depuis le plan. Tests, CI, Docker, livraison. Sur appel seulement (/adviser-dev)."
+        }
+      ]
+    },
+    {
+      "nom": "Construire l'interface",
+      "resume": "Le front : copier un site, une maquette ou une animation dans un vrai projet.",
+      "skills": [
+        {
+          "nom": "cloneme",
+          "dossier": "construire-l-interface/cloneme/",
+          "maturite": "A",
+          "sert_a": "Reproduit un site entier depuis son URL, dans un projet frontend exécutable, vérifié par des mesures."
+        },
+        {
+          "nom": "ui-stealer",
+          "dossier": "construire-l-interface/ui-stealer/",
+          "maturite": "B",
+          "sert_a": "Construit un front React/Vite à partir d'une image de maquette déposée dans Template/."
+        },
+        {
+          "nom": "animation-stealer",
+          "dossier": "construire-l-interface/animation-stealer/",
+          "maturite": "B",
+          "sert_a": "Reproduit le comportement d'une animation au scroll vue sur un site : rythme, déclencheurs, retour arrière."
+        }
+      ],
+      "dossier": "construire-l-interface/"
+    },
+    {
+      "nom": "Sécuriser et déployer",
+      "dossier": "securiser-et-deployer/",
+      "resume": "Les deux contrôles à passer avant d'ouvrir le service au public.",
+      "skills": [
+        {
+          "nom": "security-auditor",
+          "dossier": "securiser-et-deployer/security-auditor/",
+          "maturite": "B+",
+          "sert_a": "Cherche les chemins d'attaque. Un constat n'existe que s'il franchit une frontière de confiance. Relecture indépendante, registre de couverture, rapport HTML, secrets masqués."
+        },
+        {
+          "nom": "deployment-devops-advisor",
+          "dossier": "securiser-et-deployer/deployment-devops-advisor/",
+          "maturite": "B+",
+          "sert_a": "Cherche les causes du « ça marche chez moi mais pas en prod », et compare les architectures de déploiement avec leur coût."
+        }
+      ]
+    },
+    {
+      "nom": "Livrables",
+      "dossier": "documentation/",
+      "resume": "Les documents à montrer dehors, à partir du vrai projet.",
+      "skills": [
+        {
+          "nom": "pdf-premium",
+          "dossier": "documentation/pdf-premium/",
+          "maturite": "B",
+          "sert_a": "Rapport, dossier ou note en PDF, au rendu « cabinet conseil » (charte Forêt)."
+        },
+        {
+          "nom": "fiche-technique",
+          "dossier": "documentation/fiche-technique/",
+          "maturite": "B",
+          "sert_a": "La fiche de référence d'une application : Markdown dans le dépôt, schéma draw.io, PDF."
+        },
+        {
+          "nom": "guide-utilisateur",
+          "dossier": "documentation/guide-utilisateur/",
+          "maturite": "B",
+          "sert_a": "Le guide d'utilisation en PDF, avec captures annotées."
+        },
+        {
+          "nom": "diagram-premium",
+          "dossier": "documentation/diagram-premium/",
+          "maturite": "B",
+          "sert_a": "Un diagramme .drawio prêt à ouvrir : parcours, navigation, cycle de vie, architecture."
+        },
+        {
+          "nom": "guide-exploitation",
+          "dossier": "documentation/guide-exploitation/",
+          "maturite": "B",
+          "sert_a": "Le guide PDF de déploiement, d'hébergement et de maintenance, adapté au type de projet, avec offres comparées et budget."
+        }
+      ]
+    }
+  ],
+  "colonnes": [
+    {
+      "id": "A",
+      "nom": "Maturité A",
+      "court": "A",
+      "aide": "scripts et cas ou tests validés"
+    },
+    {
+      "id": "B+",
+      "nom": "Maturité B+",
+      "court": "B+",
+      "aide": "scripts et exemple"
+    },
+    {
+      "id": "B",
+      "nom": "Maturité B",
+      "court": "B",
+      "aide": "méthode complète, sans test automatique"
+    },
+    {
+      "id": "—",
+      "nom": "Sans note",
+      "court": "—",
+      "aide": "charte ou règle d'écriture, rien à tester"
+    }
+  ]
+}

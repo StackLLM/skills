@@ -1,0 +1,214 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>SKILLS — la carte des skills</title><style>
+:root {
+  --fond: #fafafa; --carte: #ffffff; --bord: #e4e4e4; --encre: #111111;
+  --doux: #5c5c5c; --pale: #8c8c8c; --piste: #f1f1f1;
+  --vert: #099309; --vert-fond: #cdeacb; --vert-texte: #17691a;
+  --bleu-fond: #cfe2fb; --bleu-bord: #7db2ee; --bleu-texte: #174a86;
+  --rouge-fond: #fbdcd9; --rouge-bord: #e8958c; --rouge-texte: #9c2015;
+  --gris-fond: #f5f5f5; --gris-texte: #8c8c8c;
+}
+* { box-sizing: border-box; }
+html { background: var(--fond); }
+body {
+  margin: 0; padding: 32px; background: var(--fond); color: var(--encre);
+  font-family: Inter, "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  font-size: 15px; line-height: 1.42; -webkit-font-smoothing: antialiased;
+}
+.page { max-width: 1216px; margin: 0 auto; }
+.etroite { max-width: 1216px; }
+
+/* En-tête */
+.entete { display: flex; justify-content: space-between; align-items: flex-start;
+  gap: 24px; margin-bottom: 18px; }
+h1 { font-size: 27px; line-height: 1.15; margin: 0; letter-spacing: -.01em; }
+.soustitre { color: var(--doux); margin-top: 3px; }
+.date { color: var(--pale); white-space: nowrap; padding-top: 6px; }
+
+/* Bandeau verdict */
+.verdict { background: var(--carte); border: 1px solid var(--bord);
+  border-radius: 16px; padding: 18px 22px; margin-bottom: 14px; }
+.verdict-haut { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.verdict-mot { font-size: 12px; font-weight: 700; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--pale); }
+.verdict-phrase { font-size: 19px; font-weight: 650; line-height: 1.3;
+  margin-top: 8px; }
+.action { color: var(--doux); margin-top: 6px; }
+.action b { color: var(--encre); font-weight: 600; }
+
+/* Frise des phases */
+.frise { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px;
+  margin-bottom: 14px; }
+.etape { background: var(--gris-fond); color: var(--gris-texte);
+  border-radius: 10px; padding: 9px 8px; text-align: center; font-size: 14px;
+  border: 1px solid transparent; }
+.etape.passee { background: var(--vert-fond); color: var(--vert-texte); }
+.etape.actuelle { background: var(--bleu-fond); color: var(--bleu-texte);
+  border-color: var(--bleu-bord); font-weight: 700; }
+.etape.ouverte { background: var(--bleu-fond); color: var(--bleu-texte); }
+.etape small { display: block; font-size: 12.5px; font-weight: 400; opacity: .85; }
+.etape .nombre { display: block; font-size: 21px; font-weight: 700;
+  line-height: 1.15; }
+
+/* Chiffres clés */
+.chiffres { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;
+  margin-bottom: 22px; }
+.chiffre { background: var(--carte); border: 1px solid var(--bord);
+  border-radius: 14px; padding: 12px 16px; }
+.chiffre b { display: block; font-size: 24px; line-height: 1.15; }
+.chiffre span { color: var(--doux); font-size: 13.5px; }
+.chiffre.alerte b { color: var(--rouge-texte); }
+
+/* Matrice phases */
+.matrice { width: 100%; border-collapse: separate; border-spacing: 10px 8px;
+  table-layout: fixed; margin: 0 -10px 4px; width: calc(100% + 20px); }
+.matrice th { font-weight: 400; color: var(--doux); font-size: 15px;
+  padding-bottom: 4px; }
+.matrice td.ligne { width: 216px; vertical-align: middle; }
+.matrice col.tete { width: 216px; }
+.ligne b { display: block; font-weight: 600; font-size: 16.5px; line-height: 1.2; }
+.ligne span { color: var(--doux); font-size: 14px; }
+.case { height: 42px; border-radius: 11px; text-align: center; font-size: 14.5px;
+  padding: 0 6px; vertical-align: middle; overflow: hidden; }
+.case.fait { background: var(--vert-fond); color: var(--vert-texte); }
+.case.ouvert { background: var(--bleu-fond); color: var(--bleu-texte);
+  box-shadow: inset 0 0 0 1px var(--bleu-bord); }
+.case.bloque { background: var(--rouge-fond); color: var(--rouge-texte);
+  box-shadow: inset 0 0 0 1px var(--rouge-bord); }
+.case.confirmer { color: var(--doux); outline: 1px dashed var(--pale);
+  outline-offset: -1px; }
+.case.avenir { color: var(--gris-texte); }
+.case.vide { color: var(--gris-texte); }
+
+/* Légende */
+.legende { display: flex; gap: 22px; flex-wrap: wrap; color: var(--doux);
+  font-size: 14px; margin: 8px 0 20px; }
+.legende i { display: inline-block; width: 13px; height: 13px; border-radius: 3px;
+  margin-right: 7px; vertical-align: -1px; }
+.legende .l-vert { background: var(--vert-fond); }
+.legende .l-bleu { background: var(--bleu-fond);
+  box-shadow: inset 0 0 0 1px var(--bleu-bord); }
+.legende .l-rouge { background: var(--rouge-fond);
+  box-shadow: inset 0 0 0 1px var(--rouge-bord); }
+.legende .l-pointille { border: 1px dashed var(--pale); }
+.legende .l-gris { background: var(--gris-fond);
+  box-shadow: inset 0 0 0 1px var(--bord); }
+
+/* Cartes */
+.colonnes { display: flex; gap: 20px; align-items: flex-start; }
+.colonne { flex: 1 1 0; min-width: 0; }
+.bloc {
+  background: var(--carte); border: 1px solid var(--bord); border-radius: 16px;
+  padding: 20px 22px; margin-bottom: 20px; }
+.titre { display: flex; align-items: flex-start; gap: 12px; }
+.case-cocher { flex: none; width: 14px; height: 14px; margin-top: 5px;
+  border: 2px solid var(--encre); border-radius: 2px; }
+.case-cocher.pleine { background: var(--vert); border-color: var(--vert); }
+.titre h2 { font-size: 18.5px; line-height: 1.25; margin: 0; flex: 1; }
+.titre .sous { display: block; font-weight: 400; font-size: 14px;
+  color: var(--doux); margin-top: 2px; }
+.tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 11px; }
+.tag { font-size: 12.5px; font-weight: 600; border-radius: 7px; padding: 3px 9px;
+  border: 1px solid transparent; white-space: nowrap; }
+.resume { margin: 11px 0 0; }
+
+/* Ligne d'avancement */
+.barre { height: 9px; background: var(--piste); border-radius: 5px;
+  overflow: hidden; margin-top: 13px; }
+.barre i { display: block; height: 100%; background: var(--vert); border-radius: 5px; }
+.mesure { display: flex; justify-content: space-between; color: var(--doux);
+  font-size: 13.5px; margin-top: 5px; }
+.mesure b { color: var(--encre); font-weight: 650; }
+.mini { display: grid; grid-template-columns: repeat(5, 1fr); gap: 3px;
+  margin-top: 10px; }
+.mini i { display: block; height: 6px; border-radius: 3px; background: var(--piste); }
+.mini i.fait { background: var(--vert); }
+.mini i.ouvert { background: var(--bleu-bord); }
+.mini i.bloque { background: var(--rouge-bord); }
+.mini i.confirmer { background: repeating-linear-gradient(90deg, var(--pale) 0 4px,
+  transparent 4px 7px); }
+.mini-noms { display: grid; grid-template-columns: repeat(5, 1fr); gap: 3px;
+  color: var(--pale); font-size: 10.5px; margin-top: 3px; }
+.mini-noms span.ici { color: var(--bleu-texte); font-weight: 700; }
+
+/* Les lots de la carte : deux paquets, une case à cocher par lot */
+.paquet { margin-top: 13px; }
+.paquet + .paquet { margin-top: 15px; }
+.paquet-tete { display: flex; justify-content: space-between;
+  align-items: center; font-size: 12px; color: var(--pale);
+  padding-bottom: 5px; border-bottom: 1px solid var(--bord); }
+.titres { list-style: none; margin: 6px 0 0; padding: 0; }
+.titres li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px;
+  line-height: 1.3; padding: 3px 0; }
+.titres i { flex: none; box-sizing: border-box; width: 14px; height: 14px;
+  margin-top: 2px; border: 1px solid var(--pale); border-radius: 4px;
+  position: relative; }
+.titres li.fait { color: var(--pale); }
+.titres li.fait i { background: var(--doux); border-color: var(--doux); }
+.titres li.fait i::after { content: ""; position: absolute; left: 4.5px;
+  top: 1.8px; width: 3.2px; height: 6.6px; border: solid var(--carte);
+  border-width: 0 1.7px 1.7px 0; transform: rotate(45deg); }
+.titres li.encours i::after { content: ""; position: absolute; left: 2.2px;
+  top: 5px; width: 7.6px; height: 2px; border-radius: 1px;
+  background: var(--doux); }
+.titres li.aconfirmer { color: var(--pale); }
+.titres li.aconfirmer i { border-style: dashed; }
+.titres li.autres { color: var(--pale); font-size: 13px; padding-left: 24px; }
+
+/* Liste des lots */
+.lot { display: flex; align-items: center; justify-content: space-between;
+  gap: 12px; padding: 5px 0; }
+.lot-texte { min-width: 0; }
+.lot-titre { font-weight: 550; font-size: 14.5px; line-height: 1.25; }
+.lot-detail { color: var(--doux); font-size: 13px; line-height: 1.25; }
+.lots { margin-top: 10px; }
+.pastille { flex: none; width: 92px; text-align: center; font-size: 13px;
+  border-radius: 9px; padding: 4px 4px; border: 1px solid transparent; }
+.vert { background: var(--vert-fond); color: var(--vert-texte); }
+.bleu { background: var(--bleu-fond); color: var(--bleu-texte);
+  border-color: var(--bleu-bord); }
+.rouge { background: var(--rouge-fond); color: var(--rouge-texte);
+  border-color: var(--rouge-bord); }
+.gris { background: var(--gris-fond); color: var(--gris-texte); }
+.pointille { background: transparent; color: var(--doux);
+  border: 1px dashed var(--pale); }
+.groupe { color: var(--pale); font-size: 12px; font-weight: 600;
+  letter-spacing: .04em; margin-top: 10px; text-transform: uppercase; }
+.sans-lot { color: var(--doux); font-size: 14px; margin-top: 12px; }
+.hors { color: var(--doux); font-size: 14px; margin-top: 6px; }
+.hors b { color: var(--encre); font-weight: 600; }
+
+@media (max-width: 900px) {
+  body { padding: 16px; }
+  .colonnes { display: block; }
+  .chiffres { grid-template-columns: repeat(2, 1fr); }
+  .defile { overflow-x: auto; }
+  .matrice { min-width: 760px; }
+}
+
+.titre .sous.chemin, .ligne .chemin { font-family: ui-monospace, Menlo,
+  Consolas, monospace; font-size: 12.5px; color: var(--pale); }
+.ligne .chemin { display: block; margin-top: 2px; }
+.titres li { display: block; padding: 6px 0 7px; }
+.titres .haut { display: flex; align-items: flex-start; gap: 10px; }
+.titres .haut i { flex: none; box-sizing: border-box; width: 14px; height: 14px;
+  margin-top: 2px; border: 1px solid var(--pale); border-radius: 4px;
+  position: relative; }
+.titres li.partagee .haut i { background: var(--doux); border-color: var(--doux); }
+.titres li.partagee .haut i::after { content: ""; position: absolute; left: 4.5px;
+  top: 1.8px; width: 3.2px; height: 6.6px; border: solid var(--carte);
+  border-width: 0 1.7px 1.7px 0; transform: rotate(45deg); }
+.titres .nom { font-family: ui-monospace, Menlo, Consolas, monospace;
+  font-size: 13px; font-weight: 650; line-height: 1.32; flex: 1; min-width: 0;
+  overflow-wrap: anywhere; }
+.titres .sert-a { color: var(--doux); font-size: 13.2px; line-height: 1.42;
+  margin: 3px 0 0 24px; }
+.titres .appel { font-family: ui-monospace, Menlo, Consolas, monospace;
+  font-size: 11.5px; color: var(--pale); margin: 3px 0 0 24px;
+  overflow-wrap: anywhere; }
+.titres li:not(.partagee) .nom { color: var(--doux); }
+.mini-noms span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.case.poste { background: var(--gris-fond); color: var(--gris-texte);
+  box-shadow: inset 0 0 0 1px var(--bord); }
+.page { max-width: 1400px; }
+</style></head><body><main class="page"><header class="entete"><div><h1>SKILLS</h1><div class="soustitre">Chaque volet, les skills qu&#x27;il contient, et à quoi elles servent</div></div><div class="date">État au 17 novembre 2026</div></header><section class="verdict"><div class="verdict-haut"><span class="verdict-mot">Le dossier</span><span class="tag vert">Tout dans le plugin</span><span class="tag gris">6 volets</span></div><div class="verdict-phrase">18 skills vivantes, rangées en 6 volets. Un volet = un besoin.</div><div class="action"><b>Le plus fourni :</b> Livrables, 5 skills.</div><div class="hors"><b>Hors carte :</b> Rien n&#x27;y est chargé, rien n&#x27;y est perdu : les versions remplacées et les arrivées déjà intégrées sont dans _archives/, sur le poste de travail seulement.</div></section><section class="frise" style="grid-template-columns:repeat(4,1fr)"><div class="etape passee" title="scripts et cas ou tests validés">Maturité A<small>4 skills</small></div><div class="etape passee" title="scripts et exemple">Maturité B+<small>4 skills</small></div><div class="etape passee" title="méthode complète, sans test automatique">Maturité B<small>8 skills</small></div><div class="etape passee" title="charte ou règle d&#x27;écriture, rien à tester">Sans note<small>2 skills</small></div></section><section class="chiffres"><div class="chiffre"><b>18</b><span>skills vivantes</span></div><div class="chiffre"><b>6</b><span>volets</span></div><div class="chiffre"><b>18 / 18</b><span>dans le plugin (100 %)</span></div><div class="chiffre"><b>0</b><span>sur ce poste seulement</span></div></section><div class="defile"><table class="matrice"><colgroup><col class="tete"><col><col><col><col></colgroup><thead><tr><th></th><th>Maturité A</th><th>Maturité B+</th><th>Maturité B</th><th>Sans note</th></tr></thead><tbody><tr><td class="ligne"><b>Manière de travailler</b><span class="chemin">maniere-de-travailler/</span></td><td class="case vide">—</td><td class="case vide">—</td><td class="case vide">—</td><td class="case fait">2</td></tr><tr><td class="ligne"><b>Apprendre et évoluer</b><span class="chemin">apprendre-et-evoluer/</span></td><td class="case fait">1</td><td class="case fait">1</td><td class="case vide">—</td><td class="case vide">—</td></tr><tr><td class="ligne"><b>Piloter les projets</b><span class="chemin">piloter-les-projets/</span></td><td class="case fait">2</td><td class="case fait">1</td><td class="case fait">1</td><td class="case vide">—</td></tr><tr><td class="ligne"><b>Construire l&#x27;interface</b><span class="chemin">construire-l-interface/</span></td><td class="case fait">1</td><td class="case vide">—</td><td class="case fait">2</td><td class="case vide">—</td></tr><tr><td class="ligne"><b>Sécuriser et déployer</b><span class="chemin">securiser-et-deployer/</span></td><td class="case vide">—</td><td class="case fait">2</td><td class="case vide">—</td><td class="case vide">—</td></tr><tr><td class="ligne"><b>Livrables</b><span class="chemin">documentation/</span></td><td class="case vide">—</td><td class="case vide">—</td><td class="case fait">5</td><td class="case vide">—</td></tr></tbody></table></div><div class="legende"><span><b>A</b>&nbsp; scripts et cas ou tests validés</span><span><b>B+</b>&nbsp; scripts et exemple</span><span><b>B</b>&nbsp; méthode complète, sans test automatique</span><span><b>—</b>&nbsp; charte ou règle d&#x27;écriture, rien à tester</span><span>—&nbsp;&nbsp;dans une case : aucune skill de ce niveau</span></div><section class="colonnes"><div class="colonne"><article class="bloc"><div class="titre"><div class="case-cocher pleine"></div><h2>Livrables<span class="sous chemin">documentation/</span></h2></div><div class="tags"><span class="tag vert">Partagé</span><span class="tag gris">5 skills</span></div><p class="resume">Les documents à montrer dehors, à partir du vrai projet.</p><div class="barre"><i style="width:100%"></i></div><div class="mesure"><span><b>5 / 5</b> dans le plugin</span><span><b>100 %</b></span></div><div class="mini" style="grid-template-columns:repeat(4,1fr)"><i class=""></i><i class=""></i><i class="fait"></i><i class=""></i></div><div class="mini-noms" style="grid-template-columns:repeat(4,1fr)"><span title="Maturité A">A</span><span title="Maturité B+">B+</span><span title="Maturité B">B</span><span title="Sans note">—</span></div><div class="paquet"><div class="paquet-tete"><span>Les skills</span><span>5</span></div><ul class="titres"><li class="partagee"><div class="haut"><i></i><span class="nom">pdf-premium</span></div><div class="sert-a">Rapport, dossier ou note en PDF, au rendu « cabinet conseil » (charte Forêt).</div><div class="appel">pdf-premium@stackllm-skills · 0.1.0 · maturité B</div></li><li class="partagee"><div class="haut"><i></i><span class="nom">fiche-technique</span></div><div class="sert-a">La fiche de référence d&#x27;une application : Markdown dans le dépôt, schéma draw.io, PDF.</div><div class="appel">fiche-technique@stackllm-skills · 0.1.0 · maturité B</div></li><li class="partagee"><div class="haut"><i></i><span class="nom">guide-utilisateur</span></div><div class="sert-a">Le guide d&#x27;utilisation en PDF, avec captures annotées.</div><div class="appel">guide-utilisateur@stackllm-skills · 0.1.0 · maturité B</div></li><li class="partagee"><div class="haut"><i></i><span class="nom">diagram-premium</span></div><div class="sert-a">Un diagramme .drawio prêt à ouvrir : parcours, navigation, cycle de vie, architecture.</div><div class="appel">diagram-premium@stackllm-skills · 0.1.0 · maturité B</div></li><li class="partagee"><div class="haut"><i></i><span class="nom">guide-exploitation</span></div><div class="sert-a">Le guide PDF de déploiement, d&#x27;hébergement et de maintenance, adapté au type de projet, avec offres comparées et budget.</div><div class="appel">guide-exploitation@stackllm-skills · 0.1.0 · maturité B</div></li></ul></div></article><article class="bloc"><div class="titre"><div class="case-cocher pleine"></div><h2>Sécuriser et déployer<span class="sous chemin">securiser-et-deployer/</span></h2></div><div class="tags"><span class="tag vert">Partagé</span><span class="tag gris">2 skills</span></div><p class="resume">Les deux contrôles à passer avant d&#x27;ouvrir le service au public.</p><div class="barre"><i style="width:100%"></i></div><div class="mesure"><span><b>2 / 2</b> dans le plugin</span><span><b>100 %</b></span></div><div class="mini" style="grid-template-columns:repeat(4,1fr)"><i class=""></i><i class="fait"></i><i class=""></i><i class=""></i></div><div class="mini-noms" style="grid-template-columns:repeat(4,1fr)"><span title="Maturité A">A</span><span title="Maturité B+">B+</span><span title="Maturité B">B</span><span title="Sans note">—</span></div><div class="paquet"><div class="paquet-tete"><span>Les skills</span><span>2</span></div><ul class="titres"><li class="partagee"><div class="haut"><i></i><span class="nom">security-auditor</span></div><div class="sert-a">Cherche les chemins d&#x27;attaque. Un constat n&#x27;existe que s&#x27;il franchit une frontière de confiance. Relecture indépendante, registre de couverture, rapport HTML, secrets masqués.</div><div class="appel">security-auditor@stackllm-skills · 0.2.0 · maturité B+</div></li><li class="partagee"><div class="haut"><i></i><span class="nom">deployment-devops-advisor</span></div><div class="sert-a">Cherche les causes du « ça marche chez moi mais pas en prod », et compare les architectures de déploiement avec leur coût.</div><div class="appel">deployment-devops-advisor@stackllm-skills · 0.1.0 · maturité B+</div></li></ul></div></article></div><div class="colonne"><article class="bloc"><div class="titre"><div class="case-cocher pleine"></div><h2>Piloter les projets<span class="sous chemin">piloter-les-projets/</span></h2></div><div class="tags"><span class="tag vert">Partagé</span><span class="tag gris">4 skills</span></div><p class="resume">Savoir où en est le travail, et tenir le socle technique en avançant.</p><div class="barre"><i style="width:100%"></i></div><div class="mesure"><span><b>4 / 4</b> dans le plugin</span><span><b>100 %</b></span></div><div class="mini" style="grid-template-columns:repeat(4,1fr)"><i class="fait"></i><i class="fait"></i><i class="fait"></i><i class=""></i></div><div class="mini-noms" style="grid-template-columns:repeat(4,1fr)"><span title="Maturité A">A</span><span title="Maturité B+">B+</span><span title="Maturité B">B</span><span title="Sans note">—</span></div><div class="paquet"><div class="paquet-tete"><span>Les skills</span><span>4</span></div><ul class="titres"><li class="partagee"><div class="haut"><i></i><span class="nom">map-projet-reponse</span></div><div class="sert-a">La map d&#x27;avancement d&#x27;un projet ou d&#x27;une orga GitHub, affichée dans la réponse. Réglage 1, 2 ou 3 colonnes. Aucun fichier créé.</div><div class="appel">map-projet-reponse@stackllm-skills · 0.1.1 · maturité A</div></li><li class="partagee"><div class="haut"><i></i><span class="nom">map-projet</span></div><div class="sert-a">La même map en fichiers : 2 PNG et 2 HTML, à garder, imprimer ou envoyer.</div><div class="appel">map-projet@stackllm-skills · 0.5.1 · maturité A</div></li><li class="partagee"><div class="haut"><i></i><span class="nom">plan-par-lots</span></div><div class="sert-a">Le plan de travail en phases et en lots, dans un fichier Markdown à structure fixe. Mis à jour à la fin de chaque lot : c&#x27;est la source de vérité du chantier.</div><div class="appel">plan-par-lots@stackllm-skills · 0.1.0 · maturité B</div></li><li class="partagee"><div class="haut"><i></i><span class="nom">adviser-dev</span></div><div class="sert-a">Le tech lead : audit du socle d&#x27;un projet existant, ou socle front et back depuis le plan. Tests, CI, Docker, livraison. Sur appel seulement (/adviser-dev).</div><div class="appel">adviser-dev@stackllm-skills · 0.1.3 · maturité B+</div></li></ul></div></article><article class="bloc"><div class="titre"><div class="case-cocher pleine"></div><h2>Apprendre et évoluer<span class="sous chemin">apprendre-et-evoluer/</span></h2></div><div class="tags"><span class="tag vert">Partagé</span><span class="tag gris">2 skills</span></div><p class="resume">Maîtriser une notion pour de vrai, et présenter son parcours.</p><div class="barre"><i style="width:100%"></i></div><div class="mesure"><span><b>2 / 2</b> dans le plugin</span><span><b>100 %</b></span></div><div class="mini" style="grid-template-columns:repeat(4,1fr)"><i class="fait"></i><i class="fait"></i><i class=""></i><i class=""></i></div><div class="mini-noms" style="grid-template-columns:repeat(4,1fr)"><span title="Maturité A">A</span><span title="Maturité B+">B+</span><span title="Maturité B">B</span><span title="Sans note">—</span></div><div class="paquet"><div class="paquet-tete"><span>Les skills</span><span>2</span></div><ul class="titres"><li class="partagee"><div class="haut"><i></i><span class="nom">technical-mentor</span></div><div class="sert-a">Transforme une notion technique mal maîtrisée en fiche HTML : problème, mécanisme, mise en œuvre, questions d&#x27;entretien. Deux modes : notion et architecture.</div><div class="appel">technical-mentor@stackllm-skills · 0.2.0 · maturité B+</div></li><li class="partagee"><div class="haut"><i></i><span class="nom">cv-ats</span></div><div class="sert-a">Un ancien CV devient 3 PDF d&#x27;une page compatibles ATS, contrôlés automatiquement. macOS seulement.</div><div class="appel">cv-ats@stackllm-skills · 0.1.0 · maturité A</div></li></ul></div></article></div><div class="colonne"><article class="bloc"><div class="titre"><div class="case-cocher pleine"></div><h2>Construire l&#x27;interface<span class="sous chemin">construire-l-interface/</span></h2></div><div class="tags"><span class="tag vert">Partagé</span><span class="tag gris">3 skills</span></div><p class="resume">Le front : copier un site, une maquette ou une animation dans un vrai projet.</p><div class="barre"><i style="width:100%"></i></div><div class="mesure"><span><b>3 / 3</b> dans le plugin</span><span><b>100 %</b></span></div><div class="mini" style="grid-template-columns:repeat(4,1fr)"><i class="fait"></i><i class=""></i><i class="fait"></i><i class=""></i></div><div class="mini-noms" style="grid-template-columns:repeat(4,1fr)"><span title="Maturité A">A</span><span title="Maturité B+">B+</span><span title="Maturité B">B</span><span title="Sans note">—</span></div><div class="paquet"><div class="paquet-tete"><span>Les skills</span><span>3</span></div><ul class="titres"><li class="partagee"><div class="haut"><i></i><span class="nom">cloneme</span></div><div class="sert-a">Reproduit un site entier depuis son URL, dans un projet frontend exécutable, vérifié par des mesures.</div><div class="appel">cloneme@stackllm-skills · 0.1.0 · maturité A</div></li><li class="partagee"><div class="haut"><i></i><span class="nom">ui-stealer</span></div><div class="sert-a">Construit un front React/Vite à partir d&#x27;une image de maquette déposée dans Template/.</div><div class="appel">ui-stealer@stackllm-skills · 0.1.0 · maturité B</div></li><li class="partagee"><div class="haut"><i></i><span class="nom">animation-stealer</span></div><div class="sert-a">Reproduit le comportement d&#x27;une animation au scroll vue sur un site : rythme, déclencheurs, retour arrière.</div><div class="appel">animation-stealer@stackllm-skills · 0.1.0 · maturité B</div></li></ul></div></article><article class="bloc"><div class="titre"><div class="case-cocher pleine"></div><h2>Manière de travailler<span class="sous chemin">maniere-de-travailler/</span></h2></div><div class="tags"><span class="tag vert">Partagé</span><span class="tag gris">2 skills</span></div><p class="resume">La grille de toutes les réponses, et la trace laissée par chaque commit.</p><div class="barre"><i style="width:100%"></i></div><div class="mesure"><span><b>2 / 2</b> dans le plugin</span><span><b>100 %</b></span></div><div class="mini" style="grid-template-columns:repeat(4,1fr)"><i class=""></i><i class=""></i><i class=""></i><i class="fait"></i></div><div class="mini-noms" style="grid-template-columns:repeat(4,1fr)"><span title="Maturité A">A</span><span title="Maturité B+">B+</span><span title="Maturité B">B</span><span title="Sans note">—</span></div><div class="paquet"><div class="paquet-tete"><span>Les skills</span><span>2</span></div><ul class="titres"><li class="partagee"><div class="haut"><i></i><span class="nom">explainer</span></div><div class="sert-a">La manière d&#x27;expliquer de référence : français simple, phrases courtes, réponse directe, sections séparées.</div><div class="appel">explainer@stackllm-skills · 0.1.0</div></li><li class="partagee"><div class="haut"><i></i><span class="nom">libelle-de-commit</span></div><div class="sert-a">Propose le libellé de commit à la fin de chaque réponse qui a changé du code. Ne commite jamais à ta place.</div><div class="appel">libelle-de-commit@stackllm-skills · 0.1.1</div></li></ul></div></article></div></section></main></body></html>

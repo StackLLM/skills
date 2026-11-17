@@ -46,7 +46,7 @@ Ou comme plugin Claude Code, depuis le marketplace privé du dépôt (voir le RE
 
 Voir le [README du dépôt](../../README.md) pour l'installation complète.
 
-CloneMe s'appuie sur UI Stealer et Animation Stealer, rangées à côté dans `frontend/`. Pour les avoir toutes les trois :
+CloneMe s'appuie sur UI Stealer et Animation Stealer, rangées à côté dans `construire-l-interface/`. Pour les avoir toutes les trois :
 
 ```bash
 ./install.sh cloneme ui-stealer animation-stealer

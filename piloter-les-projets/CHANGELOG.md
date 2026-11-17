@@ -2,6 +2,11 @@
 
 Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) · versions : [SemVer](https://semver.org/lang/fr/).
 
+## 2026-11-17
+
+### Ajouté
+- `plan-par-lots` 0.1.0 : plan de travail en phases et en lots, fichier Markdown à structure fixe, mis à jour à la fin de chaque lot.
+
 ## 2026-11-14 (4)
 
 ### Modifié

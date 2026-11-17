@@ -2,6 +2,16 @@
 
 Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) · versions : [SemVer](https://semver.org/lang/fr/). Le détail de chaque Skill est dans son propre `CHANGELOG.md`.
 
+## [0.7.0] — 2026-11-17
+
+### Ajouté
+- Skill **Plan par lots** 0.1.0 (volet `piloter-les-projets/`) : plan de travail en phases et en lots, fichier Markdown à structure fixe, mis à jour à la fin de chaque lot.
+- `CARTE-DES-SKILLS.html` et `outils/` : la carte du dépôt, générée depuis `outils/skills.json` au rendu de map-projet.
+
+### Modifié
+- Le dépôt est rangé par **volets**, comme le dossier de travail : `maniere-de-travailler/` (ex `commun/`), `apprendre-et-evoluer/` (ex `carriere/`), `construire-l-interface/` (ex `frontend/`), `securiser-et-deployer/` (ex `qualite-production/`). `deploy-advisor/` devient `deployment-devops-advisor/`, du nom de sa skill.
+- README réécrit : comment lire le dépôt, les 6 volets avec la maturité de chaque skill, les trois endroits, installation, publication.
+
 ## [0.6.0] — 2026-11-15
 
 ### Ajouté

@@ -6,88 +6,32 @@
   },
   "plugins": [
     {
-      "name": "cv-ats",
-      "source": "./carriere/cv-ats",
-      "description": "cv-ats : un ancien CV devient 3 PDF d'une page compatibles ATS, contrôlés automatiquement (macOS).",
-      "version": "0.1.0",
-      "category": "carriere"
-    },
-    {
-      "name": "technical-mentor",
-      "source": "./carriere/technical-mentor",
-      "description": "Technical Mentor : une notion technique mal maîtrisée devient une fiche HTML pour la comprendre, la mettre en œuvre et la défendre en entretien.",
-      "version": "0.2.0",
-      "category": "carriere"
-    },
-    {
       "name": "explainer",
-      "source": "./commun/explainer",
+      "source": "./maniere-de-travailler/explainer",
       "description": "Explainer : charte d'écriture partagée, français simple et réponse directe.",
       "version": "0.1.0",
-      "category": "commun"
+      "category": "maniere-de-travailler"
     },
     {
       "name": "libelle-de-commit",
-      "source": "./commun/libelle-de-commit",
+      "source": "./maniere-de-travailler/libelle-de-commit",
       "description": "Libellé de commit : propose après chaque changement un libellé « préfixe: type de livraison — objectif » et la commande prête à coller, sans jamais committer.",
       "version": "0.1.1",
-      "category": "commun"
+      "category": "maniere-de-travailler"
     },
     {
-      "name": "diagram-premium",
-      "source": "./documentation/diagram-premium",
-      "description": "Diagramme premium : fichier draw.io de parcours, navigation ou architecture.",
+      "name": "cv-ats",
+      "source": "./apprendre-et-evoluer/cv-ats",
+      "description": "cv-ats : un ancien CV devient 3 PDF d'une page compatibles ATS, contrôlés automatiquement (macOS).",
       "version": "0.1.0",
-      "category": "documentation"
+      "category": "apprendre-et-evoluer"
     },
     {
-      "name": "fiche-technique",
-      "source": "./documentation/fiche-technique",
-      "description": "Fiche technique : fiche de référence d'une application (Markdown, schéma draw.io, PDF).",
-      "version": "0.1.0",
-      "category": "documentation"
-    },
-    {
-      "name": "guide-utilisateur",
-      "source": "./documentation/guide-utilisateur",
-      "description": "Guide utilisateur : guide d'utilisation PDF avec captures annotées.",
-      "version": "0.1.0",
-      "category": "documentation"
-    },
-    {
-      "name": "pdf-premium",
-      "source": "./documentation/pdf-premium",
-      "description": "PDF premium : rapport, dossier ou note en PDF au rendu cabinet conseil (charte Forêt).",
-      "version": "0.1.0",
-      "category": "documentation"
-    },
-    {
-      "name": "guide-exploitation",
-      "source": "./documentation/guide-exploitation",
-      "description": "Guide d'exploitation : guide PDF de déploiement, d'hébergement et de maintenance d'un projet web, adapté à son type, aux prix datés et sourcés (charte nacre et bronze).",
-      "version": "0.1.0",
-      "category": "documentation"
-    },
-    {
-      "name": "animation-stealer",
-      "source": "./frontend/animation-stealer",
-      "description": "Animation Stealer : reproduit le comportement d'une animation de scroll avec les vraies valeurs de la source.",
-      "version": "0.1.0",
-      "category": "frontend"
-    },
-    {
-      "name": "cloneme",
-      "source": "./frontend/cloneme",
-      "description": "CloneMe : une URL devient un projet frontend complet, piloté par design.md, palette.md et animation.md, vérifié par mesures.",
-      "version": "0.1.0",
-      "category": "frontend"
-    },
-    {
-      "name": "ui-stealer",
-      "source": "./frontend/ui-stealer",
-      "description": "UI Stealer : une image de maquette devient une interface React/Vite dans une charte cohérente.",
-      "version": "0.1.0",
-      "category": "frontend"
+      "name": "technical-mentor",
+      "source": "./apprendre-et-evoluer/technical-mentor",
+      "description": "Technical Mentor : une notion technique mal maîtrisée devient une fiche HTML pour la comprendre, la mettre en œuvre et la défendre en entretien.",
+      "version": "0.2.0",
+      "category": "apprendre-et-evoluer"
     },
     {
       "name": "adviser-dev",
@@ -111,18 +55,81 @@
       "category": "piloter-les-projets"
     },
     {
+      "name": "plan-par-lots",
+      "source": "./piloter-les-projets/plan-par-lots",
+      "description": "Plan par lots : un plan de travail en phases et en lots, dans un fichier Markdown à structure fixe, tenu à jour à la fin de chaque lot.",
+      "version": "0.1.0",
+      "category": "piloter-les-projets"
+    },
+    {
+      "name": "animation-stealer",
+      "source": "./construire-l-interface/animation-stealer",
+      "description": "Animation Stealer : reproduit le comportement d'une animation de scroll avec les vraies valeurs de la source.",
+      "version": "0.1.0",
+      "category": "construire-l-interface"
+    },
+    {
+      "name": "cloneme",
+      "source": "./construire-l-interface/cloneme",
+      "description": "CloneMe : une URL devient un projet frontend complet, piloté par design.md, palette.md et animation.md, vérifié par mesures.",
+      "version": "0.1.0",
+      "category": "construire-l-interface"
+    },
+    {
+      "name": "ui-stealer",
+      "source": "./construire-l-interface/ui-stealer",
+      "description": "UI Stealer : une image de maquette devient une interface React/Vite dans une charte cohérente.",
+      "version": "0.1.0",
+      "category": "construire-l-interface"
+    },
+    {
       "name": "deployment-devops-advisor",
-      "source": "./qualite-production/deploy-advisor",
+      "source": "./securiser-et-deployer/deployment-devops-advisor",
       "description": "Deployment Advisor : détecte ce qui casse au passage en production, compare les architectures, livre des checklists.",
       "version": "0.1.0",
-      "category": "qualite-production"
+      "category": "securiser-et-deployer"
     },
     {
       "name": "security-auditor",
-      "source": "./qualite-production/security-auditor",
+      "source": "./securiser-et-deployer/security-auditor",
       "description": "Security Auditor : audit de sécurité orienté chemins d'attaque, rapport HTML avec valeurs sensibles masquées.",
       "version": "0.2.0",
-      "category": "qualite-production"
+      "category": "securiser-et-deployer"
+    },
+    {
+      "name": "diagram-premium",
+      "source": "./documentation/diagram-premium",
+      "description": "Diagramme premium : fichier draw.io de parcours, navigation ou architecture.",
+      "version": "0.1.0",
+      "category": "documentation"
+    },
+    {
+      "name": "fiche-technique",
+      "source": "./documentation/fiche-technique",
+      "description": "Fiche technique : fiche de référence d'une application (Markdown, schéma draw.io, PDF).",
+      "version": "0.1.0",
+      "category": "documentation"
+    },
+    {
+      "name": "guide-exploitation",
+      "source": "./documentation/guide-exploitation",
+      "description": "Guide d'exploitation : guide PDF de déploiement, d'hébergement et de maintenance d'un projet web, adapté à son type, aux prix datés et sourcés (charte nacre et bronze).",
+      "version": "0.1.0",
+      "category": "documentation"
+    },
+    {
+      "name": "guide-utilisateur",
+      "source": "./documentation/guide-utilisateur",
+      "description": "Guide utilisateur : guide d'utilisation PDF avec captures annotées.",
+      "version": "0.1.0",
+      "category": "documentation"
+    },
+    {
+      "name": "pdf-premium",
+      "source": "./documentation/pdf-premium",
+      "description": "PDF premium : rapport, dossier ou note en PDF au rendu cabinet conseil (charte Forêt).",
+      "version": "0.1.0",
+      "category": "documentation"
     }
   ]
 }

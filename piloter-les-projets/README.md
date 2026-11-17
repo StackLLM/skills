@@ -9,6 +9,7 @@
 | `map-projet-reponse` | La map d'avancement d'un projet ou d'une organisation GitHub, **affichée dans la conversation** : volets, lots, phases, bloquants, verdict. Réglage 1, 2 ou 3 colonnes. Rien à installer. | 0.1.1 |
 | `map-projet` | Les mêmes maps **en fichiers** : 2 PNG et 2 HTML, à garder, imprimer ou envoyer. Le PNG demande Chrome ou Edge. | 0.5.1 |
 | `adviser-dev` | Le conseiller de développement. Projet existant : audit du socle, rapport de refactoring en lots, accompagnement lot par lot. Projet à créer : socle `frontend/` + `backend/` prêt pour la production (tests, CI, Docker, santé, limites, en-têtes, journaux, sauvegarde). Se lance seulement avec `/adviser-dev`. | 0.1.3 |
+| `plan-par-lots` | Le plan de travail en phases et en lots, dans un fichier Markdown à structure fixe : but, décisions, constats, lots (objectif, à faire, dépend de, résultat attendu), actions de l'utilisateur. Mis à jour à la fin de chaque lot : c'est la source de vérité du chantier. | 0.1.0 |
 
 Les deux skills de map lisent le même `carte.json` : une carte faite pour l'une marche telle quelle dans l'autre.
 
@@ -17,7 +18,7 @@ Les deux skills de map lisent le même `carte.json` : une carte faite pour l'une
 Depuis la racine du dépôt `skills` :
 
 ```bash
-./install.sh map-projet-reponse map-projet adviser-dev
+./install.sh map-projet-reponse map-projet adviser-dev plan-par-lots
 ```
 
 Ou comme plugins Claude Code (voir le README racine) :
@@ -26,6 +27,7 @@ Ou comme plugins Claude Code (voir le README racine) :
 /plugin install map-projet-reponse --marketplace StackLLM/skills
 /plugin install map-projet --marketplace StackLLM/skills
 /plugin install adviser-dev --marketplace StackLLM/skills
+/plugin install plan-par-lots --marketplace StackLLM/skills
 ```
 
 ## Prérequis
