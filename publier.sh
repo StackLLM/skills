@@ -47,6 +47,6 @@ claude plugin marketplace update stackllm-skills >/dev/null
 claude plugin list 2>/dev/null \
   | sed -n 's/.*❯ \([^ ]*@stackllm-skills\).*/\1/p' \
   | while read -r plugin; do
-      claude plugin update "$plugin" 2>&1 | tail -n 1
+      claude plugin update "$plugin" 2>&1 | tail -n 1 || true
     done
 echo "Fait. Les nouvelles versions prennent effet à la prochaine session."
