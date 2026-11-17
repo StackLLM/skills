@@ -72,7 +72,7 @@
       "name": "cloneme",
       "source": "./construire-l-interface/cloneme",
       "description": "CloneMe : une URL devient un projet frontend complet, piloté par design.md, palette.md et animation.md, vérifié par mesures.",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "category": "construire-l-interface"
     },
     {

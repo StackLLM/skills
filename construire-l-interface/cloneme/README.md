@@ -1,6 +1,6 @@
 # CloneMe
 
-> Skill StackLLM · v0.1.0 · usage interne, pas encore commercialisée
+> Skill StackLLM · v0.1.1 · usage interne, pas encore commercialisée
 
 **Une URL en entrée. Un projet frontend complet qui se lance en sortie.**
 
